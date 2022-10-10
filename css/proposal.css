@@ -27,7 +27,8 @@ body {
 }
 
 
-/* footer {
-    padding-top: 1rem;
-    font-size: 80%;
-  } */
+footer {
+    margin-top: 20px;
+    color:teal;
+    text-align: center;
+} 
