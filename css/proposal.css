@@ -9,3 +9,21 @@ h2 {
     color:rgb(136, 122, 109);
     font-size: 20px;
 }
+
+.list {
+    font-family:'Courier New', Courier, monospace;
+    background-color:rgb(238, 226, 215);
+    color: #333;
+}
+
+section {
+    margin: .5rem 0;
+    padding: .5rem;
+    border: 1px solid rgb(187, 187, 187);
+}
+
+
+/* footer {
+    padding-top: 1rem;
+    font-size: 80%;
+  } */
