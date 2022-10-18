@@ -1,0 +1,90 @@
+body{
+    background: #F4F1E7;
+    font-family: 'Work Sans';
+    font-weight: 300;
+    /* add sub fonts */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 165%;
+    text-align: center;
+    color: #507A55;
+
+}
+
+.filters{
+    width: 50%;
+}
+
+.project-name{
+    font-weight: 500;
+}
+
+.tagline{
+    font-weight: 500;
+}
+
+.checkbox-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.checkbox{ 
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+}
+
+.checkmark{
+    background-color: #507A55;
+}
+
+.cards-container{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    width: 33%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    flex: 0 0 250px;
+    background-color: red;
+    margin: 0.5rem;
+    border-radius: 10px;
+    /* box-shadow: 01px 3px rgba(0, 0 , 0, 0.16), 01px 3px rgba(0, 0, 0, 0.23);   */
+    background: #FFFFFF;
+    box-shadow: 1px 2px 150px rgba(238, 238, 238, 0.01);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+.card > img{
+    /* flex: 0 0 250px; */
+    /* width: 40%;
+    height: auto; */
+    /* padding: 0.5rem 1rem;
+    width: 40% */
+}
+  
+.card > p{
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+    
+
+    
+}
+
+.card > img{
+border-radius: 10px 10px 0 0;
+}
