@@ -1,82 +1,11 @@
 body{
     background-image: url('../img/home-background.png');
-    background-color: #F4F1E7;
-    font-family: 'Work Sans';
-    font-weight: 300;
-    /* add sub fonts */
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 165%;
-    text-align: center;
-    color: #507A55;
-
 }
-
-
-nav{
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-}
-
-.left-links-container{
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.left-links-container > *{
-    margin: 2rem 5rem 2rem 5rem;
-    font-size: 25px;
-    text-decoration: none;
-    color: #507A55;
-    cursor: pointer;
- }
-
- .profile-container{
-    margin: 2rem 5rem 2rem 50rem;
-    position: absolute;
-    right: 10px;
-    display: flex;
-    flex-wrap: wrap;
- }
-
- .profile-container > * {
-    justify-content: flex-end;
- }
-
-/* nav > * {
-    margin: 2rem 5rem 2rem 5rem;
-    font-size: 25px;
-    text-decoration: none;
-    color: #507A55;
-    cursor: pointer;
-} */
-
 
 .filters{
     width: 50%;
     margin: 2rem auto 2rem auto;
 }
-
-a{
-    color: #507A55;
-}
-
-a:hover{
-    color: #507A55;
-    opacity: 0.6;
-}
-
-.profile{
-    height: 50px;
-    width: 50px;
-    background-color: #507A55;
-    border-radius: 50%;
-}
-
 
 .form-check-input{
     border-color: white;
@@ -145,8 +74,4 @@ a:hover{
     padding: 0 1rem 0 1rem;
     margin-bottom: 0;
     flex-wrap: wrap;
-}
-
-footer{
-    margin: 2rem 0 0 0;
 }
