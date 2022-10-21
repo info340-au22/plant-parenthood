@@ -19,18 +19,43 @@ body {
     padding: 40px;
 }
 
+.selector {
+    margin-bottom: 1rem;
+}
+
+/* trying to make the label under selector a bit bigger with more margin below */
+.selector, label {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
 
 /* change button style */
 .find-plant-btn {
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 10px;
+  }
+
+.btn-primary {
     background-color: #507A55; /* Green */
     border: none;
     color: white;
-    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-  }
+    height: 40px;
+    padding-top: 0.375rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.375rem;
+    padding-left: 0.75rem;
+}
+
+.similar-info {
+    font-weight: 400;
+}
 
 /*
 .cards-container{
@@ -42,10 +67,29 @@ body {
     justify-content: center;
 } */
 
+/* 
+.card {
+    width: 33%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    flex: 0 0 250px;
+    background-color: red;
+    margin: 0.5rem;
+    border-radius: 10px;
+    border: none;
+    background: #FFFFFF;
+    box-shadow: 5px 5px 2px rgba(81, 123, 86, 0.1);
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  } */
+
 @media (min-width: 992px) {
-    main {
+    .section {
         display: flex;
-    }
+    } 
 
     body {
         background-color: darksalmon;
