@@ -87,11 +87,17 @@ body {
   } */
 
 @media (min-width: 992px) {
-    .section {
+   /* .section {
         display: flex;
-    } 
+    }  */
 
+  /* .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+    } */
+
+    /* tryna test with this but doesnt change color lol oops 
     body {
         background-color: darksalmon;
-    }
+    } */
 }
