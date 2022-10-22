@@ -19,14 +19,14 @@ body {
     padding: 40px;
 }
 
-.selector {
+.form {
     margin-bottom: 1rem;
 }
 
-/* trying to make the label under selector a bit bigger with more margin below */
-.selector, label {
+/* trying to make the label under form a bit bigger with more margin below */
+.form, label {
     display: inline-block;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     font-weight: 500;
     font-size: 1.1rem;
 }
@@ -53,11 +53,17 @@ body {
     padding-left: 0.75rem;
 }
 
+.plant-container {
+    margin: auto;
+    width: 16rem;
+}
+
+
 .similar-info {
     font-weight: 400;
 }
 
-/*
+
 .cards-container{
     width: 50%;
     margin-left: auto;
@@ -65,39 +71,52 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-} */
+} 
 
-/* 
 .card {
-    width: 33%;
     height: auto;
     aspect-ratio: 1 / 1;
     flex: 0 0 250px;
-    background-color: red;
     margin: 0.5rem;
     border-radius: 10px;
     border: none;
     background: #FFFFFF;
     box-shadow: 5px 5px 2px rgba(81, 123, 86, 0.1);
     border-radius: 10px;
+    padding: 2rem;
 
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-  } */
+  } 
+
+  .card > img{
+    width: 40%;
+    height: auto;
+    align-self: center;
+    /* align-self is default to stretch */
+}
+
+.card > p{
+    text-align: center;
+    padding: 0 1rem 0 1rem;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+}
 
 @media (min-width: 992px) {
-   /* .section {
-        display: flex;
-    }  */
 
-  /* .cards-container {
+ /* .cards-container {
         display: flex;
         flex-wrap: wrap;
     } */
 
-    /* tryna test with this but doesnt change color lol oops 
-    body {
-        background-color: darksalmon;
-    } */
+    section {
+        display: flex;
+        justify-content: center;
+    }
+
+    .similarity-info {
+        padding: 10rem 5rem 0 5rem;
+    } 
 }
