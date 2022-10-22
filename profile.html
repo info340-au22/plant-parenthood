@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="Group 10: Anna Shi, Cindy Qian, Eric Kuo, Ling Pham">
+    <meta name="author" content="Group 10: Anna Shi, Cindy Qian, Eric Kuo, Linh Pham">
     <meta name="description" content="tbh project proposal">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -24,14 +24,75 @@
                 </div>
             </nav>
         </header>
-        <section>
+        <section class="profile-section">
             <!-- THIS IS WHERE YOUR CONTENT GOES -->
+
+            <section class="gallery">
+                <div class="gallery-heading">
+                    <h1>Image Gallery</h1>
+                    <button>Upload Images</button>
+                </div>
+                <div class="image-container">
+                    <div class="image">
+                        <img src="img/sunflowers.jpg" alt="sunflowers">
+                    </div>
+                    <div class="image">
+                        <img src="img/rose.jpg" alt="sunflowers">
+                    </div>
+
+                </div>  
+            </section>
+
+            <section class="profile-card">
+                <div class="profile-heading">
+                    <img src="img/profile-pic.png" alt="profile picture">
+                    <h1>Jane Doe</h1>  
+                </div>
+                
+                <div class="profile-details">
+                    <div class="form">
+                        <label for="name">Name</label>
+                        <div class="form-input">
+                            <input type="text">
+                        </div>
+                    
+                    </div>
+                    <div class="form">
+                        <label for="location">Location</label>
+                        <div class="form-input">
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="form">
+                        <label for="season">Season</label>
+                        <div class="form-input">
+                            <select name="current_season">
+                                <option value="Spring">Spring</option>
+                                <option value="Summer" selected>Summer</option>
+                                <option value="Autumn">Autumn</option>
+                                <option value="Winter">Winter</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <label for="bio">Your Bio</label>
+                        <div class="form-input">
+                            <textarea rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="submit-button">
+                        <button>Save</button>
+                    </div>
+                </div>
+                
+            </section>
+
         </section>
         <footer>
             <address>
             Contact me at <a href="mailto:me@here.com">me@here.com</a>, or at <a href="tel:123-456-7890">(123) 456-7890</a>.
             </address>
-            <p>&copy; 2022, Group 10: Anna Shi, Cindy Qian, Eric Kuo, Ling Pham.</p>
+            <p>&copy; 2022, Group 10: Anna Shi, Cindy Qian, Eric Kuo, Linh Pham.</p>
         </footer>
     </body>
 </html>
