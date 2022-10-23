@@ -1,7 +1,9 @@
 .profile-section {
     display: flex;
+    /* justify-content: space-between;
+    flex-direction: row; */
+    flex-direction: column-reverse;
     justify-content: space-between;
-    flex-direction: row;
     margin-top: 3rem;
     margin-left: 10rem;
     margin-right: 10rem;
@@ -14,9 +16,10 @@
 
 
 .profile-card {
-    width: 300px;
+    width: inherit;
     margin-left: 2rem;
     margin-right: 2rem;
+    justify-content: center;
 }
 
 .profile-heading {
@@ -26,7 +29,7 @@
 .profile-heading img {
     display: block;
     flex-direction: column;
-    width: 75px;
+    width: 100px;
     border-radius: 50%;
     margin: 0 auto;
     margin-bottom: 1rem;
@@ -37,7 +40,7 @@
 }
 
 .profile-card h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
 }
 
@@ -52,25 +55,37 @@
     text-align: left;
 }
 
+.form label {
+    font-size: 1.25rem;
+}
+
 .form-input input {
     width: 100%;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     border-radius: 10px;
     border: none;
 }
 
 .form-input select {
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .form-input textarea {
     width: 100%;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     border-radius: 10px;
     border: none;
 }
 
 .image-container {
-    width: 450px;
+    width: inherit;
     margin-left: 0;
     margin-right: auto;
     display: flex;
@@ -80,12 +95,13 @@
 
 .submit-button button {
     width: 95%;
-    padding: 0.25rem;
+    padding: 0.5rem;
     background-color: #507A55;
     margin: 1rem 0;
     border-radius: 10px;
     border: none;
     color: white;
+    justify-content: center;
 }
 
 .image {
@@ -100,6 +116,10 @@
     flex: 0 0 250px;
     border-radius: 10px;
     border: 2px solid #507A55;
+}
+
+.gallery {
+    margin: 1rem 0;
 }
 
 .gallery-heading {
@@ -118,3 +138,36 @@
     padding-left: 1rem;
 }
 
+@media(min-width: 992px) {
+    .profile-section {
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .profile-card {
+        min-width: 400px;
+    }
+
+    .gallery-heading {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    .gallery-heading button {
+        margin-left: 0rem;
+        width: 100px;
+    }
+}
+
+@media(min-width: 1175px) {
+    .gallery-heading {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1rem;
+    }
+
+    .gallery-heading button {
+        margin-left: 1rem;
+    }
+}
