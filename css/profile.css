@@ -69,8 +69,10 @@
 }
 
 .form-input select {
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 .form-input textarea {
