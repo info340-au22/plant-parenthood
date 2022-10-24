@@ -58,6 +58,7 @@ a:hover{
     height: 50px;
     width: 50px;
     background-color: #507A55;
+    background-image: url("../img/profile-pic.png");
     border-radius: 50%;
 }
 
