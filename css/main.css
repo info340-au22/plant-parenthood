@@ -266,7 +266,7 @@ footer{
 }
 
 @media (min-width: 992px) {
-    section {
+    .comparison-section {
         display: flex;
         justify-content: center;
     }
