@@ -334,12 +334,12 @@ footer{
     justify-content: space-evenly;
 }
 
-.form {
+form {
     margin: 0.5rem;
     text-align: left;
 }
 
-.form label {
+form label {
     font-size: 1.25rem;
 }
 
@@ -421,6 +421,13 @@ footer{
     padding-right: 1rem;
     padding-left: 1rem;
 }
+
+@media(min-width: 598px) {
+    .profile-card {
+        min-width: 200px;
+    }
+}
+
 
 @media(min-width: 992px) {
     .profile-section {
