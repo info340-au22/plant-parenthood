@@ -56,11 +56,9 @@ a:hover{
     opacity: 0.6;
 }
 
-.profile{
+.profile img {
     height: 50px;
     width: 50px;
-    background-color: #507A55;
-    background-image: url("../img/profile-pic.png");
     border-radius: 50%;
 }
 
@@ -422,51 +420,6 @@ form label {
     padding-left: 1rem;
 }
 
-@media(min-width: 598px) {
-    .profile-card {
-        min-width: 200px;
-    }
-}
-
-
-@media(min-width: 992px) {
-    .profile-section {
-        justify-content: space-between;
-        flex-direction: row;
-    }
-
-    .profile-card {
-        min-width: 400px;
-    }
-
-    .gallery-heading {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1rem;
-    }
-
-    .gallery-heading button {
-        margin-left: 0rem;
-        width: 100px;
-    }
-}
-
-@media(min-width: 1175px) {
-    .gallery-heading {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 1rem;
-    }
-
-    .gallery-heading button {
-        margin-left: 1rem;
-    }
-}
-
-
-
-
-
 /* UPLOAD FEATURE CSS */
 
 .container {
@@ -537,6 +490,52 @@ form label {
     font-size: 15px;
     font-weight: 500;
 }
+
+
+@media(min-width: 598px) {
+    .profile-card {
+        min-width: 200px;
+    }
+}
+
+
+@media(min-width: 992px) {
+    .profile-section {
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+    .profile-card {
+        min-width: 400px;
+    }
+
+    .gallery-heading {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    .gallery-heading button {
+        margin-left: 0rem;
+        width: 100px;
+    }
+}
+
+@media(min-width: 1175px) {
+    .gallery-heading {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1rem;
+    }
+
+    .gallery-heading button {
+        margin-left: 1rem;
+    }
+}
+
+
+
+
 
 
 
