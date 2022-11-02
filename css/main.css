@@ -1,6 +1,6 @@
 /* GLOBAL CSS */
 
-body{
+body {
     background-color: #F4F1E7;
     font-family: 'Work Sans';
     font-weight: 300;
@@ -11,10 +11,9 @@ body{
     line-height: 165%;
     text-align: center;
     color: #507A55;
-
 }
 
-nav{
+nav {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
@@ -22,18 +21,18 @@ nav{
     color: #507A55;
 }
 
-.left-links-container{
+.left-links-container {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.left-links-container > *{
-    margin: 2rem 5rem 2rem 5rem;
- }
+.left-links-container>* {
+    margin: 2rem 1.5rem 2rem 1.5rem;
+}
 
-.profile-container{
+.profile-container {
     margin: 2rem 5rem 2rem 50rem;
     position: absolute;
     right: 10px;
@@ -41,17 +40,17 @@ nav{
     flex-wrap: wrap;
 }
 
-.profile-container > * {
+.profile-container>* {
     justify-content: flex-end;
 }
 
-a{
+a {
     color: #507A55;
     cursor: pointer;
     text-decoration: none;
 }
 
-a:hover{
+a:hover {
     color: #507A55;
     opacity: 0.6;
 }
@@ -62,46 +61,42 @@ a:hover{
     border-radius: 50%;
 }
 
-footer{
+footer {
     margin: 2rem 0 0 0;
 }
 
 
-
-
-
-
 /* MAIN AKA HOME PAGE CSS */
 
-.home-body{
+.home-body {
     background-image: url('../img/home-background.png');
 }
 
-.filters{
+.filters {
     width: 50%;
     margin: 2rem auto 2rem auto;
 }
 
-.form-check-input{
+.form-check-input {
     border-color: white;
     background-color: white;
 }
 
-.form-check-input:checked{
+.form-check-input:checked {
     border-color: #507A55;
     background-color: #507a55;
 }
 
-.project-name{
+.project-name {
     font-weight: 600;
     font-size: 40px;
 }
 
-.tagline{
+.tagline {
     font-weight: 500;
 }
 
-.checkbox-container{
+.checkbox-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -110,7 +105,7 @@ footer{
     margin: 2rem auto 2rem auto;
 }
 
-.cards-container{
+.cards-container {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -119,7 +114,7 @@ footer{
     justify-content: center;
 }
 
-.card{
+.card {
     width: 33%;
     height: auto;
     aspect-ratio: 1 / 1;
@@ -131,20 +126,19 @@ footer{
     background: #FFFFFF;
     box-shadow: 5px 5px 2px rgba(81, 123, 86, 0.1);
     border-radius: 10px;
-
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-  }
+}
 
-.card > img{
+.card>img {
     width: 40%;
     height: auto;
     align-self: center;
     /* align-self is default to stretch */
 }
-  
-.card > p{
+
+.card>p {
     text-align: center;
     padding: 0 1rem 0 1rem;
     margin-bottom: 0;
@@ -152,15 +146,12 @@ footer{
 }
 
 
-
-
-
-
 /* COMPARISON TAB !!!!!!!!! */
 
 * {
     box-sizing: border-box;
 }
+
 
 /* .comparison-body {
     background-color: #F4F1E7;
@@ -182,23 +173,29 @@ footer{
     margin-bottom: 1rem;
 }
 
+
 /* trying to make the label under form a bit bigger with more margin below */
-.form, label {
+
+.form,
+label {
     display: inline-block;
     margin-bottom: 0.8rem;
     font-weight: 500;
     font-size: 1.1rem;
 }
 
+
 /* change button style */
+
 .find-plant-btn {
     margin-bottom: 2rem;
     border: none;
     border-radius: 10px;
-  }
+}
 
 .btn-primary {
-    background-color: #507A55; /* Green */
+    background-color: #507A55;
+    /* Green */
     border: none;
     color: white;
     text-align: center;
@@ -217,20 +214,18 @@ footer{
     width: 16rem;
 }
 
-
 .similar-info {
     font-weight: 400;
 }
 
-
-.cards-container{
+.cards-container {
     width: 50%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-} 
+}
 
 .card {
     height: auto;
@@ -243,39 +238,24 @@ footer{
     box-shadow: 5px 5px 2px rgba(81, 123, 86, 0.1);
     border-radius: 10px;
     padding: 2rem;
-
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-  } 
+}
 
-  .card > img{
+.card>img {
     width: 40%;
     height: auto;
     align-self: center;
     /* align-self is default to stretch */
 }
 
-.card > p{
+.card>p {
     text-align: center;
     padding: 0 1rem 0 1rem;
     margin-bottom: 0;
     flex-wrap: wrap;
 }
-
-@media (min-width: 992px) {
-    .comparison-section {
-        display: flex;
-        justify-content: center;
-    }
-
-    .similarity-info {
-        padding: 10rem 5rem 0 5rem;
-    } 
-}
-
-
-
 
 
 /* PROFILE TAB!!!!!!! */
@@ -295,7 +275,6 @@ footer{
     font-size: 2rem;
     text-align: left;
 }
-
 
 .profile-card {
     width: inherit;
@@ -420,6 +399,7 @@ form label {
     padding-left: 1rem;
 }
 
+
 /* UPLOAD FEATURE CSS */
 
 .container {
@@ -492,32 +472,40 @@ form label {
 }
 
 
+/* Media Queries */
+
 @media(min-width: 598px) {
     .profile-card {
         min-width: 200px;
     }
 }
 
-
 @media(min-width: 992px) {
     .profile-section {
         justify-content: space-between;
         flex-direction: row;
     }
-
     .profile-card {
         min-width: 400px;
     }
-
     .gallery-heading {
         display: flex;
         flex-direction: column;
         margin-bottom: 1rem;
     }
-
     .gallery-heading button {
         margin-left: 0rem;
         width: 100px;
+    }
+    .comparison-section {
+        display: flex;
+        justify-content: center;
+    }
+    .similarity-info {
+        padding: 10rem 5rem 0 5rem;
+    }
+    .left-links-container>* {
+        margin: 2rem 5rem 2rem 5rem;
     }
 }
 
@@ -527,16 +515,7 @@ form label {
         flex-direction: row;
         margin-bottom: 1rem;
     }
-
     .gallery-heading button {
         margin-left: 1rem;
     }
 }
-
-
-
-
-
-
-
-
