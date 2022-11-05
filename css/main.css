@@ -21,6 +21,10 @@ nav {
     color: #507A55;
 }
 
+nav, img {
+    max-height: 40px;
+}
+
 .left-links-container {
     display: flex;
     justify-content: flex-start;
@@ -74,7 +78,7 @@ footer {
 
 .filters {
     width: 50%;
-    margin: 2rem auto 2rem auto;
+    margin: 0.5rem auto 0.5rem auto;
 }
 
 .form-check-input {
@@ -90,6 +94,7 @@ footer {
 .project-name {
     font-weight: 600;
     font-size: 40px;
+    margin: 5rem auto 2rem auto;
 }
 
 .tagline {
