@@ -1,7 +1,8 @@
-// HOME PAGE, CINDY
+// COMPARISON PAGE, ANNA
+
 import React from 'react'; //import React library
 
-export function App(props) {
+export function ComparisonPage(props) {
     return (
         // placeholder div, delete
         <div></div>

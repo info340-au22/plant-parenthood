@@ -1,7 +1,8 @@
-// HOME PAGE, CINDY
+// TOGGLE BUTTON, CINDY
+
 import React from 'react'; //import React library
 
-export function App(props) {
+export function ToggleButton(props) {
     return (
         // placeholder div, delete
         <div></div>

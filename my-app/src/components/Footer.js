@@ -1,7 +1,8 @@
-// HOME PAGE, CINDY
+// FOOTER, ERIC
+
 import React from 'react'; //import React library
 
-export function App(props) {
+export function Footer(props) {
     return (
         // placeholder div, delete
         <div></div>

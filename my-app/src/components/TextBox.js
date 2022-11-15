@@ -1,7 +1,7 @@
-// HOME PAGE, CINDY
+// TEXT BOX, ANNA
 import React from 'react'; //import React library
 
-export function App(props) {
+export function TextBox(props) {
     return (
         // placeholder div, delete
         <div></div>
