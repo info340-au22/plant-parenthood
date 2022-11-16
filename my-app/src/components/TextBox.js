@@ -28,11 +28,18 @@ export function TextBox(props) {
     // preventSubmit & and changeSelectedPlant 
     return (
         <div className="d-flex flex-column plant-container">
-            <input
+            <form>
+                <label>
+                    Search Plant
+                    <input type="text" name="plant" />
+                </label>
+                <input type="submit" value="Submit" />
+            </form>
+            {/* <input
                 type="text"
                 value={props.value}
                 onChange={event => console.log("value changed!")}
-            />
+            /> */}
         </div>
     );
 };
