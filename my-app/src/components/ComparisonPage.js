@@ -17,5 +17,3 @@ export function ComparisonPage(props) {
         </div>
     );
 }
-
-export default ComparisonPage;
