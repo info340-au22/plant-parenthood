@@ -10,7 +10,7 @@ export function App(props) {
     root.render(
     <React.StrictMode>
         {/* current page displayed for testing */}
-        <HomePage />
+        <ComparisonPage />
     </React.StrictMode>
     );
 }

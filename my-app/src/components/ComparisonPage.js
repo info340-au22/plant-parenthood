@@ -8,12 +8,15 @@ import {TextBox} from './TextBox.js';
 export function ComparisonPage(props) {
     return (
         <div className="compare-plants d-lg-flex"> 
-
-            <TextBox number={1} plantData={props.plantData} />
-
-           {/* } <div className="compare illustration flex-item" aria-label="compare illustration"></div> */}
-
-            <TextBox number={2} plantData={props.plantData} />
+            <TextBox />
         </div>
+
+        //  comment
+        //  <TextBox number={1} plantData={props.plantData} />
+
+        // * } <div className="compare illustration flex-item" aria-label="compare illustration"></div> */}
+
+        // *  <TextBox number={2} plantData={props.plantData} />
+       // </div>
     );
 }
