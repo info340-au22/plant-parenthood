@@ -12,18 +12,18 @@ export function TextBox(props) {
     // const plantData = props.plantData;
 
     // plant compare number
-   // const plantNumber = props.number;
+    // const plantNumber = props.number;
 
     // state variables
-   // const [text, setText] = useState('');
- //  const [selectedPlant, setSelectedPlant] = useState(null);
- //   const [comparedPlantData, setComparedPlantData] = useState({});
+    // const [text, setText] = useState('');
+    // const [selectedPlant, setSelectedPlant] = useState(null);
+    // const [comparedPlantData, setComparedPlantData] = useState({});
     // const [alertMessage, setAlertMessage] = useState(null);
 
     // event handler for plant name input
- //   const changePlant = (event) => {
- //       event.preventDefault();
- //      setSelectedPlant(event.target.value);
+    // const changePlant = (event) => {
+    // event.preventDefault();
+    // setSelectedPlant(event.target.value);
 
     // preventSubmit & and changeSelectedPlant 
     return (
