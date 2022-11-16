@@ -74,7 +74,7 @@ footer {
 /* MAIN AKA HOME PAGE CSS */
 
 .home-body {
-    background-image: url('../img/home-background.png');
+    background-image: url('../public/img/home-background.png');
 }
 
 .filters {
