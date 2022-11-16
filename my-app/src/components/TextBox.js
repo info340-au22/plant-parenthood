@@ -2,6 +2,7 @@
 import React from 'react'; //import React library
 // need to import plant data
 // need to make a comparedPlantCard js file to update cards once user searches and submits
+import {useState} from 'react';
 
 
 export function TextBox(props) {

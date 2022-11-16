@@ -2,7 +2,7 @@
 // need to make a comparedPlantCard js file to update cards once user searches and submits
 
 import React from 'react'; //import React library
-import TextBox from './TextBox.js'; 
+import {TextBox} from './TextBox.js'; 
 
 
 export function ComparisonPage(props) {
@@ -17,3 +17,5 @@ export function ComparisonPage(props) {
         </div>
     );
 }
+
+export default ComparisonPage;
