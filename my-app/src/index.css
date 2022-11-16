@@ -1,1 +1,527 @@
 
+/* GLOBAL CSS */
+
+body {
+    background-color: #F4F1E7;
+    font-family: 'Work Sans';
+    font-weight: 300;
+    /* add sub fonts */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 165%;
+    text-align: center;
+    color: #507A55;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    font-size: 25px;
+    color: #507A55;
+}
+
+nav, img {
+    max-height: 40px;
+}
+
+.left-links-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.left-links-container>* {
+    margin: 2rem 1.5rem 2rem 1.5rem;
+}
+
+.profile-container {
+    margin: 2rem 5rem 2rem 50rem;
+    position: absolute;
+    right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.profile-container>* {
+    justify-content: flex-end;
+}
+
+a {
+    color: #507A55;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #507A55;
+    opacity: 0.6;
+}
+
+.profile img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+footer {
+    margin: 2rem 0 0 0;
+}
+
+
+/* MAIN AKA HOME PAGE CSS */
+
+.home-body {
+    background-image: url('../img/home-background.png');
+}
+
+.filters {
+    width: 50%;
+    margin: 0.5rem auto 0.5rem auto;
+}
+
+.form-check-input {
+    border-color: white;
+    background-color: white;
+}
+
+.form-check-input:checked {
+    border-color: #507A55;
+    background-color: #507a55;
+}
+
+.project-name {
+    font-weight: 600;
+    font-size: 40px;
+    margin: 5rem auto 2rem auto;
+}
+
+.tagline {
+    font-weight: 500;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 2rem auto 2rem auto;
+}
+
+.cards-container {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 33%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    flex: 0 0 250px;
+    background-color: red;
+    margin: 0.5rem;
+    border-radius: 10px;
+    border: none;
+    background: #FFFFFF;
+    box-shadow: 5px 5px 2px rgba(81, 123, 86, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card>img {
+    width: 40%;
+    height: auto;
+    align-self: center;
+    /* align-self is default to stretch */
+}
+
+.card>p {
+    text-align: center;
+    padding: 0 1rem 0 1rem;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+}
+
+
+/* COMPARISON TAB !!!!!!!!! */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* .comparison-body {
+    background-color: #F4F1E7;
+    font-family: 'Work Sans';
+    font-weight: 300;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 165%;
+    text-align: center;
+    color: #507A55;
+} */
+
+.compare-interface {
+    padding: 40px;
+}
+
+.form {
+    margin-bottom: 1rem;
+}
+
+
+/* trying to make the label under form a bit bigger with more margin below */
+
+.form,
+label {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+
+/* change button style */
+
+.find-plant-btn {
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-primary {
+    background-color: #507A55;
+    /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    height: 40px;
+    padding-top: 0.375rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.375rem;
+    padding-left: 0.75rem;
+}
+
+.plant-container {
+    margin: auto;
+    width: 16rem;
+}
+
+.similar-info {
+    font-weight: 400;
+}
+
+.cards-container {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    height: auto;
+    aspect-ratio: 1 / 1;
+    flex: 0 0 250px;
+    margin: 0.5rem;
+    border-radius: 10px;
+    border: none;
+    background: #FFFFFF;
+    box-shadow: 5px 5px 2px rgba(81, 123, 86, 0.1);
+    border-radius: 10px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card>img {
+    width: 40%;
+    height: auto;
+    align-self: center;
+    /* align-self is default to stretch */
+}
+
+.card>p {
+    text-align: center;
+    padding: 0 1rem 0 1rem;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+}
+
+
+/* PROFILE TAB!!!!!!! */
+
+.profile-section {
+    display: flex;
+    /* justify-content: space-between;
+    flex-direction: row; */
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    margin-top: 3rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+}
+
+.profile-section h1 {
+    font-size: 2rem;
+    text-align: left;
+}
+
+.profile-card {
+    width: inherit;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    justify-content: center;
+}
+
+.profile-heading {
+    padding-bottom: 1rem;
+}
+
+.profile-heading img {
+    display: block;
+    flex-direction: column;
+    width: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+.profile-heading img:hover {
+    transform: scale(1.5);
+}
+
+.profile-card h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+form {
+    margin: 0.5rem;
+    text-align: left;
+}
+
+form label {
+    font-size: 1.25rem;
+}
+
+.form-input input {
+    width: 100%;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 10px;
+    border: none;
+}
+
+.form-input select {
+    border-radius: 10px;
+    border: none;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.form-input textarea {
+    width: 100%;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 10px;
+    border: none;
+}
+
+.image-container {
+    width: inherit;
+    margin-left: 0;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.submit-button button {
+    width: 95%;
+    padding: 0.5rem;
+    background-color: #507A55;
+    margin: 1rem 0;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    justify-content: center;
+}
+
+.image {
+    margin: 5px;
+}
+
+.image img {
+    width: 200px;
+    height: auto;
+    max-width: 200px;
+    max-height: 200px;
+    flex: 0 0 250px;
+    border-radius: 10px;
+    border: 2px solid #507A55;
+}
+
+.gallery {
+    margin: 1rem 0;
+}
+
+.gallery-heading {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+}
+
+.gallery-heading button {
+    margin-left: 2rem;
+    background: none;
+    border: 2px solid #507A55;
+    border-radius: 30px;
+    color: #507A55;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+
+/* UPLOAD FEATURE CSS */
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    padding: qopx 60px;
+    background: #fff;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 30px;
+}
+
+.popup {
+    width: 400px;
+    height: 500px;
+    background: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    visibility: hidden;
+    transition: transform 0.4s, top0.4s;
+}
+
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup img {
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+}
+
+.popup h2 {
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+
+.popup button {
+    width: 100%;
+    margin-top: 260px;
+    border-radius: 6px;
+    padding: 10px 0;
+    background: #6fd649;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+}
+
+.popup form {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+/* Media Queries */
+
+@media(min-width: 598px) {
+    .profile-card {
+        min-width: 200px;
+    }
+}
+
+@media(min-width: 992px) {
+    .profile-section {
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    .profile-card {
+        min-width: 400px;
+    }
+    .gallery-heading {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+    .gallery-heading button {
+        margin-left: 0rem;
+        width: 100px;
+    }
+    .comparison-section {
+        display: flex;
+        justify-content: center;
+    }
+    .similarity-info {
+        padding: 10rem 5rem 0 5rem;
+    }
+    .left-links-container>* {
+        margin: 2rem 5rem 2rem 5rem;
+    }
+}
+
+@media(min-width: 1175px) {
+    .gallery-heading {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1rem;
+    }
+    .gallery-heading button {
+        margin-left: 1rem;
+    }
+}
