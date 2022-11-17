@@ -33,7 +33,6 @@ export function TextBox(props) {
                     Search Plant
                     <input type="text" name="plant" />
                 </label>
-                <input type="submit" value="Submit" />
             </form>
             {/* <input
                 type="text"

@@ -11,7 +11,7 @@ export function App(props) {
     root.render(
     <React.StrictMode>
         {/* current page displayed for testing */}
-        <SubmitButton />
+        <ComparisonPage />
     </React.StrictMode>
     );
 }
