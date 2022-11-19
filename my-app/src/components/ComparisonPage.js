@@ -9,7 +9,9 @@ import {SubmitButton} from './SubmitButton';
 export function ComparisonPage(props) {
     return (
             <div className="compare-interface d-lg-flex"> 
-                    <><ComparisonContent /><SimilarityInfo /><ComparisonContent /></>
+                    <ComparisonContent />
+                    <SimilarityInfo />
+                    <ComparisonContent />
             </div>
         //  comment
         //  <TextBox number={1} plantData={props.plantData} />
