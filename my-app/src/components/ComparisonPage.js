@@ -8,22 +8,23 @@ import {SubmitButton} from './SubmitButton';
 
 export function ComparisonPage(props) {
     return (
-        <><ComparisonContent /><SimilarityInfo /><ComparisonContent /></>
-
+            <div className="compare-interface d-lg-flex"> 
+                    <><ComparisonContent /><SimilarityInfo /><ComparisonContent /></>
+            </div>
         //  comment
         //  <TextBox number={1} plantData={props.plantData} />
 
-        // * } <div className="compare illustration flex-item" aria-label="compare illustration"></div> */}
+        //  <div className="compare illustration flex-item" aria-label="compare illustration"></div> */}
 
-        // *  <TextBox number={2} plantData={props.plantData} />
-       // </div>
+        //  <TextBox number={2} plantData={props.plantData} />
+        // </div> 
     );
 }
 
 function ComparisonContent(props) {
     return (
         <div className="compare-interface d-lg-flex"> 
-            <div class="d-flex flex-column plant-container">
+            <div className="d-flex flex-column plant-container">
                 <TextBox />
                 <SubmitButton />
                 {/* // add plant card */}
