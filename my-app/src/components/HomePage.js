@@ -4,11 +4,13 @@ import { CardGrid } from './CardGrid.js';
 import { ToggleButton } from './ToggleButton.js';
 import { Footer } from './Footer.js';
 import { NavBar } from './NavBar.js';
+// import Form from 'react-bootstrap/Form';
 
 export function HomePage(props) {
     console.log("here")
     return (
         <div>
+            {/* <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"></link> */}
             <header>
                 {/* <NavBar/> */}
                 <h1 class="project-name">plant parenthood</h1>
