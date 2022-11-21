@@ -11,8 +11,8 @@ export function App(props) {
     root.render(
     <React.StrictMode>
         {/* current page displayed for testing */}
-        {/* <HomePage plantsData={props.plantsData}/> */}
-        <ComparisonPage />
+        <HomePage plantsData={props.plantsData}/>
+        {/* <ComparisonPage /> */}
     </React.StrictMode>
     );
 }

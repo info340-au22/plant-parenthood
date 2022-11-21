@@ -6,10 +6,11 @@ import { Footer } from './Footer.js';
 import { NavBar } from './NavBar.js';
 
 export function HomePage(props) {
+    console.log("here")
     return (
         <div>
             <header>
-                <NavBar/>
+                {/* <NavBar/> */}
                 <h1 class="project-name">plant parenthood</h1>
             </header>
                     <div className="filters">
@@ -33,7 +34,7 @@ export function HomePage(props) {
                 </div>
             </div>
             <CardGrid plantsData={props.plantsData}/>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     )
 }
