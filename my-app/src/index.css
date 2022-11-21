@@ -191,6 +191,16 @@ label {
 }
 
 
+.input {
+    height: 35px;
+    padding-top: 0.375rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.375rem;
+    padding-left: 0.75rem;
+    font-size: 16px;
+    margin-top: 1rem;
+}
+
 /* change button style */
 
 .find-plant-btn {
@@ -200,7 +210,8 @@ label {
 }
 
 .btn-primary {
-    background-color: #507A55;
+    font-family: 'Work Sans';
+    background-color:#507A55;
     /* Green */
     border: none;
     color: white;
@@ -213,6 +224,7 @@ label {
     padding-right: 0.75rem;
     padding-bottom: 0.375rem;
     padding-left: 0.75rem;
+    width: 195px;
 }
 
 .plant-container {
