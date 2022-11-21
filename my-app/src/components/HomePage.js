@@ -4,12 +4,15 @@ import { CardGrid } from './CardGrid.js';
 import { ToggleButton } from './ToggleButton.js';
 import { Footer } from './Footer.js';
 import { NavBar } from './NavBar.js';
+// import Form from 'react-bootstrap/Form';
 
 export function HomePage(props) {
+    console.log("here")
     return (
         <div>
+            {/* <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"></link> */}
             <header>
-                <NavBar/>
+                {/* <NavBar/> */}
                 <h1 class="project-name">plant parenthood</h1>
             </header>
                     <div className="filters">
@@ -33,7 +36,7 @@ export function HomePage(props) {
                 </div>
             </div>
             <CardGrid plantsData={props.plantsData}/>
-            <Footer/>
+            {/* <Footer/> */}
         </div>
     )
 }

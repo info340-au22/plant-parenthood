@@ -8,6 +8,7 @@ export function Card(props) {
             <img src={props.img} alt={props.name}/>
             {/* changed location to temp for now */}
             <p>{props.name + ", " + props.scientificName + ", " + props.temperature}</p>
+
         </div>
     )
 }
