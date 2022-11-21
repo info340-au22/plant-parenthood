@@ -3,7 +3,6 @@ import React from 'react'; //import React library
 
 export function UploadImageButton(props) {
     return (
-        // placeholder div, delete
-        <div></div>
+        <button className="uploadButton">Upload</button>
     )
 }

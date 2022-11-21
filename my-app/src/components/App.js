@@ -12,7 +12,7 @@ export function App(props) {
     <React.StrictMode>
         {/* current page displayed for testing */}
         {/* <HomePage plantsData={props.plantsData}/> */}
-        <ComparisonPage />
+        <ProfilePage />
     </React.StrictMode>
     );
 }
