@@ -25,14 +25,23 @@ export function TextBox(props) {
     // event.preventDefault();
     // setSelectedPlant(event.target.value);
 
+    // test: it works
+    function clickMe() {
+        alert("You clicked me!");
+      }
+
     // preventSubmit & and changeSelectedPlant 
     return (
         <div className="d-flex flex-column plant-container">
             <form>
-                <label>
-                    Search Plant
-                    <input type="text" name="plant" />
+                <label className>
+                    Search a Plant 
+                    <input className="input" type="text" name="plant" placeholder="search plant" />
                 </label>
+                {/* WE SHOULD PROB DELETE SUBMIT BUTTON JS? IT CAN JUST BE IN SAME FILE AS TEXTBOX */}
+                <button onClick={clickMe} className="find-plant-btn btn-primary" type="submit">
+                Find Plant
+                </button> 
             </form>
             {/* <input
                 type="text"

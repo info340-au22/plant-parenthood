@@ -3,7 +3,8 @@
 
 import React from 'react'; //import React library
 import {TextBox} from './TextBox.js';
-import {SubmitButton} from './SubmitButton';
+import {SubmitButton} from './SubmitButton.js';
+import {Card} from './Card.js';
 
 
 export function ComparisonPage(props) {
@@ -29,6 +30,7 @@ function ComparisonContent(props) {
             <div className="d-flex flex-column plant-container">
                 <TextBox />
                 <SubmitButton />
+                <Card />
                 {/* // add plant card */}
             </div>
         </div>
@@ -38,7 +40,7 @@ function ComparisonContent(props) {
 function SimilarityInfo(props) {
     return (
         <div className="similarity-info"> 
-            <p class="similar-info">Let's compare the plants!</p>
+            <p class="similar-info">Search up 2 plants let's compare them!</p>
         </div>
     );
 }
