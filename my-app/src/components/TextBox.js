@@ -25,6 +25,12 @@ export function TextBox(props) {
     // event.preventDefault();
     // setSelectedPlant(event.target.value);
 
+    // event handler for plant search button
+    // const searchPlant = (event) => {
+    //     event.preventDefault();
+    //     console.log('Test: Plant searched!');
+    // }
+
     // test: it works
     function clickMe() {
         alert("You clicked me!");

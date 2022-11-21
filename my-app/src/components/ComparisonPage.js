@@ -3,7 +3,6 @@
 
 import React from 'react'; //import React library
 import {TextBox} from './TextBox.js';
-import {SubmitButton} from './SubmitButton.js';
 import {Card} from './Card.js';
 
 
@@ -29,7 +28,6 @@ function ComparisonContent(props) {
         <div className="compare-interface d-lg-flex"> 
             <div className="d-flex flex-column plant-container">
                 <TextBox />
-                <SubmitButton />
                 <Card />
                 {/* // add plant card */}
             </div>

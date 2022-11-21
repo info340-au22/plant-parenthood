@@ -4,8 +4,11 @@ import '../index.css';
 import {HomePage} from './HomePage.js';
 import {ComparisonPage} from './ComparisonPage.js';
 import {ProfilePage} from './ProfilePage.js';
+<<<<<<< HEAD
+=======
 import {SubmitButton} from './SubmitButton';
 import {UploadPage} from './UploadPage';
+>>>>>>> refs/remotes/origin/main
 
 export function App(props) {
     const root = ReactDOM.createRoot(document.getElementById('root'));
