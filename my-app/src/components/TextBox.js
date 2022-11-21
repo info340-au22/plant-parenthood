@@ -33,6 +33,7 @@ export function TextBox(props) {
 
             {/* <ComparedPlantCard comparedPlantData={comparedPlantData}/> */}
         </div>
+        <div></div>
     )
 }
 
