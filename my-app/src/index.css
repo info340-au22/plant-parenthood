@@ -498,7 +498,43 @@ form label {
     font-size: 15px;
     font-weight: 500;
 }
-
+/* navbar */
+.navnav {
+    color:  #507A55;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 3rem;
+    padding: 0 2rem;
+    margin-top: 1.5rem;
+  }
+  
+  .navnav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+  }
+  
+  .navnav a {
+    color: inherit;
+    text-decoration: none;
+    text-decoration-color: #F4F1E7;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: .25rem;
+  }
+  
+  .navnav li.active {
+    background-color: #507A55;
+    color: #F4F1E7;
+  }
+  
+  .navnav li:hover {
+    background-color: #F4F1E7;
+  }
 
 /* Media Queries */
 
