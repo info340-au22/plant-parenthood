@@ -137,8 +137,8 @@ footer {
 }
 
 .card>img {
-    width: 40%;
-    height: auto;
+    min-width: 80px;
+    min-height: 60px;
     align-self: center;
     /* align-self is default to stretch */
 }
@@ -483,6 +483,11 @@ form label {
     .profile-card {
         min-width: 200px;
     }
+
+    .cards-container img {
+        min-width: 130px;
+        min-height: 100px;
+    }
 }
 
 @media(min-width: 992px) {
@@ -511,6 +516,10 @@ form label {
     }
     .left-links-container>* {
         margin: 2rem 5rem 2rem 5rem;
+    }
+    .cards-container img {
+        min-width: 180px;
+        min-height: 130px;
     }
 }
 
