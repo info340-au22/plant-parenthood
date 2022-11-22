@@ -17,34 +17,34 @@
     <header>
        
     </header>
-    <main>
-        <section>
-            <div class="container">
-                <button type="upload" class="btn" onclick="openPopup()">Upload</button>
-                <div class="popup" id="popup">
-                    <img src="img/card-daisies.png" alt="flower decor">
-                    <h2>Upload Your Plant</h2>
-                    <p>some text</p>
-                    <form action="/action_page.php">
-                        <input type="file" id="myFile" name="filename">
+        <main>
+            <section>
+                <div class="container">
+                    <button type="upload" class="btn" onclick="openPopup()">Upload</button>
+                    <div class="popup" id="popup">
+                        <img src="img/card-daisies.png" alt="flower decor">
+                        <h2>Upload Your Plant</h2>
+                        <p>some text</p>
+                        <form action="/action_page.php">
+                            <input type="file" id="myFile" name="filename">
 
-                        <button type="submit button" onclick="closePopup()">OK</button>
-                    </form>
+                            <button type="submit button" onclick="closePopup()">OK</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <script>
-                let popup = document.getElementById("popup");
+                <script>
+                    let popup = document.getElementById("popup");
 
-                function openPopup() {
-                    popup.classList.add("open-popup");
-                }
+                    function openPopup() {
+                        popup.classList.add("open-popup");
+                    }
 
-                function closePopup() {
-                    popup.classList.remove("open-popup");
-                }
-            </script>
-        </section>
-    </main>
+                    function closePopup() {
+                        popup.classList.remove("open-popup");
+                    }
+                </script>
+            </section>
+        </main>
     <footer>
         
     </footer>
