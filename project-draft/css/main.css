@@ -22,7 +22,7 @@ nav {
 }
 
 nav, img {
-    max-height: 40px;
+    max-height: 50px;
 }
 
 .left-links-container {
@@ -295,7 +295,8 @@ label {
 .profile-heading img {
     display: block;
     flex-direction: column;
-    width: 100px;
+    /* width: 100px;
+    height: auto; */
     border-radius: 50%;
     margin: 0 auto;
     margin-bottom: 1rem;
@@ -479,7 +480,18 @@ form label {
 
 /* Media Queries */
 
+
+@media(max-width: 598px) {
+    .home-body {
+        background-color: #F4F1E7;
+        background-image: none;
+    }
+}
+
+
+
 @media(min-width: 598px) {
+
     .profile-card {
         min-width: 200px;
     }
