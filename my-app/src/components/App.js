@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom/client';
 // import '../index.css';
 import {HomePage} from './HomePage.js';
 import {ComparisonPage} from './ComparisonPage.js';
+import{NavBar} from  './NavBar.js';
 import {ProfilePage} from './ProfilePage.js';
 // import {UploadPage} from './UploadPage';
+import { Route, Routes, BrowserRouter  } from "react-router-dom"
 
 export function App(props) {
     const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,8 +24,14 @@ export function App(props) {
         {/* <HomePage plantsData={props.plantsData}/> */}
         {/* <ComparisonPage /> */}
         {/* <UploadPage/> */}
-        <ProfilePage />
-
+        <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<HomePage plantsData={props.plantsData}/>} />
+          <Route path="/ProfilePage" element={<ProfilePage/>} />
+          <Route path="/ComparisonPage" element={<ComparisonPage />} />
+        </Routes>
+        </BrowserRouter>
     </React.StrictMode>
     );
 }
