@@ -1,4 +1,4 @@
-/* make certain class names more specific bc otherwise boostrap overrides them */
+/* make certain class names more specific bc otherwise bootstrap overrides them */
 
 /* GLOBAL CSS */
 
@@ -516,6 +516,11 @@ form label {
     display: flex;
     gap: 3rem;
   }
+
+  .nav-left {
+    gap: 3rem;
+    display: flex;
+  }
   
   .navnav a {
     color: inherit;
@@ -532,10 +537,10 @@ form label {
     color: #F4F1E7;
   }
   
-  .navnav li:hover {
-    background-color: #F4F1E7;
+  .pp {
+    border-radius: 50%;
+    width: 2.5rem;
   }
-
 /* Media Queries */
 
 @media(min-width: 598px) {
