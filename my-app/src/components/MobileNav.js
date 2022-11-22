@@ -22,7 +22,9 @@ export default function MobileNav() {
   return (
     <nav className="nav-mobile">
         <div className="nav-left">
+      <div className="ham">
       {open ? closeIcon : openIcon}
+      </div>
     {open && 
       <ul>
         <Link to="/">Home</Link>

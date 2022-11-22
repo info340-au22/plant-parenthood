@@ -575,6 +575,10 @@ form label {
     padding: 0 2rem;
     margin-top: 1.5rem;
   }
+  .ham:hover {
+    cursor:pointer;
+  }
+
   .nav-mobile ul {
     color:  #507A55;
     
