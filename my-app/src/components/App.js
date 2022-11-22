@@ -19,10 +19,10 @@ export function App(props) {
 
         {/* current page displayed for testing */}
 
-        {/* <HomePage plantsData={props.plantsData}/> */}
+        <HomePage plantsData={props.plantsData}/>
         {/* <ComparisonPage /> */}
         {/* <UploadPage/> */}
-        <ProfilePage />
+        {/* <ProfilePage /> */}
 
     </React.StrictMode>
     );
