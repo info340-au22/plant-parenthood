@@ -4,8 +4,8 @@ import React from 'react'; //import React library
 export function ImageCards(props) {
 
     const IMG_ARRAY = [
-        {url: "../public/img/sunflowers.jpg", alt: "sunflowers", imgID:1},
-        {url: "../public/img/rose.jpg", alt: "roses", imgID:2}
+        {url: "../img/sunflowers.jpg", alt: "sunflowers", imgID:1},
+        {url: "../img/rose.jpg", alt: "roses", imgID:2}
     ]
 
     const ImgCardElems = IMG_ARRAY.map((ImgObj) => {
