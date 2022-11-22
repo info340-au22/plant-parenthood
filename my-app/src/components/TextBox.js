@@ -39,8 +39,8 @@ export function TextBox(props) {
     // preventSubmit & and changeSelectedPlant 
     return (
         <div className="d-flex flex-column plant-container">
-            <form>
-                <label className>
+            <form class="form">
+                <label >
                     Search a Plant 
                     <input className="input" type="text" name="plant" placeholder="search plant" />
                 </label>

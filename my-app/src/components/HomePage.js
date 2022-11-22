@@ -16,7 +16,7 @@ export function HomePage(props) {
                     {/* <NavBar/> */}
                     <h1 className="project-name">plant parenthood</h1>
                 </header>
-                        <div className="filters">
+                <div className="filters">
                     <h2 className="tagline">here are your current plants!</h2>
                     <div className="checkbox-container">
                         <ToggleButton filterName="favorites"/>
@@ -37,7 +37,6 @@ export function HomePage(props) {
                     </div>
                 </div>
                 <CardGrid plantsData={props.plantsData}/>
-                {/* <Footer/> */}
             </div>
         </div>
     )

@@ -161,6 +161,17 @@ footer {
     flex-wrap: wrap;
 }
 
+.plant-card>.cardFilterInfoIcons{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding-left: 30px;
+}
+
+.plant-card>.heart{
+    margin-right: 30px;
+}
+
 
 /* COMPARISON TAB !!!!!!!!! */
 

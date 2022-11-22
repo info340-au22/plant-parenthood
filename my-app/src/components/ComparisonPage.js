@@ -3,18 +3,31 @@
 
 import React from 'react'; //import React library
 import {TextBox} from './TextBox.js';
-import {Card} from './Card.js';
+import {CardGrid} from './CardGrid.js';
 
 
 export function ComparisonPage(props) {
     return (
+
         <div className="all-body">
-            <div className="compare-interface d-lg-flex"> 
-                    <ComparisonContent />
-                    <SimilarityInfo />
-                    <ComparisonContent />
+            <div className="comparison-body">
+                <header>
+                    <h1 className="project-name">compare 2 plants!</h1>
+                </header>
+                <div class="comparison-section">
+                    {/* <div className="comparison-body"> */}
+                        <div className="compare-interface d-lg-flex"> 
+                            <ComparisonContent />
+                            <SimilarityInfo />
+                            <ComparisonContent />
+                        </div>
+                    {/* </div> */}
+                </div>
             </div>
         </div>
+
+
+        
         //  comment
         //  <TextBox number={1} plantData={props.plantData} />
 
@@ -26,14 +39,16 @@ export function ComparisonPage(props) {
 }
 
 function ComparisonContent(props) {
+    const placeholderPlantInfo = [{"name":"____", "scientificName":"____", "temperature": "____", "img":"/img/card-daisies.png"}]
     return (
-        <div className="compare-interface d-lg-flex"> 
-            <div className="d-flex flex-column plant-container">
-                <TextBox />
-                <Card />
-                {/* // add plant card */}
+        
+            <div className="compare-interface d-lg-flex"> 
+                <div className="d-flex flex-column plant-container">
+                    <TextBox />
+                    <CardGrid plantsData={placeholderPlantInfo}/>
+                    {/* // add plant card */}
+                </div>
             </div>
-        </div>
     );
 }
 

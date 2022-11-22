@@ -6,6 +6,7 @@ import {ComparisonPage} from './ComparisonPage.js';
 import{NavBar} from  './NavBar.js';
 import {ProfilePage} from './ProfilePage.js';
 // import {UploadPage} from './UploadPage';
+import { Footer } from './Footer.js';
 import { Route, Routes, BrowserRouter  } from "react-router-dom"
 
 export function App(props) {
@@ -25,12 +26,13 @@ export function App(props) {
         {/* <ComparisonPage /> */}
         {/* <UploadPage/> */}
         <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<HomePage plantsData={props.plantsData}/>} />
-          <Route path="/ProfilePage" element={<ProfilePage/>} />
-          <Route path="/ComparisonPage" element={<ComparisonPage />} />
-        </Routes>
+            <NavBar />
+            <Routes>
+                <Route path="/" element={<HomePage plantsData={props.plantsData}/>} />
+                <Route path="/ProfilePage" element={<ProfilePage/>} />
+                <Route path="/ComparisonPage" element={<ComparisonPage />} />
+            </Routes>
+            <Footer/>
         </BrowserRouter>
     </React.StrictMode>
     );
