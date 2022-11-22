@@ -4,18 +4,20 @@ import { Link, useMatch, useResolvedPath} from "react-router-dom"
 
 
 export function NavBar() {
+    const currentUser = {imgProfile: "../img/profile-pic.png", userName: "Jane Doe"}
     return (
       <nav className="navnav">
+        <div className="nav-left">
         <Link to="/" className="site-logo">
-          Logo
+        <img src="../img/plant-logo-full.png" alt="logo"></img>
         </Link>
-        <ul>
-         <CustomLink to="/">Home</CustomLink>
+         <ul>
           <CustomLink to="/ComparisonPage">Comparison</CustomLink>
           </ul>
-          <ul>
-          <CustomLink to="/ProfilePage">Profile</CustomLink>
-        </ul>
+          </div>
+        <Link to="/ProfilePage">
+        <img className="pp" src={currentUser.imgProfile} alt="profile picture"/>
+              </Link>
       </nav>
     )
 }

@@ -3,7 +3,7 @@ import React from 'react'; //import React library
 
 
 export function ProfilePicture(props) {
-    const currentUser = {imgProfile: "../public/img/profile-pic.png", userName: "Jane Doe"}
+    const currentUser = {imgProfile: "../img/profile-pic.png", userName: "Jane Doe"}
 
     return (
         <section className="profile-card">
@@ -14,10 +14,12 @@ export function ProfilePicture(props) {
 }
 
 function ProfileImg(props) {
+    return (
     <div className="profile-heading">
         <img src={props.imgProfile} alt="profile picture"/>
         <h1>{props.userName}</h1>
     </div>
+    )
 }
 
 function ProfileForm(props) {
