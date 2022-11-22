@@ -532,7 +532,6 @@ form label {
     padding: 0 2rem;
     margin-top: 1.5rem;
   }
-  
   .navnav ul {
     padding: 0;
     margin: 0;
@@ -546,6 +545,7 @@ form label {
     display: flex;
   }
   
+
   .navnav a {
     color: inherit;
     text-decoration: none;
@@ -555,7 +555,7 @@ form label {
     align-items: center;
     padding: .25rem;
   }
-  
+
   .navnav li.active {
     background-color: #507A55;
     color: #F4F1E7;
@@ -565,12 +565,48 @@ form label {
     border-radius: 50%;
     width: 2.5rem;
   }
-/* Media Queries */
 
+  .nav-mobile {
+    color:  #507A55;
+    display: none;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 3rem;
+    padding: 0 2rem;
+    margin-top: 1.5rem;
+  }
+  .nav-mobile ul {
+    color:  #507A55;
+    
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-mobile a {
+    color: inherit;
+    text-decoration: none;
+    text-decoration-color: #F4F1E7;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: .25rem;
+  }
+
+/* Media Queries */
+@media(max-width: 598px) {
+    .navnav {
+        display: none;
+      }
+    .nav-mobile {
+        display: flex;
+      }
+}
 @media(min-width: 598px) {
     .profile-card {
         min-width: 200px;
     }
+
 }
 
 @media(min-width: 992px) {
