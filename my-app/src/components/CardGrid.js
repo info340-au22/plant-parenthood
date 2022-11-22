@@ -5,11 +5,11 @@ import {Card} from './Card.js';
 export function CardGrid(props) {
     const plantsData = props.plantsData;
     const allPlants = plantsData.map((currCard) => {
-        const elem = <Card name={currCard.name} scientificName={currCard.scientificName} temperature={currCard.temperature} img={currCard.img}/>;
+        const elem = <Card key={currCard.scientificName} name={currCard.name} scientificName={currCard.scientificName} temperature={currCard.temperature} img={currCard.img}/>;
         return elem;
     });
     return (
-        <div className="cards-container">
+        <div key="cardGrid" className="cards-container">
             {allPlants}
         </div>
     )

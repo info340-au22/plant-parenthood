@@ -8,11 +8,13 @@ import {Card} from './Card.js';
 
 export function ComparisonPage(props) {
     return (
+        <div className="all-body">
             <div className="compare-interface d-lg-flex"> 
                     <ComparisonContent />
                     <SimilarityInfo />
                     <ComparisonContent />
             </div>
+        </div>
         //  comment
         //  <TextBox number={1} plantData={props.plantData} />
 

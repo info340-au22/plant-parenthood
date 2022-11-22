@@ -1,9 +1,9 @@
 [
 
     {"name":"Daisy", "scientificName":"Bellis perennis", "temperature": "−35 °C+", "img":"/img/card-daisies.png"},
-    {"name":"Daisy", "scientificName":"Bellis perennis", "temperature": "−35 °C+", "img":"/img/card-daisies.png"},
-    {"name":"Daisy", "scientificName":"Bellis perennis", "temperature": "−35 °C+", "img":"/img/card-daisies.png"},
-    {"name":"Daisy", "scientificName":"Bellis perennis", "temperature": "−35 °C+", "img":"/img/card-daisies.png"},
-    {"name":"Daisy", "scientificName":"Bellis perennis", "temperature": "−35 °C+", "img":"/img/card-daisies.png"}
+    {"name":"Daisy", "scientificName":"test2", "temperature": "−35 °C+", "img":"/img/card-daisies.png"},
+    {"name":"Daisy", "scientificName":"test3", "temperature": "−35 °C+", "img":"/img/card-daisies.png"},
+    {"name":"Daisy", "scientificName":"test4", "temperature": "−35 °C+", "img":"/img/card-daisies.png"},
+    {"name":"Daisy", "scientificName":"test5", "temperature": "−35 °C+", "img":"/img/card-daisies.png"}
   
 ]

@@ -7,11 +7,13 @@ import { ProfilePicture } from './ProfilePicture.js';
 
 export function ProfilePage(props) {
     return (
-        <section className="profile-section">
+        <div className="all-body">
+            <section className="profile-section">
 
-            <ProfileGallery/>
-            <ProfilePicture/>
+                <ProfileGallery/>
+                <ProfilePicture/>
 
-        </section>
+            </section>
+        </div>
     )
 }
