@@ -38,7 +38,7 @@ function ProfileForm(props) {
                     <input type="text"/>
                 </div>
             </form>
-            <form>
+            {/* <form>
                 <label htmlFor="season">Season</label>
                 <div className="form-input">
                     <select name="current_season" defaultValue={'Summer'}>
@@ -48,7 +48,7 @@ function ProfileForm(props) {
                             <option value="Winter">Winter</option>
                         </select>
                 </div>
-            </form>
+            </form> */}
             <form>
                 <label htmlFor="bio">Your Bio</label>
                 <div className="form-input">

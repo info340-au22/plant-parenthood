@@ -148,14 +148,16 @@ footer {
 }
 
 .plant-card>img {
-    width: 40%;
-    height: auto;
+    padding-top: 5%;
+    width: 90%;
+    min-height: 55%;
     align-self: center;
+    overflow: hidden;
     /* align-self is default to stretch */
 }
 
 .plant-card>p {
-    text-align: center;
+    text-align: left;
     padding: 0 1rem 0 1rem;
     margin-bottom: 0;
     flex-wrap: wrap;
