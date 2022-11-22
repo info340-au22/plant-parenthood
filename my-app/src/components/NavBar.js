@@ -12,7 +12,6 @@ export function NavBar() {
         <img src="../img/plant-logo-full.png" alt="logo"></img>
         </Link>
          <ul>
-         <CustomLink to="/">Home</CustomLink>
           <CustomLink to="/ComparisonPage">Comparison</CustomLink>
           </ul>
           </div>
