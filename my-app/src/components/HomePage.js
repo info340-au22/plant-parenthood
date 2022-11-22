@@ -1,42 +1,76 @@
 // HOME PAGE, CINDY
 import React from 'react'; //import React library]
+import {useState} from 'react';
 import { CardGrid } from './CardGrid.js';
+import { Button } from './Button.js';
 import { ToggleButton } from './ToggleButton.js';
-import { Footer } from './Footer.js';
-import { NavBar } from './NavBar.js';
-
 
 export function HomePage(props) {
-    console.log("here")
+
+    const [searchInput, updateSearchInput] = useState([]);
+    const [selectedFilter, updateSelectedFilter] = useState("name");
+
+    let plantsData = props.plantsData;
+    if (searchInput != "") {
+        plantsData = props.plantsData.filter((currPlant) => {
+            const currPlantData = currPlant[selectedFilter];
+            if (currPlantData.toUpperCase().includes(searchInput.toUpperCase())) {
+                return currPlant;
+            }
+        });
+    }
+
+    const handleFilterSubmit = (event) => {
+        event.preventDefault();
+        updateSearchInput(document.querySelector("#filterSearch").value);
+    }
+    
+
+    
+    console.log("PLANTS DATA: " + plantsData + ", " + plantsData.length);
+
+    const dataKeys = Object.keys(props.plantsData[0]);
+
+    const filterOptions = dataKeys.map((currKey) => {
+        return <option key={currKey} value={currKey}>{currKey}</option>;
+    });
+
+
     return (
         <div className="all-body">
             <div className="home-body">
                 {/* <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"></link> */}
                 <header>
-                    {/* <NavBar/> */}
                     <h1 className="project-name">plant parenthood</h1>
                 </header>
                 <div className="filters">
-                    <h2 className="tagline">here are your current plants!</h2>
+                    <h2 className="tagline">here are your current plants!</h2>                    
+
                     <div className="checkbox-container">
-                        <ToggleButton filterName="favorites"/>
+                        <form>
+                            
+                            
+
+                            <label>Filter for plants based on  
+                                
+                            <select className="form-input" value={selectedFilter} onChange={(event) => updateSelectedFilter(event.target.value)}>
+                                {filterOptions}
+                            </select>
+
+                            :
+                                <input className="input" type="text" placeholder="Search here" id="filterSearch"/>
+                                <Button text="Filter!" handleClick={handleFilterSubmit}/>
+                            </label>
+                        </form>
+
+                        {/* <ToggleButton filterName="Native to North America"/>
                         <ToggleButton filterName="isPlanted"/>
-                        <ToggleButton filterName="isNotPlanted"/>
-                        {/* <div className="form-check form-switch">
-                            <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" not-checked/>
-                            <label className="form-check-label" for="flexSwitchCheckDefault">favorites</label>
-                        </div>
-                        <div className="form-check form-switch">
-                            <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" not-checked/>
-                            <label className="form-check-label" for="flexSwitchCheckChecked">planted</label>
-                        </div>
-                        <div className="form-check form-switch">
-                            <input className="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" not-checked/>
-                            <label className="form-check-label" for="flexSwitchCheckDisabled">not planted</label>
-                        </div> */}
+                        <ToggleButton filterName="isNotPlanted"/> */}
+
+                        
                     </div>
                 </div>
-                <CardGrid plantsData={props.plantsData}/>
+                <CardGrid plantsData={plantsData}/>
             </div>
         </div>
     )

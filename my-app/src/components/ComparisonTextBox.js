@@ -6,7 +6,7 @@ import {useState} from 'react';
 
 
 
-export function TextBox(props) {
+export function ComparisonTextBox(props) {
 
     // plant data
     // const plantData = props.plantData;

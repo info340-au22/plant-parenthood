@@ -2,7 +2,7 @@
 // need to make a comparedPlantCard js file to update cards once user searches and submits
 
 import React from 'react'; //import React library
-import {TextBox} from './TextBox.js';
+import {ComparisonTextBox} from './ComparisonTextBox.js';
 import {CardGrid} from './CardGrid.js';
 
 
@@ -44,7 +44,7 @@ function ComparisonContent(props) {
         
             <div className="compare-interface d-lg-flex"> 
                 <div className="d-flex flex-column plant-container">
-                    <TextBox />
+                    <ComparisonTextBox />
                     <CardGrid plantsData={placeholderPlantInfo}/>
                     {/* // add plant card */}
                 </div>

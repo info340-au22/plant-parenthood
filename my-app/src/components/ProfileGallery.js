@@ -1,7 +1,7 @@
 
 import React from 'react'; //import React library
 import { useState } from 'react';
-import { UploadImageButton } from './UploadImageButton.js';
+import { Button } from './Button.js';
 import { ImageCards } from './ImageCards.js';
 import { UploadPopup } from './UploadPopup.js';
 
@@ -24,7 +24,7 @@ export function ProfileGallery(props) {
             <div className="gallery-heading">
                 <h1>Image Gallery</h1>
                 {popUpElem}
-                <UploadImageButton handleClick={openPopup}/>
+                <Button text="Upload" handleClick={openPopup}/>
             </div>
             <ImageCards/>
         </section>

@@ -24,14 +24,14 @@ export function Card(props) {
             </div> */}
             <img src={props.img} alt={props.name}/>
             {/* changed location to temp for now */}
-            <p>
+            {/* <p> */}
             <ul>
-                <li>{props.name}</li>
-                <li>{props.scientificName}</li>
-                <li>{props.temperature}</li>
+                <li>Name:<span className="cardSmallerText"> {props.name}</span></li>
+                <li>Scientific:<span className="cardSmallerText"> {props.scientificName}</span></li>
+                <li>Temperature:<span className="cardSmallerText"> {props.temperature}</span></li>
             </ul>
                 {/* {props.name + ", " + props.scientificName + ", " + props.temperature} */}
-            </p>
+            {/* </p> */}
 
         </div>
     )
