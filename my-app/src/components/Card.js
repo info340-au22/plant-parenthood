@@ -26,9 +26,11 @@ export function Card(props) {
             {/* changed location to temp for now */}
             {/* <p> */}
             <ul>
-                <li>Name:<span className="cardSmallerText"> {props.plant.Name}</span></li>
-                <li>Scientific:<span className="cardSmallerText"> {props.plant.Scientific}</span></li>
-                <li>Temperature (°C):<span className="cardSmallerText"> {props.plant.Temperature}</span></li>
+                <li>Name: <span className="cardSmallerText"> {props.plant.Name}</span></li>
+                <li>Scientific: <span className="cardSmallerText"> {props.plant.Scientific}</span></li>
+                <li>Temp Range (°C): <span className="cardSmallerText"> {props.plant.low + " - " + props.plant.high}</span></li>
+                <li>Common Colors: <span className="cardSmallerText"> {(props.plant.Color).replace("[", "").replace("]", "")}</span></li>
+                <li>Native Region: <span className="cardSmallerText"> {(props.plant.Native).replace("[", "").replace("]", "")}</span></li>
             </ul>
                 {/* {props.name + ", " + props.scientificName + ", " + props.temperature} */}
             {/* </p> */}

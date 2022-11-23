@@ -39,7 +39,7 @@ export function ComparisonPage(props) {
 }
 
 function ComparisonContent(props) {
-    const placeholderPlantInfo = [{"name":"____", "scientificName":"____", "temperature": "____", "img":"/img/card-daisies.png", "favorite": "false", "planted": "false"}]
+    const placeholderPlantInfo = [{"name":"____", "scientificName":"____", "temperature": "____", "img":"", "Color": "[]", "Native": "[]"}]
     return (
         
             <div className="compare-interface d-lg-flex"> 

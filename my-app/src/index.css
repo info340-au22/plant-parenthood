@@ -152,7 +152,7 @@ footer {
 
 .plant-card {
     width: 33%;
-    height: auto;
+    /* height: auto; */
     aspect-ratio: 1 / 1;
     flex: 0 0 250px;
     background-color: red;
@@ -165,12 +165,24 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    overflow: auto;
 }
 
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(148, 132, 78, 0.3);
+/* box-shadow: 0 0 1px rgba(255, 255, 255, .5); */
+}
+   
+
 .plant-card>img {
-    padding-top: 5%;
     width: 90%;
-    min-height: 55%;
+    min-height: 70%;
     align-self: center;
     overflow: hidden;
     object-fit: cover;
@@ -471,6 +483,12 @@ form label {
     color: #507A55;
     padding-right: 1rem;
     padding-left: 1rem;
+}
+
+.allButtons:hover {
+    background: #507A55;
+    border: 2px solid #F4F1E7;
+    color: #F4F1E7;
 }
 
 
