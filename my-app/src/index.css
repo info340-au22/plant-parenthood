@@ -28,6 +28,16 @@ nav {
     opacity: 0.6;
 }
 
+.navLink {
+    color: #507A55;
+}
+
+.navLink{
+    color: #507A55;
+
+}
+
+
 nav, img {
     max-height: 50px;
 }
@@ -117,13 +127,18 @@ footer {
     font-weight: 500;
 }
 
-.checkbox-container {
+.filter-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: row;
     justify-content: space-around;
     margin: 2rem auto 2rem auto;
+    align-items: center;
+}
+
+.filter-container>input{
+    margin: 0;
 }
 
 .cards-container {
@@ -447,7 +462,6 @@ form label {
 }
 
 .allButtons {
-    margin-left: 2rem;
     background: none;
     border: 2px solid #507A55;
     border-radius: 30px;
@@ -537,7 +551,6 @@ form label {
     padding: 0 2rem;
     margin-top: 1.5rem;
   }
-  
   .navnav ul {
     padding: 0;
     margin: 0;
@@ -551,6 +564,7 @@ form label {
     display: flex;
   }
   
+
   .navnav a {
     color: inherit;
     text-decoration: none;
@@ -560,30 +574,81 @@ form label {
     align-items: center;
     padding: .25rem;
   }
-  
-  .navnav li.active {
+
+  /* .navnav li.active {
     background-color: #507A55;
     color: #F4F1E7;
-  }
+  } */
   
   .pp {
     border-radius: 50%;
     width: 4rem;
     max-height: 4rem;
   }
+
+  .nav-mobile {
+    color:  #507A55;
+    display: none;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 3rem;
+    padding: 0 2rem;
+    margin-top: 1.5rem;
+  }
+  .ham:hover {
+    cursor:pointer;
+  }
+
+  .nav-mobile ul {
+    color:  #507A55;
+    
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-mobile a {
+    color: inherit;
+    text-decoration: none;
+    text-decoration-color: #F4F1E7;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: .25rem;
+  }
+
 /* Media Queries */
+@media(max-width: 598px) {
+    .navnav {
+        display: none;
+      }
+    .nav-mobile {
+        display: flex;
+      }
+}
+
 
 @media(max-width: 992px) {
     .home-body{
         background-image: none;
     }
-}
 
+    .filter-container{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    .filter-container > input{
+        margin-bottom: 10px;
+    }
+}
 
 @media(min-width: 598px) {
     .profile-card {
         min-width: 200px;
     }
+
 }
 
 @media(min-width: 992px) {
@@ -613,6 +678,7 @@ form label {
     .left-links-container>* {
         margin: 2rem 5rem 2rem 5rem;
     }
+
 }
 
 @media(min-width: 1175px) {

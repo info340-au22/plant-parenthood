@@ -46,29 +46,22 @@ export function HomePage(props) {
                 <div className="filters">
                     <h2 className="tagline">here are your current plants!</h2>                    
 
-                    <div className="checkbox-container">
-                        <form>
+                    <form>
+                        <label className="filter-container">Filter for plants based on  
                             
-                            
+                        <select className="form-input" value={selectedFilter} onChange={(event) => updateSelectedFilter(event.target.value)}>
+                            {filterOptions}
+                        </select>
+                        :
+                        <input className="input" type="text" placeholder="Search here" id="filterSearch"/>
+                        <Button text="Filter!" handleClick={handleFilterSubmit}/>
+                        </label>
+                    </form>
 
-                            <label>Filter for plants based on  
-                                
-                            <select className="form-input" value={selectedFilter} onChange={(event) => updateSelectedFilter(event.target.value)}>
-                                {filterOptions}
-                            </select>
+                    {/* <ToggleButton filterName="Native to North America"/>
+                    <ToggleButton filterName="isPlanted"/>
+                    <ToggleButton filterName="isNotPlanted"/> */}
 
-                            :
-                                <input className="input" type="text" placeholder="Search here" id="filterSearch"/>
-                                <Button text="Filter!" handleClick={handleFilterSubmit}/>
-                            </label>
-                        </form>
-
-                        {/* <ToggleButton filterName="Native to North America"/>
-                        <ToggleButton filterName="isPlanted"/>
-                        <ToggleButton filterName="isNotPlanted"/> */}
-
-                        
-                    </div>
                 </div>
                 <CardGrid plantsData={plantsData}/>
             </div>

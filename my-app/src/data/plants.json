@@ -1,9 +1,9 @@
 [
 
-    {"name":"Daisy", "scientificName":"Bellis perennis", "temperature": "4 -> 12 °C", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Belis_peremnis_-_panoramio.jpg/440px-Belis_peremnis_-_panoramio.jpg", "color": ["yellow", "white"], "native": "[Europe]"},
-    {"name":"Tulip", "scientificName":"Tulipa × gesneriana", "temperature": "20 -> 25 °C", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/צבעונים.JPG/440px-צבעונים.JPG", "color": ["yellow", "white", "red", "pink"], "native": "[Asia, Europe]"},
-    {"name":"Lilac", "scientificName":"Syringa vulgaris", "temperature": "-40 -> 24 °C+", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Stockholm-lilac.jpg/440px-Stockholm-lilac.jpg", "native": "[Europe]"},
-    {"name":"Rhododendron", "scientificName":"Rhododendron ferrugineum", "temperature": "12 -> 25 °C", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Garden_with_Rhododendrons.JPG/440px-Garden_with_Rhododendrons.JPG", "native": "[Asia, Australia, Europe, North America]"},
-    {"name":"Witch-hazel", "scientificName":"Hamamelis virginiana", "temperature": "−43 -> 7 °C+", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Hamamelis_Flower.jpg/480px-Hamamelis_Flower.jpg", "native": "[North America]"}
+    {"name":"Daisy", "scientificName":"Bellis perennis", "temperature": "4 -> 12 °C", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Belis_peremnis_-_panoramio.jpg/440px-Belis_peremnis_-_panoramio.jpg", "color": "[yellow, white]", "native": "[Europe]"},
+    {"name":"Tulip", "scientificName":"Tulipa × gesneriana", "temperature": "20 -> 25 °C", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/צבעונים.JPG/440px-צבעונים.JPG", "color": "[yellow, white, red, pink]", "native": "[Asia, Europe]"},
+    {"name":"Lilac", "scientificName":"Syringa vulgaris", "temperature": "-40 -> 24 °C+", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Stockholm-lilac.jpg/440px-Stockholm-lilac.jpg", "color": "[white, pink, purple]", "native": "[Europe]"},
+    {"name":"Rhododendron", "scientificName":"Rhododendron ferrugineum", "temperature": "12 -> 25 °C", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Garden_with_Rhododendrons.JPG/440px-Garden_with_Rhododendrons.JPG", "color": "[white, pink, purple]", "native": "[Asia, Australia, Europe, North America]"},
+    {"name":"Witch-hazel", "scientificName":"Hamamelis virginiana", "temperature": "−43 -> 7 °C+", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Hamamelis_Flower.jpg/480px-Hamamelis_Flower.jpg", "color": "[yellow]", "native": "[North America]"}
   
 ]
