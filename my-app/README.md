@@ -1,5 +1,8 @@
 # Project Description: Plant Parenthood
 
+OUR CURRENT INTERACTIVE FEATURE: filtering on home page is interactive, not the upload feature yet
+
+
 Our application, Plant Parenthood is driven to help educate plant enthusiasts on what kinds of plants they are able to plant in their backyard to promote gardening and sustainability. With the target audience for our application being plant enthusiasts in the Seattle area, we aim to help locals inspire and motivate their community about gardening and sustainability through this platform in an informative and easy accessible manner. In regards to accessibility, we aim to make sure that the wording on our platform is easy to understand and that the color contrast is enough for people with lower than perfect vision.
 
 
