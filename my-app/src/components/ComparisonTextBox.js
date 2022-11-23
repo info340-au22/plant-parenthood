@@ -3,7 +3,7 @@ import React from 'react'; //import React library
 // need to import plant data
 // need to make a comparedPlantCard js file to update cards once user searches and submits
 import {useState} from 'react';
-
+import { Button } from './Button.js';
 
 
 export function ComparisonTextBox(props) {
@@ -44,10 +44,8 @@ export function ComparisonTextBox(props) {
                     Search a Plant 
                     <input className="input" type="text" name="plant" placeholder="search plant" />
                 </label>
-                {/* WE SHOULD PROB DELETE SUBMIT BUTTON JS? IT CAN JUST BE IN SAME FILE AS TEXTBOX */}
-                <button onClick={clickMe} className="find-plant-btn btn-primary" type="submit">
-                Find Plant
-                </button> 
+                <Button text="Find Plant" handleClick={clickMe} type="submit"/>
+                
             </form>
             {/* <input
                 type="text"

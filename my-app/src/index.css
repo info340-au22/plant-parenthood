@@ -642,6 +642,10 @@ form label {
     .filter-container > input{
         margin-bottom: 10px;
     }
+
+    .gallery-heading button {
+        margin-left: 1rem;
+    }
 }
 
 @media(min-width: 598px) {
