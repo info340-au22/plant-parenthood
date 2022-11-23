@@ -23,8 +23,13 @@ nav {
     color: #507A55;
 }
 
+.navLink:hover {
+    color: #507A55;
+    opacity: 0.6;
+}
+
 nav, img {
-    max-height: 40px;
+    max-height: 50px;
 }
 
 .left-links-container {
@@ -566,6 +571,13 @@ form label {
     width: 2.5rem;
   }
 /* Media Queries */
+
+@media(max-width: 992px) {
+    .home-body{
+        background-image: none;
+    }
+}
+
 
 @media(min-width: 598px) {
     .profile-card {
