@@ -173,6 +173,9 @@ footer {
     min-height: 55%;
     align-self: center;
     overflow: hidden;
+    object-fit: cover;
+  /* width: 50px;
+  height: 100px; */
     /* align-self is default to stretch */
 }
 

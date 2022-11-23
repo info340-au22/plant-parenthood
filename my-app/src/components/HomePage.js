@@ -7,14 +7,33 @@ import { ToggleButton } from './ToggleButton.js';
 
 export function HomePage(props) {
 
-    const [searchInput, updateSearchInput] = useState([]);
-    const [selectedFilter, updateSelectedFilter] = useState("name");
+    const [searchInput, updateSearchInput] = useState("");
+    const [selectedFilter, updateSelectedFilter] = useState("Name");
+
 
     let plantsData = props.plantsData;
     if (searchInput != "") {
         plantsData = props.plantsData.filter((currPlant) => {
             const currPlantData = currPlant[selectedFilter];
-            if (currPlantData.toUpperCase().includes(searchInput.toUpperCase())) {
+
+            console.log("currPlantData: " + currPlantData);
+            // console.log(string.indexOf(substring) !== -1);
+            // if (currPlantData.toUpperCase().includes(searchInput.toUpperCase())) {
+            // if (selectedFilter == "Temperature") {
+            //     // const dashIndexOfCurrPlant = currPlantData.indexOf("- ");
+            //     // const dashIndexOfSearch = searchInput.indexOf("- ");
+            //     // if (searchInput.charAt(0) == "-" && searchInput.charAt(0) != "-") {
+            //     //     return;
+            //     // }
+            //     // if (currPlantData.subString(0, 2) == searchInput.subString(0, 2) || // check if the starting temp = search
+            //     // currPlantData.subString(dashIndexOfCurrPlant) == searchInput.subString(dashIndexOfSearch)) { // check if the ending temp = search
+            //     //     return currPlant;
+            //     // }
+
+
+
+            // } else 
+            if (currPlantData.toUpperCase().indexOf(searchInput.toUpperCase()) !== -1) {
                 return currPlant;
             }
         });
@@ -24,7 +43,24 @@ export function HomePage(props) {
         event.preventDefault();
         updateSearchInput(document.querySelector("#filterSearch").value);
     }
+
+    const handleSearchEnter = (event) => {
+        event.preventDefault();
+    }
     
+    const selectOptions = <input className="input" type="text" placeholder="Search here" id="filterSearch" onChange={(event) => handleSearchEnter(event)}/>;
+    // if (selectedFilter == "Temperature") {
+    //     selectOptions = 
+    //         <select className="form-input" value={selectedFilter} onChange={(event) => updateSelectedFilter(event.target.value)}>
+    //             for (let i = 0; i < ) {
+    //             }
+    //             dataKeys.map((currKey) => {
+    //                 if (currKey != "img") {
+    //                     return <option key={currKey} value={currKey}>{currKey}</option>;
+    //                 }
+    //             }
+    //         </select>
+    // }
 
     
     console.log("PLANTS DATA: " + plantsData + ", " + plantsData.length);
@@ -32,7 +68,9 @@ export function HomePage(props) {
     const dataKeys = Object.keys(props.plantsData[0]);
 
     const filterOptions = dataKeys.map((currKey) => {
-        return <option key={currKey} value={currKey}>{currKey}</option>;
+        if (currKey != "img") {
+            return <option key={currKey} value={currKey}>{currKey}</option>;
+        }
     });
 
 
@@ -53,7 +91,7 @@ export function HomePage(props) {
                             {filterOptions}
                         </select>
                         :
-                        <input className="input" type="text" placeholder="Search here" id="filterSearch"/>
+                            {selectOptions}
                         <Button text="Filter!" handleClick={handleFilterSubmit}/>
                         </label>
                     </form>

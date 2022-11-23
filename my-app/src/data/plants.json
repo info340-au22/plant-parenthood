@@ -1,9 +1,22 @@
 [
 
-    {"name":"Daisy", "scientificName":"Bellis perennis", "temperature": "4 -> 12 °C", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Belis_peremnis_-_panoramio.jpg/440px-Belis_peremnis_-_panoramio.jpg", "color": "[white]", "native": "[Europe]"},
-    {"name":"Tulip", "scientificName":"Tulipa × gesneriana", "temperature": "20 -> 25 °C", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/צבעונים.JPG/440px-צבעונים.JPG", "color": "[red]", "native": "[Asia, Europe]"},
-    {"name":"Lilac", "scientificName":"Syringa vulgaris", "temperature": "-40 -> 24 °C+", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Stockholm-lilac.jpg/440px-Stockholm-lilac.jpg", "color": "[purple]", "native": "[Europe]"},
-    {"name":"Rhododendron", "scientificName":"Rhododendron ferrugineum", "temperature": "12 -> 25 °C", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Garden_with_Rhododendrons.JPG/440px-Garden_with_Rhododendrons.JPG", "color": "[pink, red]", "native": "[Asia, Australia, Europe, North America]"},
-    {"name":"Witch-hazel", "scientificName":"Hamamelis virginiana", "temperature": "−43 -> 7 °C+", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Hamamelis_Flower.jpg/480px-Hamamelis_Flower.jpg", "color": "[yellow]", "native": "[North America]"}
-  
+    {"Name":"Daisy", "Scientific":"Bellis perennis", "Temperature": "4 - 12", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Belis_peremnis_-_panoramio.jpg/440px-Belis_peremnis_-_panoramio.jpg", "Color": "[white, yellow]", "Native": "[Europe]"},
+    {"Name":"Tulip", "Scientific":"Tulipa × gesneriana", "Temperature": "20 - 25", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/צבעונים.JPG/440px-צבעונים.JPG", "Color": "[red]", "native": "[Asia, Europe]"},
+    {"Name":"Lilac", "Scientific":"Syringa vulgaris", "Temperature": "-40 - 24", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Stockholm-lilac.jpg/440px-Stockholm-lilac.jpg", "Color": "[purple]", "Native": "[Europe]"},
+    {"Name":"Rhododendron", "Scientific":"Rhododendron ferrugineum", "Temperature": "12 - 25", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Garden_with_Rhododendrons.JPG/440px-Garden_with_Rhododendrons.JPG", "Color": "[pink, red]", "Native": "[Asia, Australia, Europe, North America]"},
+    {"Name":"Witch-hazel", "Scientific":"Hamamelis virginiana", "Temperature": "−43 - 7", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Hamamelis_Flower.jpg/480px-Hamamelis_Flower.jpg", "Color": "[yellow]", "Native": "[North America]"},
+    {"Name":"Lavender", "Scientific":"Lavandula spica L.", "Temperature": "20 - 30 °C", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Single_lavender_flower02.jpg/440px-Single_lavender_flower02.jpg", "Color": "[purple]", "Native": "[Africa, Asia, Europe]"},
+    {"Name":"Balloon Flower", "Scientific":"Platycodon grandiflorus", "Temperature": "16 - 27", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Platycodon_grandiflorus_2.jpg/440px-Platycodon_grandiflorus_2.jpg", "Color": "[pink]", "Native": "[Asia]"},
+    {"Name":"Dahlia", "Scientific":"Dahlia pinnata", "Temperature": "20 - 22", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/BARBARRYBALL.jpg/240px-BARBARRYBALL.jpg", "Color": "[red]", "Native": "[North America]"},
+    {"Name":"Plumeria", "Scientific":"Plumeria rubra", "Temperature": "18 - 22", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Plumeria-0006-Zachi-Evenor.jpg/240px-Plumeria-0006-Zachi-Evenor.jpg", "Color": "[white, yellow]", "Native": "[North America, South America]"},
+    
+    {"Name":"Lychee", "Scientific":"Litchi chinensis", "Temperature": "27 - 31", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Litchi_chinensis_fruits.JPG/440px-Litchi_chinensis_fruits.JPG", "Color": "[red]", "Native": "[Asia]"},
+    {"Name":"Common Pear", "Scientific":"Pyrus communis", "Temperature": "-36 - 49", "img":"https://gardenerspath.com/wp-content/uploads/2020/10/15-of-the-Bes-Fruiting-Pear-Trees-to-Grow-at-Home-FB.jpg", "Color": "[green]", "Native": "[Asia, Europe]"},
+    {"Name":"Peach", "Scientific":"Prunus persica", "Temperature": "20 - 23", "img":"https://bustlingnest.com/wp-content/uploads/ripe-peaches.jpg", "Color": "[red]", "Native": "[Asia]"},
+    {"Name":"Common Grape", "Scientific":"Vitis viniferas", "Temperature": "25 - 32", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Cabernet_Sauvignon_Gaillac.jpg/440px-Cabernet_Sauvignon_Gaillac.jpg", "Color": "[purple]", "Native": "[Asia, Europe]"},
+    {"Name":"Loquat", "Scientific":"Eriobotrya japonica", "Temperature": "7 - 29", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Loquat-0.jpg/440px-Loquat-0.jpg", "Color": "[red]", "Native": "[Asia]"},
+    {"Name":"Cherimoya", "Scientific":"Annona cherimola", "Temperature": "0 - 27", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Cherimoya_tree_hg.jpg/440px-Cherimoya_tree_hg.jpg", "Color": "[green]", "Native": "[South America]"},
+    {"Name":"Persimmon", "Scientific":"Diospyros kaki", "Temperature": "-12 - 35", "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Caucasian_persimmon_-_Diospyros_lotus_06.jpg/763px-Caucasian_persimmon_-_Diospyros_lotus_06.jpg", "Color": "[orange]", "Native": "[Asia, North America]"},
+    {"Name":"Hydrangea", "Scientific":"Hydrangea macrophylla", "Temperature": "7 - 16", "img":"https://www.almanac.com/sites/default/files/users/AlmanacStaffArchive/hydrangeas-177317_1920_full_width.jpg", "Color": "[blue, pink, purple]", "Native": "[Asia, North America, South America]"}
+
 ]

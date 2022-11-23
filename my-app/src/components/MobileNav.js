@@ -1,6 +1,7 @@
 // NAV BAR, ERIC
 import React, { useState } from "react"; //import React library
 import { CgCloseO } from "react-icons/cg";
+import { MdOutlineNavigateNext } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 export default function MobileNav() {
@@ -10,14 +11,15 @@ export default function MobileNav() {
   };
   const [open, setOpen] = useState(false);
   const openIcon = (
-    <img
-      src="../img/plant_logo.png"
-      alt="logo"
-      onClick={() => setOpen(!open)}
-    ></img>
+    // <img
+    //   src="../img/plant_logo.png"
+    //   alt="logo"
+    //   onClick={() => setOpen(!open)}
+    // ></img>
+    <MdOutlineNavigateNext size="40" onClick={() => setOpen(!open)}/>
   );
   const closeIcon = (
-    <CgCloseO size="40px" color="#507A55" onClick={() => setOpen(!open)} />
+    <CgCloseO size="40" color="#507A55" onClick={() => setOpen(!open)} />
   );
   return (
     <nav className="nav-mobile">

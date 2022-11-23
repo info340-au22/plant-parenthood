@@ -22,13 +22,13 @@ export function Card(props) {
                 {heart}
                 {plantedIcon}
             </div> */}
-            <img src={props.img} alt={props.name}/>
+            <img src={props.plant.img} alt={props.plant.Name}/>
             {/* changed location to temp for now */}
             {/* <p> */}
             <ul>
-                <li>Name:<span className="cardSmallerText"> {props.name}</span></li>
-                <li>Scientific:<span className="cardSmallerText"> {props.scientificName}</span></li>
-                <li>Temperature:<span className="cardSmallerText"> {props.temperature}</span></li>
+                <li>Name:<span className="cardSmallerText"> {props.plant.Name}</span></li>
+                <li>Scientific:<span className="cardSmallerText"> {props.plant.Scientific}</span></li>
+                <li>Temperature (°C):<span className="cardSmallerText"> {props.plant.Temperature}</span></li>
             </ul>
                 {/* {props.name + ", " + props.scientificName + ", " + props.temperature} */}
             {/* </p> */}

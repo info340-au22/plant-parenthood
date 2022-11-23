@@ -7,7 +7,7 @@ export function CardGrid(props) {
     let allPlants = "";
     if (plantsData.length > 0) {
         allPlants = plantsData.map((currCard) => {
-            const elem = <Card key={currCard.scientificName} name={currCard.name} scientificName={currCard.scientificName} temperature={currCard.temperature} img={currCard.img} favorite={currCard.favorite} planted={currCard.planted}/>;
+            const elem = <Card key={currCard.Scientific} plant={currCard}/>;
             return elem;
         });
     } else {
