@@ -8,7 +8,7 @@ import { UploadPopup } from './UploadPopup.js';
 export function ProfileGallery(props) {
 
 
-    let [popUpElem, togglePopup] = useState(null)
+    const [popUpElem, togglePopup] = useState(null)
 
     const openPopup = () => {
         togglePopup(<UploadPopup handleClose={closePopup} open="open-popup"/>);
