@@ -30,3 +30,5 @@ export function ProfileGallery(props) {
         </section>
     )
 }
+
+// FOR LINH: document.querySelector("Button").setAttribute(text, "Edit")
