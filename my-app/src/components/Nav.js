@@ -14,7 +14,8 @@ export default function Nav() {
           <img src="../img/plant-logo-full.png" alt="logo"></img>
         </Link>
         <ul>
-          <CustomLink to="/ComparisonPage">Comparison</CustomLink>
+          <CustomLink key="home" to="/">Home</CustomLink>
+          <CustomLink key="compare" to="/ComparisonPage">Comparison</CustomLink>
         </ul>
       </div>
       <Link to="/ProfilePage">

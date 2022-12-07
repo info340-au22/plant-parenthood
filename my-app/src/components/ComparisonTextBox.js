@@ -39,7 +39,7 @@ export function ComparisonTextBox(props) {
     // preventSubmit & and changeSelectedPlant 
     return (
         <div className="d-flex flex-column plant-container">
-            <form class="form">
+            <form className="form">
                 <label >
                     Search a Plant 
                     <input className="input" type="text" name="plant" placeholder="search plant" />

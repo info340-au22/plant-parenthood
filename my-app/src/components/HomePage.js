@@ -21,7 +21,7 @@ export function HomePage(props) {
     let plantsData = props.plantsData;
     
     // filters plant cards to fit updates state filters
-    if (searchInput != "") {
+    if (searchInput != "" && selectedFilter != "Temperature") {
         plantsData = props.plantsData.filter((currPlant) => {
             const currPlantData = currPlant[selectedFilter];
             if (currPlantData.toUpperCase().indexOf(searchInput.toUpperCase()) !== -1) {
@@ -59,7 +59,7 @@ export function HomePage(props) {
     // this creates the dropdown selection for filter options
     const dataKeys = Object.keys(props.plantsData[0]);
     const filterOptions = dataKeys.map((currKey) => {
-        if (currKey != "img") {
+        if (currKey != "img" && currKey != "Scientific") {
             if (currKey === "low") {
                 return <option key="Temperature" value="Temperature">Temperature</option>;
             }

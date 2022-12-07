@@ -16,7 +16,7 @@ export function Card(props) {
     // }
 
     return (
-        <div className="plant-card">
+        <div key={props.plant.Scientific} className="plant-card">
             {/* <img src="./img/card-daisies.png" alt={props.name}/> */}
             {/* <div className="cardFilterInfoIcons">
                 {heart}
@@ -26,11 +26,11 @@ export function Card(props) {
             {/* changed location to temp for now */}
             {/* <p> */}
             <ul>
-                <li>Name: <span className="cardSmallerText"> {props.plant.Name}</span></li>
-                <li>Scientific: <span className="cardSmallerText"> {props.plant.Scientific}</span></li>
-                <li>Temp Range (°C): <span className="cardSmallerText"> {props.plant.low + " - " + props.plant.high}</span></li>
-                <li>Common Colors: <span className="cardSmallerText"> {(props.plant.Color).replace("[", "").replace("]", "")}</span></li>
-                <li>Native Region: <span className="cardSmallerText"> {(props.plant.Native).replace("[", "").replace("]", "")}</span></li>
+                <li key={props.plant.Scientific + ", 1"}>Name: <span className="cardSmallerText">{props.plant.Name}</span></li>
+                <li key={props.plant.Scientific + ", 2"}>Scientific: <span className="cardSmallerText">{props.plant.Scientific}</span></li>
+                <li key={props.plant.Scientific + ", 3"}>Temp Range (°C): <span className="cardSmallerText">{props.plant.low + " - " + props.plant.high}</span></li>
+                <li key={props.plant.Scientific + ", 4"}>Common Colors: <span className="cardSmallerText">{(props.plant.Color).replace("[", "").replace("]", "")}</span></li>
+                <li key={props.plant.Scientific + ", 5"}>Native Region: <span className="cardSmallerText">{(props.plant.Native).replace("[", "").replace("]", "")}</span></li>
             </ul>
                 {/* {props.name + ", " + props.scientificName + ", " + props.temperature} */}
             {/* </p> */}
