@@ -15,6 +15,25 @@ export function Card(props) {
     //     plantedIcon = <TbPlantOff size={30} color="#bfbfbf"/>;
     // }
 
+    // let colors = (props.plant.Color).map((currColor) => {
+    //     return currColor;
+    // });
+    // console.log(String(props.plant.Color).split(' '))
+
+    let colors = "";
+    for (let i = 0; i < (props.plant.Color).length; i++) {
+        colors += (props.plant.Color)[i] + ", ";
+    }
+    colors = colors.substring(0, colors.length - 2)
+
+    let nativeContinents = "";
+    for (let i = 0; i < (props.plant.Native).length; i++) {
+        nativeContinents += (props.plant.Native)[i] + ", ";
+    }
+    nativeContinents = nativeContinents.substring(0, nativeContinents.length - 2)
+
+
+
     return (
         <div key={props.plant.Scientific} className="plant-card">
             {/* <img src="./img/card-daisies.png" alt={props.name}/> */}
@@ -29,8 +48,10 @@ export function Card(props) {
                 <li key={props.plant.Scientific + ", 1"}>Name: <span className="cardSmallerText">{props.plant.Name}</span></li>
                 <li key={props.plant.Scientific + ", 2"}>Scientific: <span className="cardSmallerText">{props.plant.Scientific}</span></li>
                 <li key={props.plant.Scientific + ", 3"}>Temp Range (°C): <span className="cardSmallerText">{props.plant.low + " - " + props.plant.high}</span></li>
-                <li key={props.plant.Scientific + ", 4"}>Common Colors: <span className="cardSmallerText">{(props.plant.Color).replace("[", "").replace("]", "")}</span></li>
-                <li key={props.plant.Scientific + ", 5"}>Native Region: <span className="cardSmallerText">{(props.plant.Native).replace("[", "").replace("]", "")}</span></li>
+                {/* <li key={props.plant.Scientific + ", 4"}>Common Colors: <span className="cardSmallerText">{(props.plant.Color).replace("[", "").replace("]", "")}</span></li> */}
+                <li key={props.plant.Scientific + ", 4"}>Common Colors: <span className="cardSmallerText">{colors}</span></li>
+
+                <li key={props.plant.Scientific + ", 5"}>Native Region: <span className="cardSmallerText">{nativeContinents}</span></li>
             </ul>
                 {/* {props.name + ", " + props.scientificName + ", " + props.temperature} */}
             {/* </p> */}
