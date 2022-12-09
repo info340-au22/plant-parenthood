@@ -14,14 +14,14 @@ import { once } from 'lodash';
 export function ComparisonPage(props) {
 
     const [similarityInfo, updateSimilarityInfo] = useState(<pre>"Search up 2 plants, let's compare them!"</pre>);
-    // const [similarityInfo, updateSimilarityInfo] = useState(<p>"Search up 2 plants, let's compare them!"</p>);
     const [card1Plant, updateCard1Plant] = useState("");
     const [card2Plant, updateCard2Plant] = useState("");
 
     const handleChange = (plantCardName, cardNum) => {
 
         const currCardInfo = plantCardName;
-        // since useState variable not updated yet, use these
+        // since useState variable is not updated until end of this function,
+        // use these within function for updated data
         let updatedPlant1 = card1Plant;
         let updatedPlant2 = card2Plant;
 
@@ -39,7 +39,6 @@ export function ComparisonPage(props) {
         if (updatedPlant1 != "" && updatedPlant2 != "") {
             const plant1 = props.plantsData.filter((currPlant) => {
                 const currPlantName = currPlant["Name"];
-                // if (currPlantData.toUpperCase().indexOf(card1Plant.toUpperCase()) !== -1) {
                 if (currPlantName.toUpperCase() === updatedPlant1.toUpperCase()) {
                     return currPlant;
                 }
@@ -47,7 +46,6 @@ export function ComparisonPage(props) {
 
             const plant2 = props.plantsData.filter((currPlant) => {
                 const currPlantName = currPlant["Name"];
-                // if (currPlantData.toUpperCase().indexOf(card2Plant.toUpperCase()) !== -1) {
                 if (currPlantName.toUpperCase() === updatedPlant2.toUpperCase()) {
                     return currPlant;
                 }
@@ -63,77 +61,36 @@ export function ComparisonPage(props) {
             
             const dataKeys = Object.keys(props.plantsData[0]);
 
-            // let similarity = ""
             let similarity = {}
-            // const similarities =
             dataKeys.filter((currKey) => {
-                // similarity += currKey + ": ";
-                // console.log(plant1[currKey].toUpperCase());
-                // console.log(plant2[currKey].toUpperCase());
-                // console.log("plant1:" + plant1);
-                // console.log("currKey:" + currKey);
-                // console.log(":" + plant1[currKey]);
                 if (currKey != "img") {
-                    console.log(currKey)
-                    console.log(plant1[currKey])
-                    console.log(plant1[currKey][0])
                     if (currKey == "Color" || currKey == "Native") {
                         let similar = [];
                         for (let i = 0; i < plant1[currKey].length; i++) {
                             for (let j = 0; j < plant2[currKey].length; j++) {
                                 if (plant1[currKey][i].toUpperCase() === plant2[currKey][j].toUpperCase()) {
-                                    // similarity += plant1[currKey][i] + " ";
                                     similar.push(" " + plant1[currKey][i])
                                 }
                             }
                         }
-                        // similarity.currKey = similar
                         if (similar.length > 0) {
                             similarity["Common " + currKey] = similar
                         }
                     } else if (plant1[currKey].toUpperCase() === (plant2[currKey].toUpperCase())) {
-                        // console.log("here");
-                        // similarity += plant1[currKey];
-                        // console.log("similarity: " + similarity);
-                        // similarity[currKey] = plant1[currKey];
-                        // console.log(currKey)
-                        // var updatedSimilarities = {currKey: plant1[currKey]}
-                        // similarity = Object.assign(similarity, updatedSimilarities);
-                        // console.log(JSON.stringify(similarity));
-                        console.log("HERE:" + similarity.currKey)
                         similarity[currKey] = plant1[currKey]
                     }
-                    console.log("HIUREKJDFNMHOUERKJN: " + JSON.stringify(similarity));
-                    // similarity += "\u000A";
                 }
             });
-            // updateSimilarityInfo()
-            console.log("-------------------------------------------------");
-            console.log(similarity);
-
-            // const similarityString = <Fragment>test</Fragment>;
             let similarityString = "";
             const allSimilarKeys = Object.keys(similarity);
 
-            console.log(JSON.stringify(allSimilarKeys))
 
             for (let i = 0; i < allSimilarKeys.length; i++) {
-                console.log("HERE")
-                console.log(allSimilarKeys[i])
-                // similarityString.innerText = similarityString.innerText + (allSimilarKeys)[i] + ": " + similarity[(allSimilarKeys)[i]] + "<br>";
                 similarityString += (allSimilarKeys)[i] + ": " + similarity[(allSimilarKeys)[i]] + "\n";
-                // similarityString += <p>{(allSimilarKeys)[i] + ': ' + similarity[(allSimilarKeys)[i]]}<br/></p>//(allSimilarKeys)[i] + ': ' + similarity[(allSimilarKeys)[i]] + '\n';
             }
-            // similarityString = similarityString.substring(0, similarityString.length)
-
-            // console.log(JSON.stringify(similarityString))
-            // console.log((similarityString.textContent))
             updateSimilarityInfo(<pre>{similarityString}</pre>);
             
         } else {
-            console.log("cardNum: " + cardNum);
-            console.log("updatedPlant1: " + updatedPlant1);
-            console.log("updatedPlant2: " + updatedPlant2);
             if (updatedPlant1 === "" && cardNum != "card1") {
                 updateSimilarityInfo("please try searching up a valid 1st plant!");
             } else if (updatedPlant2 === "" && cardNum != "card2") {
