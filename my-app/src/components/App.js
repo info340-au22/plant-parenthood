@@ -30,7 +30,7 @@ export function App(props) {
             <Routes>
                 <Route path="/" element={<HomePage plantsData={props.plantsData}/>} />
                 <Route path="/ProfilePage" element={<ProfilePage/>} />
-                <Route path="/ComparisonPage" element={<ComparisonPage />} />
+                <Route path="/ComparisonPage" element={<ComparisonPage plantsData={props.plantsData}/>} />
             </Routes>
             <Footer/>
         </BrowserRouter>
