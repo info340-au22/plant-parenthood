@@ -441,15 +441,23 @@ form label {
     flex-direction: row;
 }
 
-.submit-button button {
-    width: 95%;
-    padding: 0.5rem;
+.submit-button {
     background-color: #507A55;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
     border-radius: 10px;
-    border: none;
+    border: 2px solid #507A55;
     color: white;
-    justify-content: center;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.upload-button {
+    background: none;
+    border: 2px solid #507A55;
+    border-radius: 10px;
+    color: #507A55;;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
 .image {
@@ -489,6 +497,21 @@ form label {
     background: #507A55;
     border: 2px solid #F4F1E7;
     color: #F4F1E7;
+}
+
+hr.solid {
+    border-top: 3px solid #507A55;
+}
+
+.bio-container h2 {
+    font-size: 1rem;
+    text-align: left;
+}
+
+.bio-container p {
+    font-size: 0.5;
+    text-align: left;
+    color: black;
 }
 
 

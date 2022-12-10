@@ -24,11 +24,10 @@ export function ProfileGallery(props) {
             <div className="gallery-heading">
                 <h1>Image Gallery</h1>
                 {popUpElem}
-                <Button text="Upload" handleClick={openPopup}/>
+                <Button class="allButtons" text="Upload" handleClick={openPopup}/>
             </div>
             <ImageCards/>
         </section>
     )
 }
 
-// FOR LINH: document.querySelector("Button").setAttribute(text, "Edit")
