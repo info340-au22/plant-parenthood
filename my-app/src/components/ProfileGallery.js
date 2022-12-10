@@ -27,7 +27,7 @@ export function ProfileGallery(props) {
                 {popUpElem}
                 <Button class="allButtons" text="Upload" handleClick={openPopup}/>
                 <OutsideClickHandler onOutsideClick={closePopup}>
-                {popUpElem}
+                    {popUpElem}
                 </OutsideClickHandler> 
             </div>
             <ImageCards/>
