@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Button } from './Button.js';
 import { ImageCards } from './ImageCards.js';
 import { UploadPopup } from './UploadPopup.js';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 export function ProfileGallery(props) {
 
@@ -16,7 +17,7 @@ export function ProfileGallery(props) {
 
     const closePopup = () => {
         // add code to actually upload the image
-        popUpElem.props.open = "";
+        togglePopup(<UploadPopup  close="close-popup" action="/Profile"/>)
     }
 
     return (
@@ -25,6 +26,9 @@ export function ProfileGallery(props) {
                 <h1>Image Gallery</h1>
                 {popUpElem}
                 <Button class="allButtons" text="Upload" handleClick={openPopup}/>
+                <OutsideClickHandler onOutsideClick={closePopup}>
+                {popUpElem}
+                </OutsideClickHandler> 
             </div>
             <ImageCards/>
         </section>
