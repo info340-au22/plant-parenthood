@@ -1,28 +1,50 @@
-// PROFILE PICTURE, LINH
 import React from 'react'; //import React library
+import { useState } from 'react';
+import 'materialize-css';
+import { Icon } from 'react-materialize';
+import { Button } from './Button';
 
 
 export function ProfilePicture(props) {
-    const currentUser = {imgProfile: "../img/profile-pic.png", userName: "Jane Doe"}
+    const currentUser = props.currentUser;
 
+    return (
+        <Profile currentUser={currentUser}/>
+    )
+}
+
+function Profile(props) {
+    const currentUser = props.currentUser;
+    const [editMode, setEditMode] = useState(false);
+
+    const cancelEditMode = () => {
+        setEditMode(false);
+    };
     return (
         <section className="profile-card">
-            <ProfileImg imgProfile={currentUser.imgProfile} userName={currentUser.userName}/>
-            <ProfileForm/>
+            <div className="profile-heading">
+                <img src={currentUser.imgProfile} alt="profile picture"/>
+                <h1>{currentUser.userName}</h1>
+            </div>
+            {editMode ?  (<EditProfile currentUser={currentUser}/>) : (<ProfileDetails currentUser={currentUser}/>)}
         </section>
-    )
+    )   
 }
 
-function ProfileImg(props) {
+function ProfileDetails(props) {
     return (
-    <div className="profile-heading">
-        <img src={props.imgProfile} alt="profile picture"/>
-        <h1>{props.userName}</h1>
-    </div>
+        <div className="profile-details">
+            <p>{props.currentUser.location}</p>
+            <hr class="solid"></hr>
+            <div className="bio-container">
+                <h2>About {props.currentUser.userName}</h2>
+                <p>{props.currentUser.bio}</p>
+            </div>
+        </div>
     )
 }
 
-function ProfileForm(props) {
+function EditProfile(props) {
     return (
         <div className="profile-details">
             <form>
@@ -30,7 +52,6 @@ function ProfileForm(props) {
                 <div className="form-input">
                     <input type="text"/>
                 </div>
-
             </form>
             <form>
                 <label htmlFor="location">Location</label>
@@ -38,27 +59,16 @@ function ProfileForm(props) {
                     <input type="text"/>
                 </div>
             </form>
-            {/* <form>
-                <label htmlFor="season">Season</label>
-                <div className="form-input">
-                    <select name="current_season" defaultValue={'Summer'}>
-                            <option value="Spring">Spring</option>
-                            <option value="Summer">Summer</option>
-                            <option value="Autumn">Autumn</option>
-                            <option value="Winter">Winter</option>
-                        </select>
-                </div>
-            </form> */}
             <form>
                 <label htmlFor="bio">Your Bio</label>
                 <div className="form-input">
                     <textarea rows="2"></textarea>
                 </div>
             </form>
-            <div className="submit-button">
-                <button>Save</button>
-            </div>
+
+            <Button class="submit-button" text="Save"/>
+            <Button class="upload-button" text="Cancel"/>
         </div> 
-    )   
+    ) 
 }
 

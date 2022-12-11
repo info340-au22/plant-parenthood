@@ -1,29 +1,40 @@
 // IMAGE CARDS, LINH
 import React from 'react'; //import React library
+import { useState, useEffect } from 'react'; //import React library]
+
+import {
+    ref,
+    listAll,
+    getDownloadURL
+  } from "firebase/storage";
+  import { storage } from "./firebase";
 
 export function ImageCards(props) {
+    const [imageUrls, setImageUrls] = useState([]);
+    const imagesListRef = ref(storage, "images/");
 
-    const IMG_ARRAY = [
-        {url: "../img/sunflowers.jpg", alt: "sunflowers", imgID:1},
-        {url: "../img/rose.jpg", alt: "roses", imgID:2}
-    ]
-
-    const ImgCardElems = IMG_ARRAY.map((ImgObj) => {
-        const element = <ImgCard key={ImgObj.imgID} url={ImgObj.url} alt={ImgObj.alt}/>
-        return element;
-    });
+    useEffect(() => {
+        listAll(imagesListRef).then((response) => {
+          response.items.forEach((item) => {
+            getDownloadURL(item).then((url) => {
+              setImageUrls((prev) => [...prev, url]);
+            });
+          });
+        });
+      }, []);
 
     return (
         <div className="image-container">
-            {ImgCardElems}
+                    {imageUrls.map((url) => {return <ImgCard url={url} />;})}
         </div>
+        
     )
 }
 
 function ImgCard(props) {
     return (
         <div className="image">
-            <img src={props.url} alt={props.alt}/>
+            <img src={props.url} />
         </div>
     )
 }
