@@ -8,7 +8,8 @@ import { ToggleButton } from './ToggleButton.js';
 export function HomePage(props) {
 
     // state for what we are filtering for
-    const [selectedFilter, updateSelectedFilter] = useState("Name");
+    const [selectedFilter, updateSelectedFilter] = useState("Name");    
+
     // state for the search bar input
     const [searchInput, updateSearchInput] = useState("");
 
@@ -18,43 +19,11 @@ export function HomePage(props) {
     const [selectedHighestTemp, updateSelectedHighestTemp] = useState(0);
 
     // data for plant cards, set as all plants in beg
-    let plantsData = props.plantsData;
-    
-    // filters plant cards to fit updates state filters
-    if (searchInput != "" && selectedFilter != "Temperature") {
-        plantsData = props.plantsData.filter((currPlant) => {
-            const currPlantData = currPlant[selectedFilter];
-            if (currPlantData.toUpperCase().indexOf(searchInput.toUpperCase()) !== -1) {
-                return currPlant;
-            }
-        });
-    } else if (selectedFilter === "Temperature") {
-        if (selectedLowestTemp > selectedHighestTemp) {
-            plantsData = "";
-        } else {
-            plantsData = props.plantsData.filter((currPlant) => {
-                const currPlantLowTemp = currPlant["low"];
-                const currPlantHighTemp = currPlant["high"];
-                if (selectedLowestTemp <= currPlantLowTemp && currPlantHighTemp <= selectedHighestTemp) {
-                    return currPlant;
-                }
-            });
-        }
-    }
+    const [plantsDisplayed, updatePlantsDisplayed] = useState(props.plantsData);
+    // let plantsData = props.plantsData;
 
-    // resetting all filters when the clear button is clicked
-    const handleClearReset = (event) => {
-        event.preventDefault();
-        updateSelectedFilter("Name");
-        document.querySelector("#filterSearch").value = "";
-        updateSearchInput("");
-        document.querySelector("#filterLowTemp").value = "";
-        updateSelectedLowestTemp(0);
-        document.querySelector("#filterHighTemp").value = "";
-        updateSelectedHighestTemp(0);
-    }
 
-    // FILTER
+    // FILTER (STATIC)
     // ----------------------------------------------------------------
     // this creates the dropdown selection for filter options
     const dataKeys = Object.keys(props.plantsData[0]);
@@ -70,16 +39,9 @@ export function HomePage(props) {
         }
     });
 
-    // USER INPUT
-    // ----------------------------------------------------------------
-    // updates what filter INPUT options to display
-    // (temperature required dropdown while everything else is a type in search)
-    // is a search bar at default, then updates to dropdown if temperature filter is selected
-    let userInputElem = <input className="input" value={searchInput} type="text" placeholder="Search here" id="filterSearch" onChange={(event) => updateSearchInput(event.target.value)}/>;//</input>/handleFilterSubmit(event)}/>;
-    
-    let tempOptions = [];
+
+    // TEMPERATURE DROPDOWN SELECT OPTIONS (STATIC)
     // update the page to show temperature selects with temperature options between the lowest and highest temperatures of all current plant options
-    if (selectedFilter === "Temperature") {
         const allLowTemps = []; 
         props.plantsData.forEach((currPlant) => {
             allLowTemps.push(parseInt(currPlant["low"]));
@@ -92,27 +54,96 @@ export function HomePage(props) {
         });
         const highest = Math.max(...allHighTemps);
 
-        tempOptions = [];
+        // doesn't change because database does not change
+        const TEMP_OPTIONS = [];
         for (var i = lowest; i <= highest; i++) {
-            tempOptions.push(
+            TEMP_OPTIONS.push(
                 <option key={i} value={i}>{i}</option>
             );
         }
 
 
-        // the 2 dropdown temperature selection elements
-        // must use parseInt() because otherwise evaluated as string and imcomparable
-        userInputElem = 
-            <div>
-                <select className="form-input" value={selectedLowestTemp} id="filterLowTemp" onChange={(event) => updateSelectedLowestTemp(parseInt(event.target.value))}>
-                    {tempOptions}
-                </select>
-                to
-                <select className="form-input" value={selectedHighestTemp} id="filterHighTemp" onChange={(event) => updateSelectedHighestTemp(parseInt(event.target.value))}>
-                    {tempOptions}
-                </select>
-            </div>
-            
+    // updates what filter INPUT options to display
+    // (temperature required dropdown while everything else is a type in search)
+    // is a search bar at default, then updates to dropdown if temperature filter is selected
+    const handleChangeFilter = (event) => {
+        event.preventDefault();
+        const tempSelectedFilter = event.target.value;
+        updateSelectedFilter(tempSelectedFilter);
+        
+        if (tempSelectedFilter === "Temperature") {
+            document.querySelector("#searchBar").style.display = "none";
+            document.querySelector("#tempDropdowns").style.display = "block";
+        } else {
+            document.querySelector("#searchBar").style.display = "block";
+            document.querySelector("#tempDropdowns").style.display = "none";
+        }
+        console.log("handleChangeFilter")
+        handleUserInput(tempSelectedFilter);
+
+    }
+
+    const handleUserInput = (currFilter) => {
+        console.log("handleUserInput")
+        // filters plant cards to fit updates state filters
+        let plantsData = [];
+        updateSearchInput(document.querySelector("#searchBar").value);
+        const search = document.querySelector("#searchBar").value;
+
+        updateSelectedLowestTemp(document.querySelector("#filterLowTemp").value);
+        const l_temp = document.querySelector("#filterLowTemp").value;
+
+        updateSelectedHighestTemp(document.querySelector("#filterHighTemp").value);
+        const h_temp = document.querySelector("#filterHighTemp").value;
+
+        if (search != "" && currFilter != "Temperature") {
+            plantsData = props.plantsData.filter((currPlant) => {
+                const currPlantData = currPlant[currFilter];
+                if (currFilter === "Color" || currFilter === "Native") {
+                    for (let i = 0; i < currPlantData.length; i++) {
+                        if (currPlantData[i].toUpperCase() === (search.toUpperCase())) {
+                            return currPlant;
+                        }
+                    }
+                } else {
+                    if (currPlantData.toUpperCase().indexOf(search.toUpperCase()) !== -1) {
+                        return currPlant;
+                    }
+                }
+            });
+        } else if (currFilter === "Temperature") {
+            if (l_temp > h_temp) {
+                plantsData = "";
+            } else {
+                plantsData = props.plantsData.filter((currPlant) => {
+                    const currPlantLowTemp = currPlant["low"];
+                    const currPlantHighTemp = currPlant["high"];
+                    if (l_temp <= currPlantLowTemp && currPlantHighTemp <= h_temp) {
+                        return currPlant;
+                    }
+                });
+            }
+        }
+        updatePlantsDisplayed(plantsData);
+    }
+
+
+    // resetting all filters when the clear button is clicked
+    const handleClearReset = (event) => {
+        event.preventDefault();
+        updateSelectedFilter("Name");
+        document.querySelector("#searchBar").style.display = "block";
+        document.querySelector("#tempDropdowns").style.display = "none";
+
+        document.querySelector("#searchBar").value = "";
+        updateSearchInput("");
+        document.querySelector("#filterLowTemp").value = "";
+        updateSelectedLowestTemp(0);
+        document.querySelector("#filterHighTemp").value = "";
+        updateSelectedHighestTemp(0);
+
+        updatePlantsDisplayed(props.plantsData)
+        
     }
 
 
@@ -128,21 +159,25 @@ export function HomePage(props) {
                     <form>
                         <label className="filter-container">Filter for plants based on  
                             
-                        <select className="form-input" value={selectedFilter} onChange={(event) => updateSelectedFilter(event.target.value)}>
+                        <select className="form-input" value={selectedFilter} onChange={(event) => handleChangeFilter(event)}>
                             {filterOptions}
                         </select>
                         :
-                        {userInputElem}
+                        <input id="searchBar" className="input" value={searchInput} type="text" placeholder="Search here"onChange={() => handleUserInput(selectedFilter)}/>
+                        <div id="tempDropdowns" >
+                            <select className="form-input" value={selectedLowestTemp} id="filterLowTemp" onChange={() => handleUserInput(selectedFilter)}>
+                                {TEMP_OPTIONS}
+                            </select>
+                            to
+                            <select className="form-input" value={selectedHighestTemp} id="filterHighTemp" onChange={() => handleUserInput(selectedFilter)}>
+                                {TEMP_OPTIONS}
+                            </select>
+                        </div>
                         <Button text="Clear!" handleClick={(event) => handleClearReset(event)}/>
                         </label>
                     </form>
-
-                    {/* <ToggleButton filterName="Native to North America"/>
-                    <ToggleButton filterName="isPlanted"/>
-                    <ToggleButton filterName="isNotPlanted"/> */}
-
                 </div>
-                <CardGrid plantsData={plantsData}/>
+                <CardGrid plantsData={plantsDisplayed}/>
             </div>
         </div>
     )

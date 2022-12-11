@@ -141,6 +141,10 @@ footer {
     margin: 0;
 }
 
+#tempDropdowns {
+    display: none;
+}
+
 .cards-container {
     width: 50%;
     margin-left: auto;

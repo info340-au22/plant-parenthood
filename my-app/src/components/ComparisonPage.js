@@ -13,7 +13,7 @@ import { once } from 'lodash';
 
 export function ComparisonPage(props) {
 
-    const [similarityInfo, updateSimilarityInfo] = useState(<pre>"Search up 2 plants, let's compare them!"</pre>);
+    const [similarityInfo, updateSimilarityInfo] = useState(<pre>Search up 2 plants, let's compare them!</pre>);
     const [card1Plant, updateCard1Plant] = useState("");
     const [card2Plant, updateCard2Plant] = useState("");
 
@@ -88,6 +88,11 @@ export function ComparisonPage(props) {
             for (let i = 0; i < allSimilarKeys.length; i++) {
                 similarityString += (allSimilarKeys)[i] + ": " + similarity[(allSimilarKeys)[i]] + "\n";
             }
+
+            // if (!similarityString.matches(".*[a-z].*")) { 
+            //     similarityString = "could not find any similarities!"
+            // }
+
             updateSimilarityInfo(<pre>{similarityString}</pre>);
             
         } else {
@@ -179,7 +184,7 @@ export function ComparisonColumn(props) {
                     Enter a Plant Name! 
                     <input id={props.columnNum} onChange={handleChange} className="input" type="search" value={searchInput} name="plant" placeholder="search plant" autoComplete="off" />
                 </label>
-                <Button onClick={searchedPlant} text="Find Plant"/>
+                <Button handleClick={searchedPlant} text="Find Plant"/>
                 <CardGrid plantsData={cardInput}/>
             </form>
         </div>
