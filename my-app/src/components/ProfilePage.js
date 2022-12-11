@@ -5,7 +5,7 @@ import { ProfileGallery } from './ProfileGallery.js';
 import { ProfilePicture } from './ProfilePicture.js';
 
 export function ProfilePage(props) {
-    const currentUser = {imgProfile: "../img/profile-pic.png", userName: "Jane Doe", location:"Seattle, WA", bio:""}
+    const currentUser = {imgProfile: "../img/profile-pic.png", userName: "Jane Doe", location:"Seattle, WA", bio:"I like plants!"}
     return (
         <div className="all-body">
             {/* <div className="comparison-body"> */}

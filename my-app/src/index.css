@@ -508,10 +508,24 @@ hr.solid {
     text-align: left;
 }
 
+.bio-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
 .bio-container p {
     font-size: 0.5;
     text-align: left;
-    color: black;
+    color: rgb(65, 62, 62);
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-container {
+    width: 28px;
 }
 
 
@@ -670,6 +684,11 @@ hr.solid {
     .nav-mobile {
         display: flex;
       }
+
+    .profile-section {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }
 
 
