@@ -1,22 +1,12 @@
 import React from "react";
 import { StyledFirebaseAuth } from 'react-firebaseui';
+import { Navigate } from 'react-router-dom';
 import { getAuth, EmailAuthProvider } from "firebase/auth";
 
-export function SignInPage() {
-
-    // const db = getDatabase();
-    // const userRef = ref(db, "users");
+export function SignInPage(props) {
+    const currentUser = props.currentUser;
 
     const auth = getAuth();
-    // onAuthStateChanged(auth, (user) => {
-    //     if (user) {
-          
-    //       const uid = user.uid;
-
-    //     } else {
-
-    //     }
-    //   });
 
     const uiConfigObj = {
         signInOptions: [{
@@ -28,6 +18,10 @@ export function SignInPage() {
         },
         credentialHelper: 'none'
     };
+
+    if (currentUser.uid != null) {
+        return <Navigate to="/ProfilePage"/>
+    }
 
     return (
         <div className="all-body">

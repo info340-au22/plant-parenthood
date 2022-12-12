@@ -16,7 +16,7 @@ export default function Nav(props) {
           <CustomLink key="compare" to="/ComparisonPage">Comparison</CustomLink>
         </ul>
       </div>
-      {currentUser.userId && 
+      {currentUser.uid && 
         <>
           <Link to="/ProfilePage">
             <img
@@ -27,20 +27,13 @@ export default function Nav(props) {
           </Link>
         </>
       }
-      {!currentUser.userId && 
+      {!currentUser.uid && 
         <>
           <Link to="/SignIn">
             <Button class="signin-button" text="Sign In"/>
           </Link>
         </>
       }
-      {/* <Link to="/ProfilePage">
-        <img
-            className="pp"
-            src={currentUser.imgProfile}
-            alt="profile picture"
-          />
-      </Link> */}
     </nav>
   );
 }

@@ -17,19 +17,19 @@ export function App(props) {
     
 
 
-    useEffect(() => {
-        const auth = getAuth();
-        onAuthStateChanged(auth, (firebaseUser) => {
-            if (firebaseUser) { 
-                firebaseUser.userName = firebaseUser.displayName;
-                firebaseUser.imgProfile = firebaseUser.photoURL || "../img/null.png";
-                firebaseUser.userID = firebaseUser.uid;
-                setCurrentUser(firebaseUser);
-            } else { 
-                setCurrentUser(testUser);
-            } 
-        })
-    })
+    // useEffect(() => {
+    //     const auth = getAuth();
+    //     onAuthStateChanged(auth, (firebaseUser) => {
+    //         if (firebaseUser) { 
+    //             firebaseUser.userName = firebaseUser.displayName;
+    //             firebaseUser.imgProfile = firebaseUser.photoURL || "../img/null.png";
+    //             firebaseUser.userID = firebaseUser.uid;
+    //             setCurrentUser(firebaseUser);
+    //         } else { 
+    //             setCurrentUser(testUser);
+    //         } 
+    //     })
+    // })
 
 
     const root = ReactDOM.createRoot(document.getElementById('root'));

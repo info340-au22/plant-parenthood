@@ -1,27 +1,14 @@
 import React from 'react'; //import React library
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from './Button';
 import { AiTwotoneEdit } from 'react-icons/ai';
-import { getDatabase, ref, set as firebaseSet, onValue } from 'firebase/database';
+import {EditProfile} from './EditProfile.js';
+import { getAuth, signOut } from 'firebase/auth';
+
 
 
 export function ProfilePicture(props) {
     const currentUser = props.currentUser;
-
-    // useEffect(() => {
-    //     const db = getDatabase();
-    //     const userRef = ref(db, "users");
-
-    //     const offFunction = onValue(users, (snapshot) => {
-
-    //     });
-    //     function cleanUp() {
-    //         offFunction();
-    //     }
-
-    //     return cleanUp;
-
-    // }, [])
 
     return (
         <Profile currentUser={currentUser}/>
@@ -31,6 +18,7 @@ export function ProfilePicture(props) {
 function Profile(props) {
     const currentUser = props.currentUser;
     const [editMode, setEditMode] = useState(false);
+
 
     const cancelEditMode = () => {
         setEditMode(false);
@@ -51,8 +39,13 @@ function Profile(props) {
     )   
 }
 
+const handleSignOut = (event) => {
+    signOut(getAuth());
+}
+
 function ProfileDetails(props) {
     const enterEditMode = props.enterEditMode;
+    const currentUser = props.currentUser;
     return (
         <div className="profile-details">
             <p>{props.currentUser.location}</p>
@@ -64,45 +57,15 @@ function ProfileDetails(props) {
                 </div>
                 <p>{props.currentUser.bio}</p>
             </div>
+            {!currentUser.uid &&
+                <>
+                    <Button class="submit-button" text="Sign Out" handleClick={handleSignOut}/>
+                </>
+            }
+                
         </div>
     )
 }
 
-function EditProfile(props) {
-    const cancelEditMode = props.cancelEditMode;
-    const currentUser = props.currentUser;
-    const [name, setName] = useState("");
-    const [location, setLocation] = useState("");
-    const [bio, setBio] = useState("");
 
-    const handleSubmit = () => {
-        
-    }
-
-    return (
-        <div className="profile-details">
-            <form>
-                <label htmlFor="name">Name</label>
-                <div className="form-input">
-                    <input type="text"/>
-                </div>
-            </form>
-            <form>
-                <label htmlFor="location">Location</label>
-                <div className="form-input">
-                    <input type="text"/>
-                </div>
-            </form>
-            <form>
-                <label htmlFor="bio">Your Bio</label>
-                <div className="form-input">
-                    <textarea rows="2"></textarea>
-                </div>
-            </form>
-
-            <Button class="submit-button" text="Save" handleClick={handleSubmit}/>
-            <Button class="upload-button" text="Cancel" handleClick={cancelEditMode}/>
-        </div> 
-    ) 
-}
 
