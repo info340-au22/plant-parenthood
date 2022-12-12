@@ -1,15 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 // import '../index.css';
 import {HomePage} from './HomePage.js';
 import {ComparisonPage} from './ComparisonPage.js';
 import{NavBar} from  './NavBar.js';
 import {ProfilePage} from './ProfilePage.js';
+import {SignInPage} from './SignInPage.js'
 // import {UploadPage} from './UploadPage';
 import { Footer } from './Footer.js';
 import { Route, Routes, BrowserRouter  } from "react-router-dom"
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 export function App(props) {
+    const testUser = {imgProfile: "../img/profile-pic.png", userName: "Jane Doe", location:"Seattle, WA", bio:"I like plants!"};
+    const [currentUser, setCurrentUser] = useState(testUser);
+    
+
+
+    useEffect(() => {
+        const auth = getAuth();
+        onAuthStateChanged(auth, (firebaseUser) => {
+            if (firebaseUser) { 
+                firebaseUser.userName = firebaseUser.displayName;
+                firebaseUser.imgProfile = firebaseUser.photoURL || "../img/null.png";
+                firebaseUser.userID = firebaseUser.uid;
+                setCurrentUser(firebaseUser);
+            } else { 
+                setCurrentUser(testUser);
+            } 
+        })
+    })
+
+
     const root = ReactDOM.createRoot(document.getElementById('root'));
     document.querySelector("body").setAttribute("class", "all-body");
     root.render(
@@ -26,11 +48,12 @@ export function App(props) {
         {/* <ComparisonPage /> */}
         {/* <UploadPage/> */}
         <BrowserRouter>
-            <NavBar />
+            <NavBar currentUser={currentUser}/>
             <Routes>
                 <Route path="/" element={<HomePage plantsData={props.plantsData}/>} />
-                <Route path="/ProfilePage" element={<ProfilePage/>} />
+                <Route path="/ProfilePage" element={<ProfilePage currentUser={currentUser}/>} />
                 <Route path="/ComparisonPage" element={<ComparisonPage plantsData={props.plantsData}/>} />
+                <Route path="/SignIn" element={<SignInPage currentUser={currentUser}/>} />
             </Routes>
             <Footer/>
         </BrowserRouter>

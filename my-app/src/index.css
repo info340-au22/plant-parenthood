@@ -638,6 +638,16 @@ hr.solid {
     padding: .25rem;
   }
 
+  .signin-button {
+    background-color: #507A55;
+    margin: 0.5rem 0;
+    border-radius: 10px;
+    color: white;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    font-size: 1.25rem;
+  }
+
   /* .navnav li.active {
     background-color: #507A55;
     color: #F4F1E7;

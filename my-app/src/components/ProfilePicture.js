@@ -1,11 +1,27 @@
 import React from 'react'; //import React library
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { AiTwotoneEdit } from 'react-icons/ai';
+import { getDatabase, ref, set as firebaseSet, onValue } from 'firebase/database';
 
 
 export function ProfilePicture(props) {
     const currentUser = props.currentUser;
+
+    // useEffect(() => {
+    //     const db = getDatabase();
+    //     const userRef = ref(db, "users");
+
+    //     const offFunction = onValue(users, (snapshot) => {
+
+    //     });
+    //     function cleanUp() {
+    //         offFunction();
+    //     }
+
+    //     return cleanUp;
+
+    // }, [])
 
     return (
         <Profile currentUser={currentUser}/>
@@ -54,11 +70,15 @@ function ProfileDetails(props) {
 
 function EditProfile(props) {
     const cancelEditMode = props.cancelEditMode;
+    const currentUser = props.currentUser;
+    const [name, setName] = useState("");
+    const [location, setLocation] = useState("");
+    const [bio, setBio] = useState("");
 
     const handleSubmit = () => {
-
+        
     }
-    
+
     return (
         <div className="profile-details">
             <form>

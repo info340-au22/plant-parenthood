@@ -1,12 +1,10 @@
 // NAV BAR, ERIC
 import React from "react"; //import React library
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { Button } from "./Button";
 
-export default function Nav() {
-  const currentUser = {
-    imgProfile: "../img/profile-pic.png",
-    userName: "Jane Doe",
-  };
+export default function Nav(props) {
+  const currentUser = props.currentUser;
   return (
     <nav className="navnav">
       <div className="nav-left">
@@ -18,13 +16,31 @@ export default function Nav() {
           <CustomLink key="compare" to="/ComparisonPage">Comparison</CustomLink>
         </ul>
       </div>
-      <Link to="/ProfilePage">
+      {currentUser.userId && 
+        <>
+          <Link to="/ProfilePage">
+            <img
+              className="pp"
+              src={currentUser.imgProfile}
+              alt="profile picture"
+            />
+          </Link>
+        </>
+      }
+      {!currentUser.userId && 
+        <>
+          <Link to="/SignIn">
+            <Button class="signin-button" text="Sign In"/>
+          </Link>
+        </>
+      }
+      {/* <Link to="/ProfilePage">
         <img
-          className="pp"
-          src={currentUser.imgProfile}
-          alt="profile picture"
-        />
-      </Link>
+            className="pp"
+            src={currentUser.imgProfile}
+            alt="profile picture"
+          />
+      </Link> */}
     </nav>
   );
 }
