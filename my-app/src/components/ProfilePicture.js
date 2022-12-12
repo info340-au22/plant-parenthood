@@ -6,13 +6,6 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import { AiTwotoneEdit } from 'react-icons/ai';
 import { EditProfile } from './EditProfile.js';
 import { getAuth, signOut, updateProfile } from 'firebase/auth';
-// import {
-//     uploadBytesResumable,
-//     getDownloadURL,
-//     listAll
-//   } from "firebase/storage";
-// import { storage } from "./firebase";
-// import { v4 } from "uuid";
 import { getDatabase, onValue, ref, set as firebaseSet} from 'firebase/database';
 
 

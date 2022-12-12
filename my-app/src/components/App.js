@@ -94,6 +94,13 @@ export function App(props) {
         <BrowserRouter>
             <NavBar currentUser={currentUser}/>
             {displayedRoutes}
+                    {/* <Routes>
+                        <Route path="/" element={<HomePage plantsData={plantsData}/>} />
+                        <Route path="/ProfilePage" element={<ProfilePage currentUser={currentUser}/> } />
+                        <Route path="/SignIn" element={<SignInPage currentUser={currentUser}/>} />
+                        <Route path="/ComparisonPage" element={<ComparisonPage plantsData={plantsData}/>} />
+                        <Route render={()=>{<HomePage plantsData={plantsData}/>}} />
+                    </Routes> */}
             <Footer/>
         </BrowserRouter>
     </React.StrictMode>
