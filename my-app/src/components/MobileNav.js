@@ -3,12 +3,10 @@ import React, { useState } from "react"; //import React library
 import { CgCloseO } from "react-icons/cg";
 import { MdOutlineNavigateNext } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { Button } from "./Button";
 
-export default function MobileNav() {
-  const currentUser = {
-    imgProfile: "../img/profile-pic.png",
-    userName: "Jane Doe",
-  };
+export default function MobileNav(props) {
+  const currentUser = props.currentUser;
   const [open, setOpen] = useState(false);
   const openIcon = (
     // <img
@@ -33,13 +31,24 @@ export default function MobileNav() {
         <Link to="/ComparisonPage">Comparison</Link>
       </ul>}
       </div>
-      <Link to="/ProfilePage">
-        <img
-          className="pp"
-          src={currentUser.imgProfile}
-          alt="profile picture"
-        />
-      </Link>
+      {currentUser.uid && 
+        <>
+          <Link to="/ProfilePage">
+            <img
+              className="pp"
+              src={currentUser.imgProfile}
+              alt="profile picture"
+            />
+          </Link>
+        </>
+      }
+      {!currentUser.uid && 
+        <>
+          <Link to="/SignIn">
+            <Button classStyle="signin-button" text="Sign In"/>
+          </Link>
+        </>
+      }
     </nav>
   );
 }

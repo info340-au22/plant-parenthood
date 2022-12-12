@@ -10,26 +10,31 @@ import {SignInPage} from './SignInPage.js'
 import { Footer } from './Footer.js';
 import { Route, Routes, BrowserRouter  } from "react-router-dom"
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { getDatabase, ref, set as firebaseSet} from 'firebase/database';
 
 export function App(props) {
-    const testUser = {imgProfile: "../img/profile-pic.png", userName: "Jane Doe", location:"Seattle, WA", bio:"I like plants!"};
+    const testUser = {imgProfile: "../img/null.png", userName: "User", location:"", bio:"", uid: null};
     const [currentUser, setCurrentUser] = useState(testUser);
     
+    useEffect(() => {
+        const auth = getAuth();
+        onAuthStateChanged(auth, (firebaseUser) => {
+            if (firebaseUser) { 
+                firebaseUser.userName = firebaseUser.displayName;
+                firebaseUser.imgProfile = firebaseUser.photoURL || "../img/null.png";
+                firebaseUser.userID = firebaseUser.uid;
+                // if () // uid doesn't exist in database, create
+                setCurrentUser(firebaseUser);
+            } else { 
+                setCurrentUser(testUser);
+            } 
+        })
+    }, [])
 
-
-    // useEffect(() => {
-    //     const auth = getAuth();
-    //     onAuthStateChanged(auth, (firebaseUser) => {
-    //         if (firebaseUser) { 
-    //             firebaseUser.userName = firebaseUser.displayName;
-    //             firebaseUser.imgProfile = firebaseUser.photoURL || "../img/null.png";
-    //             firebaseUser.userID = firebaseUser.uid;
-    //             setCurrentUser(firebaseUser);
-    //         } else { 
-    //             setCurrentUser(testUser);
-    //         } 
-    //     })
-    // })
+    // const uid = currentUser.uid;
+    // const db = getDatabase();
+    // const usersRef = ref(db, 'users');
+    
 
 
     const root = ReactDOM.createRoot(document.getElementById('root'));

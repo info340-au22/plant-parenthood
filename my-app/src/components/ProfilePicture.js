@@ -31,7 +31,7 @@ function Profile(props) {
     return (
         <section className="profile-card">
             <div className="profile-heading">
-                <img src={currentUser.imgProfile} alt="profile picture"/>
+                <img src={currentUser.imgProfile} alt="profile of user"/>
                 <h1>{currentUser.userName}</h1>
             </div>
             {editMode ?  (<EditProfile currentUser={currentUser} cancelEditMode={cancelEditMode}/>) : (<ProfileDetails currentUser={currentUser} enterEditMode={enterEditMode}/>)}
@@ -49,17 +49,21 @@ function ProfileDetails(props) {
     return (
         <div className="profile-details">
             <p>{props.currentUser.location}</p>
-            <hr class="solid"></hr>
+            <hr className="solid"></hr>
             <div className="bio-container">
                 <div className="about-container">
                     <h2>About {props.currentUser.userName}</h2>
-                    <div className="edit-container" onClick={enterEditMode}><AiTwotoneEdit size={24}/></div>
+                    {currentUser.uid &&
+                        <>
+                            <div className="edit-container" onClick={enterEditMode}><AiTwotoneEdit size={24}/></div>
+                        </>
+                    }
                 </div>
                 <p>{props.currentUser.bio}</p>
             </div>
-            {!currentUser.uid &&
+            {currentUser.uid &&
                 <>
-                    <Button class="submit-button" text="Sign Out" handleClick={handleSignOut}/>
+                    <Button classStyle="submit-button" text="Sign Out" handleClick={handleSignOut}/>
                 </>
             }
                 

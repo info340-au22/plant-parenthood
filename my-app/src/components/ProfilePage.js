@@ -13,7 +13,7 @@ export function ProfilePage(props) {
                 <header>
                     <h1 className="project-name">update your profile :)</h1>
                 </header>
-                <div class="profile-section">
+                <div className="profile-section">
                     <ProfileGallery/>
                     <ProfilePicture currentUser={currentUser}/>
                 </div>

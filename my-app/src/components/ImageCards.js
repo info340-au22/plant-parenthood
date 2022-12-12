@@ -1,4 +1,3 @@
-// IMAGE CARDS, LINH
 import React from 'react'; //import React library
 import { useState, useEffect } from 'react'; //import React library]
 

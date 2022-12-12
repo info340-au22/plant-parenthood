@@ -184,7 +184,7 @@ export function ComparisonColumn(props) {
                     Enter a Plant Name! 
                     <input id={props.columnNum} onChange={handleChange} className="input" type="search" value={searchInput} name="plant" placeholder="search plant" autoComplete="off" />
                 </label>
-                <Button handleClick={searchedPlant} text="Find Plant"/>
+                <Button handleClick={searchedPlant} text="Find Plant" classStyle="allButtons"/>
                 <CardGrid plantsData={cardInput}/>
             </form>
         </div>

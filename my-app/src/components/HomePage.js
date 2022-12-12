@@ -173,7 +173,7 @@ export function HomePage(props) {
                                 {TEMP_OPTIONS}
                             </select>
                         </div>
-                        <Button class="allButtons" text="Clear!" handleClick={(event) => handleClearReset(event)}/>
+                        <Button classStyle="allButtons" text="Clear!" handleClick={(event) => handleClearReset(event)}/>
                         </label>
                     </form>
                 </div>

@@ -8,7 +8,7 @@ export function NavBar(props) {
   return (
     <div>
       <Nav currentUser={currentUser}/>
-      <MobileNav />
+      <MobileNav currentUser={currentUser}/>
     </div>
   );
 }

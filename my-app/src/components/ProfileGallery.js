@@ -25,7 +25,7 @@ export function ProfileGallery(props) {
             <div className="gallery-heading">
                 <h1>Image Gallery</h1>
                 {popUpElem}
-                <Button class="allButtons" text="Upload" handleClick={openPopup}/>
+                <Button classStyle="allButtons" text="Upload" handleClick={openPopup}/>
                 <OutsideClickHandler onOutsideClick={closePopup}>
                     {popUpElem}
                 </OutsideClickHandler> 

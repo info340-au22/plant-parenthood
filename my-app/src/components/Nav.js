@@ -30,7 +30,7 @@ export default function Nav(props) {
       {!currentUser.uid && 
         <>
           <Link to="/SignIn">
-            <Button class="signin-button" text="Sign In"/>
+            <Button classStyle="signin-button" text="Sign In"/>
           </Link>
         </>
       }
