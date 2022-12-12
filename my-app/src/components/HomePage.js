@@ -106,7 +106,7 @@ export function HomePage(props) {
                         }
                     }
                 } else {
-                    if (currPlantData.toUpperCase().indexOf(search.toUpperCase()) !== -1) {
+                    if (currPlantData.toUpperCase().indexOf(search.toUpperCase()) == 0) {
                         return currPlant;
                     }
                 }
@@ -157,20 +157,23 @@ export function HomePage(props) {
                     <h2 className="tagline">here are your current plants!</h2>                    
 
                     <form>
-                        <label className="filter-container">Filter for plants based on  
-                            
-                        <select className="form-input" value={selectedFilter} onChange={(event) => handleChangeFilter(event)}>
+                        <label className="filter-container" htmlFor="searchBar">Filter for plants based on         
+                        <select className="form-input" value={selectedFilter} aria-label="dropdown select of ways you can filter the plant cards"
+                            onChange={(event) => handleChangeFilter(event)}>
                             {filterOptions}
                         </select>
                         :
-                        <input id="searchBar" className="input" value={searchInput} type="text" placeholder="Search here"onChange={() => handleUserInput(selectedFilter)}/>
-                        <div id="tempDropdowns" >
-                            <select className="form-input" value={selectedLowestTemp} id="filterLowTemp" onChange={() => handleUserInput(selectedFilter)}>
+                        <input id="searchBar" className="input" value={searchInput} type="text" placeholder="Search here"
+                            aria-label="text search bar to be used to search for plants based on the filter chosen" onChange={() => handleUserInput(selectedFilter)}/>
+
+                        <div id="tempDropdowns" aria-label="a dropdown select pair of the lowest and highest temperature to filter plants by">
+                            <select className="form-input" value={selectedLowestTemp} id="filterLowTemp"
+                                aria-label="dropdown select for lower temperature" onChange={() => handleUserInput(selectedFilter)}>
                                 {TEMP_OPTIONS}
                             </select>
                             to
-                            <select className="form-input" value={selectedHighestTemp} id="filterHighTemp" onChange={() => handleUserInput(selectedFilter)}>
-                                {TEMP_OPTIONS}
+                            <select className="form-input" value={selectedHighestTemp} id="filterHighTemp"
+                                aria-label="dropdown select for higher temperature" onChange={() => handleUserInput(selectedFilter)}>                                {TEMP_OPTIONS}
                             </select>
                         </div>
                         <Button classStyle="allButtons" text="Clear!" handleClick={(event) => handleClearReset(event)}/>

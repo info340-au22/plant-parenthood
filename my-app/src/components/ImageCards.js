@@ -34,7 +34,7 @@ export function ImageCards(props) {
 function ImgCard(props) {
     return (
         <div className="image">
-            <img src={props.url} />
+            <img src={props.url} alt="uploaded image"/>
         </div>
     )
 }

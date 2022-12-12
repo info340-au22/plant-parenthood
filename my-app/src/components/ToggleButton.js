@@ -8,19 +8,5 @@ export function ToggleButton(props) {
             <input className="form-check-input-elem form-check-input-elem" type="checkbox" id="flexSwitchCheckDefault" not-checked="true"/>
             <label className="form-check-label" for="flexSwitchCheckDefault">{props.filterName}</label>
         </div>
-
-        // <Form>
-        //     <Form.Check 
-        //     type="switch"
-        //     id="custom-switch"
-        //     label={props.filterName}
-        //     />
-        //     <Form.Check 
-        //     disabled
-        //     type="switch"
-        //     label="disabled switch"
-        //     id="disabled-custom-switch"
-        //     />
-        // </Form>
     )
 }
