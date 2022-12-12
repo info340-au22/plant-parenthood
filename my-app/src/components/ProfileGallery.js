@@ -5,19 +5,35 @@ import { Button } from './Button.js';
 import { ImageCards } from './ImageCards.js';
 import { UploadPopup } from './UploadPopup.js';
 import OutsideClickHandler from 'react-outside-click-handler';
+import {
+    ref,
+    uploadBytesResumable,
+    getDownloadURL
+  } from "firebase/storage";
+import { storage } from "./firebase";
+import { v4 } from "uuid";
 
 export function ProfileGallery(props) {
+
+    const uploadFile = (e) => {
+        e.preventDefault()
+        const file = e.target[0]?.files[0]
+        if (!file) return alert("Please upload an image file!");
+        const storageRef = ref(storage, `images/${file.name + v4()}`);
+        uploadBytesResumable(storageRef, file);
+        alert("You have uploaded your plant!")
+    }
 
 
     const [popUpElem, togglePopup] = useState(null)
 
     const openPopup = () => {
-        togglePopup(<UploadPopup handleClose={closePopup} open="open-popup"/>);
+        togglePopup(<UploadPopup uploadFunction={uploadFile} handleClose={closePopup} open="open-popup"/>);
     }
 
     const closePopup = () => {
         // add code to actually upload the image
-        togglePopup(<UploadPopup  close="close-popup" action="/Profile"/>)
+        togglePopup(<UploadPopup uploadFunction={uploadFile} close="close-popup" action="/Profile"/>)
     }
 
     return (

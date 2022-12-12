@@ -22,6 +22,7 @@ export function ImageCards(props) {
         });
       }, []);
 
+
     return (
         <div className="image-container">
                     {imageUrls.map((url) => {return <ImgCard url={url} />;})}

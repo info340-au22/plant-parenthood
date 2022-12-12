@@ -1,5 +1,3 @@
-// PROFILE PAGE, LINH
-
 import React from 'react'; //import React library
 import { ProfileGallery } from './ProfileGallery.js';
 import { ProfilePicture } from './ProfilePicture.js';

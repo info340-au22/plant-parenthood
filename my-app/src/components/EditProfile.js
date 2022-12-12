@@ -18,13 +18,13 @@ export function EditProfile(props) {
     const [bio, setBio] = useState("");
 
 
-    userRef.once("value")
-    .then((snapshot) => {
-        const savedProfile = snapshot.val();
-        name = savedProfile.name;
-        location = savedProfile.location;
-        bio = savedProfile.bio;
-    });
+    // userRef.once("value")
+    // .then((snapshot) => {
+    //     const savedProfile = snapshot.val();
+    //     name = savedProfile.name;
+    //     location = savedProfile.location;
+    //     bio = savedProfile.bio;
+    // });
 
 
     const handleSubmit = () => {

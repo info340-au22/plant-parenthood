@@ -13,7 +13,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getDatabase, ref, set as firebaseSet} from 'firebase/database';
 
 export function App(props) {
-    const testUser = {imgProfile: "../img/null.png", userName: "User", location:"", bio:"", uid: null};
+    const testUser = {imgProfile: "../img/null.png", userName: "User", location:"", bio:""};
     const [currentUser, setCurrentUser] = useState(testUser);
     
     useEffect(() => {

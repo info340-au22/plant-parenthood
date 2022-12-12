@@ -505,6 +505,7 @@ form label {
 
 hr.solid {
     border-top: 3px solid #507A55;
+    z-index: 1;
 }
 
 .bio-container h2 {
@@ -568,6 +569,7 @@ hr.solid {
     visibility: hidden;
     opacity: 1;
     transition: transform 0.4s, top 0.4s;
+    z-index: 99;
 }
 
 .open-popup {
@@ -589,8 +591,8 @@ hr.solid {
 }
 
 .popup button {
-    width: 100%;
-    margin-top: 260px;
+    width: 200px;
+    margin-top: 14rem;
     border-radius: 6px;
     padding: 10px 0;
     background: #6fd649;

@@ -1,25 +1,9 @@
 //UPLOAD POPUP
+import React from 'react'; //import React library
 
-import { useState, useEffect } from 'react'; //import React library]
+export function UploadPopup(props) {
 
-import {
-    ref,
-    uploadBytesResumable,
-    getDownloadURL
-  } from "firebase/storage";
-  import { storage } from "./firebase";
-  import { v4 } from "uuid";
-
-  export function UploadPopup(props) {
-
-  const uploadFile = (e) => {
-    e.preventDefault()
-    const file = e.target[0]?.files[0]
-    if (!file) return alert("Please upload an image file!");
-    const storageRef = ref(storage, `images/${file.name + v4()}`);
-    uploadBytesResumable(storageRef, file);
-    alert("You have uploaded your plant!")
-  }
+  const uploadFile = props.uploadFunction;
 
 
 

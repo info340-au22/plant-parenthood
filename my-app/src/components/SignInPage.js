@@ -20,7 +20,7 @@ export function SignInPage(props) {
     };
 
     if (currentUser.uid != null) {
-        return <Navigate to="/ProfilePage"/>
+        return <Navigate to="/ProfilePage" replace/>
     }
 
     return (
