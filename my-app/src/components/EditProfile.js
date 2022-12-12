@@ -32,15 +32,15 @@ export function EditProfile(props) {
 
     const handleSubmit = () => {
 
-        if (userRef === undefined) {
-            firebaseSet(userRef, true)
-        }
+        // if (userRef === undefined) {
+        //     firebaseSet(userRef, true)
+        // }
         firebaseSet(userRef, {
             name: name,
             location: location,
             bio: bio
         })
-        if (name != "") {
+        if (name !== "") {
             const auth = getAuth();
             updateProfile(auth.currentUser, {
                 displayName: name

@@ -10,15 +10,12 @@ import {SignInPage} from './SignInPage.js'
 import { Footer } from './Footer.js';
 import { Route, Routes, BrowserRouter  } from "react-router-dom"
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { getDatabase, ref, set as firebaseSet} from 'firebase/database';
+import { getDatabase, onValue, ref, set as firebaseSet} from 'firebase/database';
 
 export function App(props) {
-    const testUser = {imgProfile: "../img/null.png", userName: "User", location:"", bio:""};
-    const [currentUser, setCurrentUser] = useState(testUser);
+    const placeholderUser = {imgProfile: "../img/null.png", userName: "", location:"", bio:""};
+    const [currentUser, setCurrentUser] = useState(placeholderUser);
 
-    const uid = currentUser.uid;
-    const db = getDatabase();
-    const userRef = ref(db, 'users/' + uid);
     
     useEffect(() => {
         const auth = getAuth();
@@ -29,8 +26,23 @@ export function App(props) {
                 firebaseUser.userID = firebaseUser.uid;
                 setCurrentUser(firebaseUser);
             } else { 
-                setCurrentUser(testUser);
+                setCurrentUser(placeholderUser);
             } 
+        })
+
+        const uid = currentUser.uid;
+        const db = getDatabase();
+        const userRef = ref(db, 'users/' + uid);
+
+
+        onValue(userRef, (snapshot) => {
+            const savedProfile = snapshot.val();
+            if (savedProfile === null) {
+                firebaseSet(userRef, true)
+                firebaseSet(userRef, {
+                    name: currentUser.displayName,
+                })
+            }
         })
     }, [])    
 

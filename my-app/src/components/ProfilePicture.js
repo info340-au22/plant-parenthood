@@ -6,20 +6,19 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import { AiTwotoneEdit } from 'react-icons/ai';
 import { EditProfile } from './EditProfile.js';
 import { getAuth, signOut, updateProfile } from 'firebase/auth';
-import {
-    uploadBytesResumable,
-    getDownloadURL,
-    listAll
-  } from "firebase/storage";
-import { storage } from "./firebase";
-import { v4 } from "uuid";
+// import {
+//     uploadBytesResumable,
+//     getDownloadURL,
+//     listAll
+//   } from "firebase/storage";
+// import { storage } from "./firebase";
+// import { v4 } from "uuid";
 import { getDatabase, onValue, ref, set as firebaseSet} from 'firebase/database';
 
 
 
 export function ProfilePicture(props) {
     const currentUser = props.currentUser;
-
     return (
         <Profile currentUser={currentUser}/>
     )
@@ -27,7 +26,22 @@ export function ProfilePicture(props) {
 
 function Profile(props) {
     const currentUser = props.currentUser;
+    const currentName = currentUser.displayName;
     const [editMode, setEditMode] = useState(false);
+    const [name, setName] = useState(currentName);
+    const uid = currentUser.uid;
+    const db = getDatabase();
+    const userRef = ref(db, 'users/' + uid);
+
+    useEffect(() => {
+        
+        onValue(userRef, (snapshot) => {
+            const savedProfile = snapshot.val();
+            if (savedProfile !== null) {
+                setName(savedProfile.name);
+            }
+        })
+    }, [])
 
 
     const cancelEditMode = () => {
@@ -38,28 +52,23 @@ function Profile(props) {
         setEditMode(true);
     }
 
-    const [imgUrl, setImgURL] = useState(null);
+    const [file, setFile] = useState(undefined);
+    const initialURL = currentUser.imgProfile || "../img/null.png";
+    const [imgUrl, setImgURL] = useState(initialURL);
 
     const uploadFile = (e) => {
-        e.preventDefault()
-        const file = e.target[0]?.files[0]
-        if (!file) {
-            return alert("Please upload an image file!");
-        }
-        const storageRef = ref(storage, `profilepics/${file.name + v4()}`);
-        uploadBytesResumable(storageRef, file);
-        console.log(listAll(storageRef))
-        listAll(storageRef).then((response) => {
-            const image = response.items;
-            const url = getDownloadURL(image);
-            setImgURL(url);
-        })
-        const auth = getAuth();
-            updateProfile(auth.currentUser, {
-                photoURL: imgUrl
-        })
+        // e.preventDefault();
+        // setFile(e.target[0]?.files[0])
+        // setFile(file);
+        // setImgURL(URL.createObjectURL(file));
+        // const auth = getAuth();
+        // updateProfile(auth.currentUser, {
+        //     photoURL: imgUrl
+        // })
+        // alert("You have updated your profile picture!")
+
         
-        alert("You have updated your profile picture!")
+        
     }
 
 
@@ -76,11 +85,11 @@ function Profile(props) {
     return (
         <section className="profile-card">
             <div className="profile-heading">
-                <img src={currentUser.imgProfile} alt="profile of user" onClick={openPopup}/>
+                <img src="../img/null.png" alt="profile of user" onClick={openPopup}/>
                 <OutsideClickHandler onOutsideClick={closePopup}>
                     {popUpElem}
                 </OutsideClickHandler> 
-                <h1>{currentUser.userName}</h1>
+                <h1>{name}</h1>
             </div>
             {editMode ?  (<EditProfile currentUser={currentUser} cancelEditMode={cancelEditMode}/>) : (<ProfileDetails currentUser={currentUser} enterEditMode={enterEditMode}/>)}
         </section>
@@ -94,8 +103,9 @@ const handleSignOut = () => {
 function ProfileDetails(props) {
     const enterEditMode = props.enterEditMode;
     const currentUser = props.currentUser;
+    const currentName = currentUser.displayName;
 
-    const [name, setName] = useState("");
+    const [name, setName] = useState(currentName);
     const [location, setLocation] = useState("");
     const [bio, setBio] = useState("");
 
@@ -124,7 +134,7 @@ function ProfileDetails(props) {
                 <div className="about-container">
                     {currentUser.uid &&
                         <>
-                            <h2>About {props.currentUser.displayName}</h2>
+                            <h2>About {name}</h2>
                         </>
                     }
                     {currentUser.uid &&
