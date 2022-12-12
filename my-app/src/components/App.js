@@ -75,7 +75,7 @@ export function App(props) {
             loading = false;
         })
         .catch((error) => {
-            window.alert("There was an arror loading the data: " + error);
+            window.alert("There was an error loading the data: " + error);
         })
 
     }
