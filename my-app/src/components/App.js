@@ -45,7 +45,7 @@ export function App(props) {
                 })
             }
         })
-    }, [])    
+    }, [])
 
    
     const [displayedRoutes, updateDisplayedRoutes] = useState(null);
