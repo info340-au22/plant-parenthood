@@ -17,6 +17,10 @@ export function App(props) {
     const placeholderUser = {imgProfile: "../img/null.png", userName: "", location:"", bio:""};
     const [currentUser, setCurrentUser] = useState(placeholderUser);
 
+    // const [displayedRoutes, updateDisplayedRoutes] = useState(null);
+    const [fetchCount, updateFetchCount] = useState(0);
+
+    const [plantsData, updatePlantsData] = useState([]);
     
     useEffect(() => {
         const auth = getAuth();
@@ -45,43 +49,73 @@ export function App(props) {
                 })
             }
         })
+
+
+
+        // let plantsData = [];
+
+        if (fetchCount <= 0) {
+            fetch('./data/plants.json')
+            .then(res => res.json())
+            .then(data => {
+                updateFetchCount(fetchCount + 1)
+                // plantsData = data;
+                // if (displayedRoutes == null) {
+                    // updateDisplayedRoutes(
+                    //     <Routes>
+                    //         <Route path="/" element={<HomePage plantsData={plantsData}/>} />
+                    //         <Route path="/ProfilePage" element={<ProfilePage currentUser={currentUser}/> } />
+                    //         <Route path="/SignIn" element={<SignInPage currentUser={currentUser}/>} />
+                    //         <Route path="/ComparisonPage" element={<ComparisonPage plantsData={plantsData}/>} />
+                    //         <Route render={()=>{<HomePage plantsData={plantsData}/>}} />
+                    //     </Routes>
+                    // );
+                    updatePlantsData(data)
+                // }
+
+            })
+            .catch((error) => {
+                window.alert("There was an error loading the data: " + error);
+            })
+        }
+        
     }, [])
 
    
-    const [displayedRoutes, updateDisplayedRoutes] = useState(null);
-    const [fetchCount, updateFetchCount] = useState(0);
+    // const [displayedRoutes, updateDisplayedRoutes] = useState(null);
+    // const [fetchCount, updateFetchCount] = useState(0);
 
-    let plantsData = [];
-    let loading = false;
-    function reqData() {
-        updateFetchCount(fetchCount + 1)
-        loading = true;
-        fetch('./data/plants.json')
-        .then(res => res.json())
-        .then(data => {
-            plantsData = data;
-            if (displayedRoutes == null) {
-                updateDisplayedRoutes(
-                    <Routes>
-                        <Route path="/" element={<HomePage plantsData={plantsData}/>} />
-                        <Route path="/ProfilePage" element={<ProfilePage currentUser={currentUser}/> } />
-                        <Route path="/SignIn" element={<SignInPage currentUser={currentUser}/>} />
-                        <Route path="/ComparisonPage" element={<ComparisonPage plantsData={plantsData}/>} />
-                        <Route render={()=>{<HomePage plantsData={plantsData}/>}} />
-                    </Routes>
-                );
-            }
+    // let plantsData = [];
+    //     function reqData() {
+    //         updateFetchCount(fetchCount + 1)
+    //         fetch('./data/plants.json')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             plantsData = data;
+    //             if (displayedRoutes == null) {
+    //                 updateDisplayedRoutes(
+    //                     <Routes>
+    //                         <Route path="/" element={<HomePage plantsData={plantsData}/>} />
+    //                         <Route path="/ProfilePage" element={<ProfilePage currentUser={currentUser}/> } />
+    //                         <Route path="/SignIn" element={<SignInPage currentUser={currentUser}/>} />
+    //                         <Route path="/ComparisonPage" element={<ComparisonPage plantsData={plantsData}/>} />
+    //                         <Route render={()=>{<HomePage plantsData={plantsData}/>}} />
+    //                     </Routes>
+    //                 );
+    //             }
 
-            loading = false;
-        })
-        .catch((error) => {
-            window.alert("There was an error loading the data: " + error);
-        })
+    //         })
+    //         .catch((error) => {
+    //             window.alert("There was an error loading the data: " + error);
+    //         })
 
-    }
-    if (fetchCount <= 0) {
-        reqData();
-    }
+    //     }
+    //     if (fetchCount <= 0) {
+    //         reqData();
+    //     }
+
+
+
 ///////
     const root = ReactDOM.createRoot(document.getElementById('root'));
     document.querySelector("body").setAttribute("class", "all-body");
@@ -93,14 +127,14 @@ export function App(props) {
         <link rel="icon" type="image/png" href="img/favicon.png"/>
         <BrowserRouter>
             <NavBar currentUser={currentUser}/>
-            {displayedRoutes}
-                    {/* <Routes>
-                        <Route path="/" element={<HomePage plantsData={plantsData}/>} />
-                        <Route path="/ProfilePage" element={<ProfilePage currentUser={currentUser}/> } />
-                        <Route path="/SignIn" element={<SignInPage currentUser={currentUser}/>} />
-                        <Route path="/ComparisonPage" element={<ComparisonPage plantsData={plantsData}/>} />
-                        <Route render={()=>{<HomePage plantsData={plantsData}/>}} />
-                    </Routes> */}
+            {/* {displayedRoutes} */}
+                <Routes>
+                    <Route path="/" element={<HomePage plantsData={plantsData}/>} />
+                    <Route path="/ProfilePage" element={<ProfilePage currentUser={currentUser}/> } />
+                    <Route path="/SignIn" element={<SignInPage currentUser={currentUser}/>} />
+                    <Route path="/ComparisonPage" element={<ComparisonPage plantsData={plantsData}/>} />
+                    <Route render={()=>{<HomePage plantsData={plantsData}/>}} />
+                </Routes>
             <Footer/>
         </BrowserRouter>
     </React.StrictMode>
