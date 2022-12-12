@@ -1,4 +1,4 @@
-import React from 'react'; //import React library
+import React, { useEffect } from 'react'; //import React library
 import { useState} from 'react';
 import { Button } from './Button';
 import { getDatabase, onValue, ref, set as firebaseSet} from 'firebase/database';
@@ -9,26 +9,32 @@ export function EditProfile(props) {
     const cancelEditMode = props.cancelEditMode;
     const currentUser = props.currentUser;
 
-    const uid = currentUser.uid;
-    const db = getDatabase();
-    const userRef = ref(db, 'users/' + uid);
-
     const [name, setName] = useState("");
     const [location, setLocation] = useState("");
     const [bio, setBio] = useState("");
 
+    const uid = currentUser.uid;
+    const db = getDatabase();
+    const userRef = ref(db, 'users/' + uid);
 
-    // userRef.once("value")
-    // .then((snapshot) => {
-    //     const savedProfile = snapshot.val();
-    //     name = savedProfile.name;
-    //     location = savedProfile.location;
-    //     bio = savedProfile.bio;
-    // });
+    useEffect(() => {
+        
+        onValue(userRef, (snapshot) => {
+            const savedProfile = snapshot.val();
+            if (savedProfile !== null) {
+                setName(savedProfile.name);
+                setLocation(savedProfile.location);
+                setBio(savedProfile.bio);
+            }
+        })
+    }, [])
 
 
     const handleSubmit = () => {
 
+        if (userRef === undefined) {
+            firebaseSet(userRef, true)
+        }
         firebaseSet(userRef, {
             name: name,
             location: location,
@@ -62,7 +68,7 @@ export function EditProfile(props) {
             <form>
                 <label htmlFor="bio">Your Bio</label>
                 <div className="form-input">
-                    <textarea rows="2" onChange={(event) => {if (event.target.value !== "") {setBio(event.target.value)}}}></textarea>
+                    <textarea rows="2" maxLength="100" placeholder="limited to 100 characters..." onChange={(event) => {if (event.target.value !== "") {setBio(event.target.value)}}}></textarea>
                 </div>
             </form>
 

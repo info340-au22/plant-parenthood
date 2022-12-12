@@ -1,19 +1,19 @@
 import React from 'react'; //import React library
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { UploadPopup } from './UploadPopup.js';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { AiTwotoneEdit } from 'react-icons/ai';
-import {EditProfile} from './EditProfile.js';
+import { EditProfile } from './EditProfile.js';
 import { getAuth, signOut, updateProfile } from 'firebase/auth';
 import {
-    ref,
     uploadBytesResumable,
     getDownloadURL,
     listAll
   } from "firebase/storage";
 import { storage } from "./firebase";
 import { v4 } from "uuid";
+import { getDatabase, onValue, ref, set as firebaseSet} from 'firebase/database';
 
 
 
@@ -87,22 +87,44 @@ function Profile(props) {
     )   
 }
 
-const handleSignOut = (event) => {
+const handleSignOut = () => {
     signOut(getAuth());
 }
 
 function ProfileDetails(props) {
     const enterEditMode = props.enterEditMode;
     const currentUser = props.currentUser;
+
+    const [name, setName] = useState("");
+    const [location, setLocation] = useState("");
+    const [bio, setBio] = useState("");
+
+    const uid = currentUser.uid;
+    const db = getDatabase();
+    const userRef = ref(db, 'users/' + uid);
+
+    useEffect(() => {
+        
+        onValue(userRef, (snapshot) => {
+            const savedProfile = snapshot.val();
+            if (savedProfile !== null) {
+                setName(savedProfile.name);
+                setLocation(savedProfile.location);
+                setBio(savedProfile.bio);
+            }
+        })
+    }, [])
+
+
     return (
         <div className="profile-details">
-            <p>{props.currentUser.location}</p>
+            <p>{location}</p>
             <hr className="solid"></hr>
             <div className="bio-container">
                 <div className="about-container">
                     {currentUser.uid &&
                         <>
-                            <h2>About {props.currentUser.userName}</h2>
+                            <h2>About {props.currentUser.displayName}</h2>
                         </>
                     }
                     {currentUser.uid &&
@@ -111,7 +133,7 @@ function ProfileDetails(props) {
                         </>
                     }
                 </div>
-                <p>{props.currentUser.bio}</p>
+                <p>{bio}</p>
             </div>
             {currentUser.uid &&
                 <>

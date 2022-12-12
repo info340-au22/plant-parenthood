@@ -15,6 +15,10 @@ import { getDatabase, ref, set as firebaseSet} from 'firebase/database';
 export function App(props) {
     const testUser = {imgProfile: "../img/null.png", userName: "User", location:"", bio:""};
     const [currentUser, setCurrentUser] = useState(testUser);
+
+    const uid = currentUser.uid;
+    const db = getDatabase();
+    const userRef = ref(db, 'users/' + uid);
     
     useEffect(() => {
         const auth = getAuth();
@@ -23,18 +27,12 @@ export function App(props) {
                 firebaseUser.userName = firebaseUser.displayName;
                 firebaseUser.imgProfile = firebaseUser.photoURL || "../img/null.png";
                 firebaseUser.userID = firebaseUser.uid;
-                // if () // uid doesn't exist in database, create
                 setCurrentUser(firebaseUser);
             } else { 
                 setCurrentUser(testUser);
             } 
         })
-    }, [])
-
-    // const uid = currentUser.uid;
-    // const db = getDatabase();
-    // const usersRef = ref(db, 'users');
-    
+    }, [])    
 
 
     const root = ReactDOM.createRoot(document.getElementById('root'));
