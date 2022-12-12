@@ -9,11 +9,6 @@ export default function MobileNav(props) {
   const currentUser = props.currentUser;
   const [open, setOpen] = useState(false);
   const openIcon = (
-    // <img
-    //   src="../img/plant_logo.png"
-    //   alt="logo"
-    //   onClick={() => setOpen(!open)}
-    // ></img>
     <MdOutlineNavigateNext size="40" onClick={() => setOpen(!open)}/>
   );
   const closeIcon = (
@@ -33,7 +28,7 @@ export default function MobileNav(props) {
       </div>
       {currentUser.uid && 
         <>
-          <Link to="/ProfilePage">
+          <Link to="/ProfilePage" aria-label="profilePage">
             <img
               className="pp"
               src={currentUser.imgProfile}

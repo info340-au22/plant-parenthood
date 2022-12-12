@@ -13,8 +13,7 @@ import { once } from 'lodash';
 
 export function ComparisonPage(props) {
 
-    const [similarityInfo, updateSimilarityInfo] = useState(<pre>Search up 2 plants, let's compare them!</pre>);
-    const [card1Plant, updateCard1Plant] = useState("");
+    const [similarityInfo, updateSimilarityInfo] = useState(<pre className="similar-info">Search up 2 plants, let's compare them!</pre>);    const [card1Plant, updateCard1Plant] = useState("");
     const [card2Plant, updateCard2Plant] = useState("");
 
     const handleChange = (plantCardName, cardNum) => {
@@ -32,9 +31,7 @@ export function ComparisonPage(props) {
             updateCard2Plant(currCardInfo);
             updatedPlant2 = currCardInfo;
         }
-        
-        console.log("updatedPlant1: " + updatedPlant1);
-        console.log("updatedPlant2: " + updatedPlant2);
+
         // check if there even is an input
         if (updatedPlant1 != "" && updatedPlant2 != "") {
             const plant1 = props.plantsData.filter((currPlant) => {
@@ -89,12 +86,8 @@ export function ComparisonPage(props) {
                 similarityString += (allSimilarKeys)[i] + ": " + similarity[(allSimilarKeys)[i]] + "\n";
             }
 
-            // if (!similarityString.matches(".*[a-z].*")) { 
-            //     similarityString = "could not find any similarities!"
-            // }
+            updateSimilarityInfo(<pre className="similar-info">{similarityString}</pre>);
 
-            updateSimilarityInfo(<pre>{similarityString}</pre>);
-            
         } else {
             if (updatedPlant1 === "" && cardNum != "card1") {
                 updateSimilarityInfo("please try searching up a valid 1st plant!");
@@ -147,7 +140,7 @@ export function ComparisonColumn(props) {
     // state for the search bar input
     const [searchInput, setSearchInput] = useState(props.searchInput[0].Name);
     const [cardInput, setCardInput] = useState(props.searchInput);
-    console.log(searchInput);
+
 
     // event handler for plant search
     const handleChange = (event) => {
@@ -156,34 +149,33 @@ export function ComparisonColumn(props) {
     }
 
     const searchedPlant = (event) => {
-        console.log("searching")
         event.preventDefault();
         setSearchInput(document.getElementById(props.columnNum).value);//event.target.value);
         setCardInput((() => {
             if (document.getElementById(props.columnNum).value == "") {//event.target.value == "eg: ") {
+                window.alert("sorry, that was an invalid plant name");
                 plantsData = [];
             } else {
-                console.log("something in search")
                 plantsData = props.plantsData.filter((currPlant) => {
                     const currPlantData = currPlant["Name"];
-                    if (currPlantData.toUpperCase().indexOf(document.getElementById(props.columnNum).value.toUpperCase()) !== -1) {
+                    if (currPlantData.toUpperCase() == document.getElementById(props.columnNum).value.toUpperCase()) {
                         return currPlant;
                     }
                 });
             }
             return plantsData;
         }));
-        console.log("curr column: " + props.columnNum);
         props.updateSimilarities(document.getElementById(props.columnNum).value, props.columnNum);
     }
 
     return (
         <div className="d-flex flex-column plant-container">
             <form className="form">
-                <label >
+                <label htmlFor={props.columnNum}>
                     Enter a Plant Name! 
-                    <input id={props.columnNum} onChange={handleChange} className="input" type="search" value={searchInput} name="plant" placeholder="search plant" autoComplete="off" />
-                </label>
+                    <input id={props.columnNum} onChange={handleChange} className="input" type="search" value={searchInput}
+                        aria-label="text search bar to be used to search for plants based on name"
+                        name="plant" placeholder="search plant" autoComplete="off" />                </label>
                 <Button handleClick={searchedPlant} text="Find Plant" classStyle="allButtons"/>
                 <CardGrid plantsData={cardInput}/>
             </form>
@@ -194,7 +186,7 @@ export function ComparisonColumn(props) {
 function SimilarityInfo(props) {
     return (
         <div className="similarity-info"> 
-            <p className="similar-info">{props.similarities}</p>
+           {props.similarities}
         </div>
     );
 }

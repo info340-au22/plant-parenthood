@@ -18,7 +18,7 @@ export default function Nav(props) {
       </div>
       {currentUser.uid && 
         <>
-          <Link to="/ProfilePage">
+          <Link to="/ProfilePage" aria-label="profilePage">
             <img
               className="pp"
               src={currentUser.imgProfile}
