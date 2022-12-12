@@ -14,12 +14,12 @@ import { storage } from "./firebase";
 import { v4 } from "uuid";
 
 export function ProfileGallery(props) {
-
+    const currentUser = props.currentUser;
     const uploadFile = (e) => {
         e.preventDefault()
         const file = e.target[0]?.files[0]
         if (!file) return alert("Please upload an image file!");
-        const storageRef = ref(storage, `images/${file.name + v4()}`);
+        const storageRef = ref(storage, `images/${currentUser}/${file.name + v4()}`);
         uploadBytesResumable(storageRef, file);
         alert("You have uploaded your plant!")
     }

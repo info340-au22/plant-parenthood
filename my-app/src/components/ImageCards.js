@@ -9,8 +9,9 @@ import {
   import { storage } from "./firebase";
 
 export function ImageCards(props) {
+  const currentUser = props.currentUser;
     const [imageUrls, setImageUrls] = useState([]);
-    const imagesListRef = ref(storage, "images/");
+    const imagesListRef = ref(storage, "images/" + currentUser + "/");
 
     useEffect(() => {
         listAll(imagesListRef).then((response) => {
@@ -22,10 +23,12 @@ export function ImageCards(props) {
         });
       }, []);
 
-
+      function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
+      }
     return (
         <div className="image-container">
-                    {imageUrls.map((url) => {return <ImgCard url={url} />;})}
+                    {imageUrls.filter(onlyUnique).map((url) => {return <ImgCard url={url} />;})}
         </div>
         
     )
