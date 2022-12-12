@@ -26,6 +26,7 @@ export function ImageCards(props) {
       function onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
       }
+
     return (
         <div className="image-container">
                     {imageUrls.filter(onlyUnique).map((url) => {return <ImgCard url={url} />;})}

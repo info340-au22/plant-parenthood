@@ -22,6 +22,7 @@ export function ProfileGallery(props) {
         const storageRef = ref(storage, `images/${currentUser}/${file.name + v4()}`);
         uploadBytesResumable(storageRef, file);
         alert("You have uploaded your plant!")
+        window.location.reload(false);
     }
 
 
