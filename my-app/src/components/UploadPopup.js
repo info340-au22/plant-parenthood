@@ -4,7 +4,7 @@ import React from 'react'; //import React library
 export function UploadPopup(props) {
 
   const uploadFile = props.uploadFunction;
-
+      
 
 
     return (
@@ -19,6 +19,5 @@ export function UploadPopup(props) {
                 <button className="submit-button" onClick={props.handleClose}> Upload Image</button>
             </form>
         </div> 
-
     )
 }
