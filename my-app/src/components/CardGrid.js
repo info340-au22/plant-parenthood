@@ -11,7 +11,7 @@ export function CardGrid(props) {
             return elem;
         });
     } else {
-        allPlants = <p>no plants matching that filter! yet :0, maybe you put in invalid values??</p>;
+        allPlants = <p>Oops, there are no plants matching that filter! Maybe you put in invalid values?</p>;
     }
     return (
         <div key="cardGrid" className="cards-container">
