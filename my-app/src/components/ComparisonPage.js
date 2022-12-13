@@ -106,9 +106,9 @@ export function ComparisonPage(props) {
                 <div className="comparison-section">
                     {/* <div className="comparison-body"> */}
                         <div className="compare-interface d-lg-flex"> 
-                            <ComparisonContent updateSimilarities={handleChange} plantsData={props.plantsData} columnNum="card1"/>
+                            <ComparisonContent handleInvalidInput={updateSimilarityInfo} updateSimilarities={handleChange} plantsData={props.plantsData} columnNum="card1"/>
                             <SimilarityInfo similarities={similarityInfo}/>
-                            <ComparisonContent updateSimilarities={handleChange} plantsData={props.plantsData} columnNum="card2"/>
+                            <ComparisonContent handleInvalidInput={updateSimilarityInfo} updateSimilarities={handleChange} plantsData={props.plantsData} columnNum="card2"/>
                         </div>
                     {/* </div> */}
                 </div>
@@ -123,7 +123,7 @@ function ComparisonContent(props) {
     return (
             <div className="compare-interface d-lg-flex"> 
                 <div className="d-flex flex-column plant-container">
-                    <ComparisonColumn plantsData={props.plantsData} searchInput={defaultPlantInfo} columnNum={props.columnNum} updateSimilarities={props.updateSimilarities}/>
+                    <ComparisonColumn handleInvalidInput={props.handleInvalidInput} plantsData={props.plantsData} searchInput={defaultPlantInfo} columnNum={props.columnNum} updateSimilarities={props.updateSimilarities}/>
                 </div>
             </div>
     );
@@ -150,7 +150,7 @@ export function ComparisonColumn(props) {
         setSearchInput(document.getElementById(props.columnNum).value);//event.target.value);
         setCardInput((() => {
             if (document.getElementById(props.columnNum).value == "") {//event.target.value == "eg: ") {
-                window.alert("sorry, that was an invalid plant name");
+                props.handleInvalidInput("sorry, that was an invalid plant name")
                 plantsData = [];
             } else {
                 plantsData = props.plantsData.filter((currPlant) => {
