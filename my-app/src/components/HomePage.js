@@ -77,13 +77,11 @@ export function HomePage(props) {
             document.querySelector("#searchBar").style.display = "block";
             document.querySelector("#tempDropdowns").style.display = "none";
         }
-        console.log("handleChangeFilter")
         handleUserInput(tempSelectedFilter);
 
     }
 
     const handleUserInput = (currFilter) => {
-        console.log("handleUserInput")
         // filters plant cards to fit updates state filters
         let plantsData = [];
         updateSearchInput(document.querySelector("#searchBar").value);
