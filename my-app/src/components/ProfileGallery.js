@@ -15,7 +15,7 @@ import { v4 } from "uuid";
 
 export function ProfileGallery(props) {
     const currentUser = props.currentUser;
-    console.log(currentUser.userID);
+    // console.log(currentUser.userID);
     const uploadFile = (e) => {
         e.preventDefault()
         const file = e.target[0]?.files[0]
@@ -45,7 +45,9 @@ export function ProfileGallery(props) {
                         {popUpElem}
                         <Button classStyle="allButtons gallery-heading" text="Upload" handleClick={openPopup}/>
                         <OutsideClickHandler onOutsideClick={closePopup}>
+                            
                             {popUpElem}
+                            <div></div>
                         </OutsideClickHandler>
                     </>
                 }

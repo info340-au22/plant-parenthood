@@ -66,7 +66,7 @@ function Profile(props) {
     }
 
 
-    
+
     const [popUpElem, togglePopup] = useState(null)
 
     const openPopup = () => {
@@ -93,6 +93,7 @@ function Profile(props) {
                 
                 <OutsideClickHandler onOutsideClick={closePopup}>
                     {popUpElem}
+                    <div></div>
                 </OutsideClickHandler> 
                 <h1>{name}</h1>
             </div>
