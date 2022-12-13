@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
-// import '../index.css';
 import {HomePage} from './HomePage.js';
 import {ComparisonPage} from './ComparisonPage.js';
 import{NavBar} from  './NavBar.js';
 import {ProfilePage} from './ProfilePage.js';
 import {SignInPage} from './SignInPage.js'
-// import {UploadPage} from './UploadPage';
 import { Footer } from './Footer.js';
-import { Route, Routes, BrowserRouter  } from "react-router-dom"
+import { Route, Routes, BrowserRouter} from "react-router-dom"
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getDatabase, onValue, ref, set as firebaseSet} from 'firebase/database';
 
@@ -17,9 +15,7 @@ export function App(props) {
     const placeholderUser = {imgProfile: "../img/null.png", userName: "", location:"", bio:""};
     const [currentUser, setCurrentUser] = useState(placeholderUser);
 
-    // const [displayedRoutes, updateDisplayedRoutes] = useState(null);
     const [fetchCount, updateFetchCount] = useState(0);
-
     const [plantsData, updatePlantsData] = useState([]);
     
     useEffect(() => {
@@ -49,14 +45,16 @@ export function App(props) {
                 })
             }
         })
-
-
         if (fetchCount <= 0) {
             fetch('./data/plants.json')
             .then(res => res.json())
             .then(data => {
                 updateFetchCount(fetchCount + 1)
-                updatePlantsData(data)
+                if (data == null || data.length == 0) {
+                    updatePlantsData([{"Name":"There was an error loading the data.", "Scientific":"---", "low": "---", "high": "---", "img":"https://static.thenounproject.com/png/741653-200.png", "Color": "[]", "Native": "[]"}]);
+                } else {
+                    updatePlantsData(data)
+                }
 
             })
             .catch((error) => {
@@ -65,7 +63,6 @@ export function App(props) {
         }
         
     }, [])
-
     const root = ReactDOM.createRoot(document.getElementById('root'));
     document.querySelector("body").setAttribute("class", "all-body");
     root.render(
@@ -85,7 +82,7 @@ export function App(props) {
                 </Routes>
             <Footer/>
         </BrowserRouter>
-    </React.StrictMode>
+     </React.StrictMode>
     );
 }
 

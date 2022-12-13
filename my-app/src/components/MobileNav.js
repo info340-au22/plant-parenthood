@@ -1,4 +1,3 @@
-// NAV BAR, ERIC
 import React, { useState } from "react"; //import React library
 import { CgCloseO } from "react-icons/cg";
 import { MdOutlineNavigateNext } from "react-icons/md";
@@ -30,7 +29,7 @@ export default function MobileNav(props) {
         <>
           <Link to="/ProfilePage" aria-label="profilePage">
             <img
-              className="pp"
+              className="profile-icon"
               src={currentUser.imgProfile}
               alt="profile picture"
             />

@@ -6,7 +6,8 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import { AiTwotoneEdit } from 'react-icons/ai';
 import { EditProfile } from './EditProfile.js';
 import { getAuth, signOut, updateProfile } from 'firebase/auth';
-import { getDatabase, onValue, ref, set as firebaseSet} from 'firebase/database';
+import { getDatabase, onValue, ref, set as firebaseSet, update} from 'firebase/database';
+import { getStorage, uploadBytes, getDownloadURL, ref as storageRef } from 'firebase/storage';
 
 
 
@@ -45,26 +46,27 @@ function Profile(props) {
         setEditMode(true);
     }
 
-    const [file, setFile] = useState(undefined);
-    const initialURL = currentUser.imgProfile || "../img/null.png";
-    const [imgUrl, setImgURL] = useState(initialURL);
 
-    const uploadFile = (e) => {
-        // e.preventDefault();
-        // setFile(e.target[0]?.files[0])
-        // setFile(file);
-        // setImgURL(URL.createObjectURL(file));
-        // const auth = getAuth();
-        // updateProfile(auth.currentUser, {
-        //     photoURL: imgUrl
-        // })
-        // alert("You have updated your profile picture!")
-
+    const uploadFile = async (e) => {
+        e.preventDefault()
+        const fileImage = e.target[0]?.files[0];
+        const storage = getStorage();
+        const userImageRef = storageRef(storage, "/userImages/"+uid+".png");
+        await uploadBytes(userImageRef, fileImage);
+        const downloadUrlString = await getDownloadURL(userImageRef)
         
+        await updateProfile(currentUser, {
+            photoURL: downloadUrlString
+        })
+        
+        const imgRef = ref(db, "users/"+uid+"/imgUrl");
+        firebaseSet(imgRef, downloadUrlString);
+        alert("You have updated your profile picture!")
         
     }
 
 
+    
     const [popUpElem, togglePopup] = useState(null)
 
     const openPopup = () => {
@@ -78,7 +80,17 @@ function Profile(props) {
     return (
         <section className="profile-card">
             <div className="profile-heading">
-                <img src="../img/null.png" alt="profile of user" onClick={openPopup}/>
+                {currentUser.uid && 
+                    <>
+                        <img src={currentUser.photoURL} alt="profile of user" onClick={openPopup} className="profile-image"/>
+                    </>
+                }
+                {!currentUser.uid && 
+                    <>
+                        <img src="../img/null.png" alt="profile of user" className="profile-image"/>
+                    </>
+                }
+                
                 <OutsideClickHandler onOutsideClick={closePopup}>
                     {popUpElem}
                 </OutsideClickHandler> 

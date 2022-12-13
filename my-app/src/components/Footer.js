@@ -1,5 +1,3 @@
-// FOOTER, ERIC
-
 import React from 'react'; //import React library
 
 export function Footer(props) {

@@ -39,12 +39,18 @@ export function ProfileGallery(props) {
     return (
         <section className="gallery">
             <div>
-                <h1>Image Gallery</h1>
-                {popUpElem}
-                <Button classStyle="allButtons gallery-heading" text="Upload" handleClick={openPopup}/>
-                <OutsideClickHandler onOutsideClick={closePopup}>
-                    {popUpElem}
-                </OutsideClickHandler> 
+                {currentUser.uid && 
+                    <>
+                        <h1>Image Gallery</h1>
+                        {popUpElem}
+                        <Button classStyle="allButtons gallery-heading" text="Upload" handleClick={openPopup}/>
+                        <OutsideClickHandler onOutsideClick={closePopup}>
+                            {popUpElem}
+                        </OutsideClickHandler>
+                    </>
+                }
+                
+                 
             </div>
             <ImageCards currentUser={currentUser}/>
         </section>

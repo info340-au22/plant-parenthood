@@ -1,4 +1,4 @@
-// NAV BAR, ERIC
+
 import React from "react"; //import React library
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import { Button } from "./Button";
@@ -20,7 +20,7 @@ export default function Nav(props) {
         <>
           <Link to="/ProfilePage" aria-label="profilePage">
             <img
-              className="pp"
+              className="profile-icon"
               src={currentUser.imgProfile}
               alt="profile picture"
             />
