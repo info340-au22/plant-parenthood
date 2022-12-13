@@ -81,42 +81,7 @@ export function App(props) {
         
     }, [])
 
-   
-    // const [displayedRoutes, updateDisplayedRoutes] = useState(null);
-    // const [fetchCount, updateFetchCount] = useState(0);
 
-    // let plantsData = [];
-    //     function reqData() {
-    //         updateFetchCount(fetchCount + 1)
-    //         fetch('./data/plants.json')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             plantsData = data;
-    //             if (displayedRoutes == null) {
-    //                 updateDisplayedRoutes(
-    //                     <Routes>
-    //                         <Route path="/" element={<HomePage plantsData={plantsData}/>} />
-    //                         <Route path="/ProfilePage" element={<ProfilePage currentUser={currentUser}/> } />
-    //                         <Route path="/SignIn" element={<SignInPage currentUser={currentUser}/>} />
-    //                         <Route path="/ComparisonPage" element={<ComparisonPage plantsData={plantsData}/>} />
-    //                         <Route render={()=>{<HomePage plantsData={plantsData}/>}} />
-    //                     </Routes>
-    //                 );
-    //             }
-
-    //         })
-    //         .catch((error) => {
-    //             window.alert("There was an error loading the data: " + error);
-    //         })
-
-    //     }
-    //     if (fetchCount <= 0) {
-    //         reqData();
-    //     }
-
-
-
-///////
     const root = ReactDOM.createRoot(document.getElementById('root'));
     document.querySelector("body").setAttribute("class", "all-body");
     root.render(

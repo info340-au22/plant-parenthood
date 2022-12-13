@@ -1,13 +1,10 @@
 // COMPARISON PAGE, ANNA
 // need to make a comparedPlantCard js file to update cards once user searches and submits
 
-import React, {Fragment} from 'react'; //import React library
+import React from 'react'; //import React library
 import {useState} from 'react';
 import {CardGrid} from './CardGrid.js';
-import {Card} from './Card.js';
-import {HomePage} from './HomePage.js';
 import {Button} from './Button.js';
-import { once } from 'lodash';
 
 
 
@@ -16,8 +13,8 @@ export function ComparisonPage(props) {
     const [similarityInfo, updateSimilarityInfo] = useState(<pre className="similar-info">Search up 2 plants, let's compare them!</pre>);    const [card1Plant, updateCard1Plant] = useState("");
     const [card2Plant, updateCard2Plant] = useState("");
 
-    const handleChange = (plantCardName, cardNum) => {
-
+    const handleChange = (event, plantCardName, cardNum) => {
+        event.preventDefault();
         const currCardInfo = plantCardName;
         // since useState variable is not updated until end of this function,
         // use these within function for updated data
@@ -104,7 +101,7 @@ export function ComparisonPage(props) {
         <div className="all-body">
             <div className="comparison-body">
                 <header>
-                    <h1 className="project-name">find the similarities between 2 plants!</h1>
+                    <h1 className="project-name">Find the similarities between 2 plants!</h1>
                 </header>
                 <div className="comparison-section">
                     {/* <div className="comparison-body"> */}
@@ -165,7 +162,7 @@ export function ComparisonColumn(props) {
             }
             return plantsData;
         }));
-        props.updateSimilarities(document.getElementById(props.columnNum).value, props.columnNum);
+        props.updateSimilarities(event, document.getElementById(props.columnNum).value, props.columnNum);
     }
 
     return (
@@ -173,9 +170,10 @@ export function ComparisonColumn(props) {
             <form className="form">
                 <label htmlFor={props.columnNum}>
                     Enter a Plant Name! 
-                    <input id={props.columnNum} onChange={handleChange} className="input" type="search" value={searchInput}
+                    <input id={props.columnNum} onChange={(event) => handleChange(event)} className="input" type="search" value={searchInput}
                         aria-label="text search bar to be used to search for plants based on name"
-                        name="plant" placeholder="search plant" autoComplete="off" />                </label>
+                        name="plant" placeholder="search plant" autoComplete="off" />
+                </label>
                 <Button handleClick={searchedPlant} text="Find Plant" classStyle="allButtons"/>
                 <CardGrid plantsData={cardInput}/>
             </form>
