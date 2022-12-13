@@ -14,7 +14,7 @@ export function UploadPopup(props) {
                 <label htmlFor="popupInput" >
                   <input id="popupInput" type="file" name="file" accept="image/*"/>
                 </label>
-                <button class="submit-button" onClick={props.handleClose}> Upload Image</button>
+                <button className="submit-button" onClick={props.handleClose}> Upload Image</button>
             </form>
         </div> 
 
