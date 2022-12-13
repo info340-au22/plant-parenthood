@@ -66,7 +66,7 @@ function Profile(props) {
     }
 
 
-
+    
     const [popUpElem, togglePopup] = useState(null)
 
     const openPopup = () => {
