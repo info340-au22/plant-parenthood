@@ -1,4 +1,4 @@
-// NAV BAR, ERIC
+
 import React from "react"; //import React library
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import { Button } from "./Button";

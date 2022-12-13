@@ -32,9 +32,6 @@ export function EditProfile(props) {
 
     const handleSubmit = () => {
 
-        // if (userRef === undefined) {
-        //     firebaseSet(userRef, true)
-        // }
         firebaseSet(userRef, {
             name: name,
             location: location,

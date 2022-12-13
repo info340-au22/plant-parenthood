@@ -6,7 +6,8 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import { AiTwotoneEdit } from 'react-icons/ai';
 import { EditProfile } from './EditProfile.js';
 import { getAuth, signOut, updateProfile } from 'firebase/auth';
-import { getDatabase, onValue, ref, set as firebaseSet} from 'firebase/database';
+import { getDatabase, onValue, ref, set as firebaseSet, update} from 'firebase/database';
+import { getStorage, uploadBytes, getDownloadURL, ref as storageRef } from 'firebase/storage';
 
 
 
@@ -49,36 +50,51 @@ function Profile(props) {
     const initialURL = currentUser.imgProfile || "../img/null.png";
     const [imgUrl, setImgURL] = useState(initialURL);
 
-    const uploadFile = (e) => {
-        // e.preventDefault();
-        // setFile(e.target[0]?.files[0])
-        // setFile(file);
-        // setImgURL(URL.createObjectURL(file));
-        // const auth = getAuth();
-        // updateProfile(auth.currentUser, {
-        //     photoURL: imgUrl
-        // })
-        // alert("You have updated your profile picture!")
 
+    const handleChange = (e) => {
+        if (e.target.files.length > 0 && e.target.files[0]) {
+            const fileImage = e.target.files[0];
+            setFile(fileImage);
+            setImgURL(URL.createObjectURL(file));
+        }
         
+
+    }
+
+    const uploadFile = async (e) => {
+        e.preventDefault()
+        const storage = getStorage();
+        const userImageRef = storageRef(storage, "/userImages/"+uid+".png");
+        await uploadBytes(userImageRef, file);
+        const downloadUrlString = await getDownloadURL(userImageRef)
+        console.log(downloadUrlString)
+        
+        await updateProfile(currentUser, {
+            photoURL: downloadUrlString
+        })
+        
+        const imgRef = ref(db, "users/"+uid+"/imgUrl");
+        firebaseSet(imgRef, downloadUrlString);
+        alert("You have updated your profile picture!")
         
     }
+
 
 
     const [popUpElem, togglePopup] = useState(null)
 
     const openPopup = () => {
-        togglePopup(<UploadPopup uploadFunction={uploadFile} handleClose={closePopup} open="open-popup"/>);
+        togglePopup(<UploadPopup uploadFunction={uploadFile} handleFunction={handleChange} handleClose={closePopup} open="open-popup"/>);
     }
 
     const closePopup = () => {
-        togglePopup(<UploadPopup uploadFunction={uploadFile} close="close-popup" action="/Profile"/>)
+        togglePopup(<UploadPopup uploadFunction={uploadFile} handleFunction={handleChange} close="close-popup" action="/Profile"/>)
     }
 
     return (
         <section className="profile-card">
             <div className="profile-heading">
-                <img src="../img/null.png" alt="profile of user" onClick={openPopup}/>
+                <img src={imgUrl} alt="profile of user" onClick={openPopup}/>
                 <OutsideClickHandler onOutsideClick={closePopup}>
                     {popUpElem}
                 </OutsideClickHandler> 
