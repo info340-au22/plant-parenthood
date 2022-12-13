@@ -15,14 +15,13 @@ import { v4 } from "uuid";
 
 export function ProfileGallery(props) {
     const currentUser = props.currentUser;
+    console.log(currentUser.userID);
     const uploadFile = (e) => {
         e.preventDefault()
         const file = e.target[0]?.files[0]
         if (!file) return alert("Please upload an image file!");
-        const storageRef = ref(storage, `images/${currentUser}/${file.name + v4()}`);
-        uploadBytesResumable(storageRef, file);
-        alert("You have uploaded your plant!")
-        window.location.reload(false);
+        const storageRef = ref(storage, `images/${currentUser.userID}/${file.name + v4()}`);
+        uploadBytesResumable(storageRef, file).then(alert("You have uploaded your plant!"));
     }
 
 
@@ -47,7 +46,7 @@ export function ProfileGallery(props) {
                     {popUpElem}
                 </OutsideClickHandler> 
             </div>
-            <ImageCards/>
+            <ImageCards currentUser={currentUser}/>
         </section>
     )
 }

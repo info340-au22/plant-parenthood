@@ -4,7 +4,6 @@ import { ProfilePicture } from './ProfilePicture.js';
 
 export function ProfilePage(props) {
     const currentUser = props.currentUser;
-
     return (
         <div className="all-body">
             {/* <div className="comparison-body"> */}
@@ -12,7 +11,7 @@ export function ProfilePage(props) {
                     <h1 className="project-name">update your profile :)</h1>
                 </header>
                 <div className="profile-section">
-                    <ProfileGallery/>
+                    <ProfileGallery currentUser={currentUser}/>
                     <ProfilePicture currentUser={currentUser}/>
                 </div>
             {/* </div> */}
