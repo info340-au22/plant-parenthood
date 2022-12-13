@@ -101,7 +101,7 @@ export function ComparisonPage(props) {
         <div className="all-body">
             <div className="comparison-body">
                 <header>
-                    <h1 className="project-name">find the similarities between 2 plants!</h1>
+                    <h1 className="project-name">Find the similarities between 2 plants!</h1>
                 </header>
                 <div className="comparison-section">
                     {/* <div className="comparison-body"> */}

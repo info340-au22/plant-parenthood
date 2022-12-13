@@ -154,7 +154,7 @@ export function HomePage(props) {
                     <h1 className="project-name">plant parenthood</h1>
                 </header>
                 <div className="filters">
-                    <h2 className="tagline">here are your current plants!</h2>                    
+                    <h2 className="tagline">Here are your current plants!</h2>                    
 
                     <form>
                         <label className="filter-container" htmlFor="searchBar">Filter for plants based on         

@@ -8,7 +8,7 @@ export function ProfilePage(props) {
         <div className="all-body">
             {/* <div className="comparison-body"> */}
                 <header>
-                    <h1 className="project-name">update your profile :)</h1>
+                    <h1 className="project-name">Update your profile :)</h1>
                 </header>
                 <div className="profile-section">
                     <ProfileGallery currentUser={currentUser}/>
