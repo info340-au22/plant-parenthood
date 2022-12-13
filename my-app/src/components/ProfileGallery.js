@@ -8,7 +8,6 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import {
     ref,
     uploadBytesResumable,
-    getDownloadURL
   } from "firebase/storage";
 import { storage } from "./firebase";
 import { v4 } from "uuid";
