@@ -61,7 +61,6 @@ function Profile(props) {
         
         const imgRef = ref(db, "users/"+uid+"/imgUrl");
         firebaseSet(imgRef, downloadUrlString);
-        alert("You have updated your profile picture!")
         
     }
 
