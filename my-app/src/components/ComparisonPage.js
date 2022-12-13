@@ -1,6 +1,3 @@
-// COMPARISON PAGE, ANNA
-// need to make a comparedPlantCard js file to update cards once user searches and submits
-
 import React from 'react'; //import React library
 import {useState} from 'react';
 import {CardGrid} from './CardGrid.js';

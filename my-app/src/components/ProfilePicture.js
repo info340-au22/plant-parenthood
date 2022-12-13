@@ -46,28 +46,14 @@ function Profile(props) {
         setEditMode(true);
     }
 
-    const [file, setFile] = useState(undefined);
-    const initialURL = currentUser.imgProfile || "../img/null.png";
-    const [imgUrl, setImgURL] = useState(initialURL);
-
-
-    const handleChange = (e) => {
-        if (e.target.files.length > 0 && e.target.files[0]) {
-            const fileImage = e.target.files[0];
-            setFile(fileImage);
-            setImgURL(URL.createObjectURL(file));
-        }
-        
-
-    }
 
     const uploadFile = async (e) => {
         e.preventDefault()
+        const fileImage = e.target[0]?.files[0];
         const storage = getStorage();
         const userImageRef = storageRef(storage, "/userImages/"+uid+".png");
-        await uploadBytes(userImageRef, file);
+        await uploadBytes(userImageRef, fileImage);
         const downloadUrlString = await getDownloadURL(userImageRef)
-        console.log(downloadUrlString)
         
         await updateProfile(currentUser, {
             photoURL: downloadUrlString
@@ -84,17 +70,27 @@ function Profile(props) {
     const [popUpElem, togglePopup] = useState(null)
 
     const openPopup = () => {
-        togglePopup(<UploadPopup uploadFunction={uploadFile} handleFunction={handleChange} handleClose={closePopup} open="open-popup"/>);
+        togglePopup(<UploadPopup uploadFunction={uploadFile} handleClose={closePopup} open="open-popup"/>);
     }
 
     const closePopup = () => {
-        togglePopup(<UploadPopup uploadFunction={uploadFile} handleFunction={handleChange} close="close-popup" action="/Profile"/>)
+        togglePopup(<UploadPopup uploadFunction={uploadFile} close="close-popup" action="/Profile"/>)
     }
 
     return (
         <section className="profile-card">
             <div className="profile-heading">
-                <img src={imgUrl} alt="profile of user" onClick={openPopup}/>
+                {currentUser.uid && 
+                    <>
+                        <img src={currentUser.photoURL} alt="profile of user" onClick={openPopup} className="profile-image"/>
+                    </>
+                }
+                {!currentUser.uid && 
+                    <>
+                        <img src="../img/null.png" alt="profile of user" className="profile-image"/>
+                    </>
+                }
+                
                 <OutsideClickHandler onOutsideClick={closePopup}>
                     {popUpElem}
                 </OutsideClickHandler> 

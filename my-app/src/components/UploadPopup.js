@@ -1,10 +1,8 @@
-//UPLOAD POPUP
 import React from 'react'; //import React library
 
 export function UploadPopup(props) {
 
   const uploadFile = props.uploadFunction;
-  const handleChange = props.handleFunction;
       
     return (
         <div className={"popup " + props.open} id="popup">
@@ -14,7 +12,7 @@ export function UploadPopup(props) {
             <form onSubmit={(event) => uploadFile(event)}>
                 <label htmlFor="popupInput" >
 
-                  <input id="popupInput" className="input" type="file" name="file" accept="image/*" onChange={handleChange}/>
+                  <input id="popupInput" className="input" type="file" name="file" accept="image/*"/>
 
                 </label>
                 <button  onClick={props.handleClose}> Upload Image</button>

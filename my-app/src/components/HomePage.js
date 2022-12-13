@@ -1,4 +1,3 @@
-// HOME PAGE, CINDY
 import React from 'react'; //import React library]
 import {useState} from 'react';
 import { CardGrid } from './CardGrid.js';

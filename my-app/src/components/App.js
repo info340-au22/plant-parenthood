@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
-// import '../index.css';
 import {HomePage} from './HomePage.js';
 import {ComparisonPage} from './ComparisonPage.js';
 import{NavBar} from  './NavBar.js';
 import {ProfilePage} from './ProfilePage.js';
 import {SignInPage} from './SignInPage.js'
-// import {UploadPage} from './UploadPage';
 import { Footer } from './Footer.js';
 import { Route, Routes, BrowserRouter  } from "react-router-dom"
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
@@ -17,9 +15,7 @@ export function App(props) {
     const placeholderUser = {imgProfile: "../img/null.png", userName: "", location:"", bio:""};
     const [currentUser, setCurrentUser] = useState(placeholderUser);
 
-    // const [displayedRoutes, updateDisplayedRoutes] = useState(null);
     const [fetchCount, updateFetchCount] = useState(0);
-
     const [plantsData, updatePlantsData] = useState([]);
     
     useEffect(() => {
@@ -52,26 +48,13 @@ export function App(props) {
 
 
 
-        // let plantsData = [];
 
         if (fetchCount <= 0) {
             fetch('./data/plants.json')
             .then(res => res.json())
             .then(data => {
                 updateFetchCount(fetchCount + 1)
-                // plantsData = data;
-                // if (displayedRoutes == null) {
-                    // updateDisplayedRoutes(
-                    //     <Routes>
-                    //         <Route path="/" element={<HomePage plantsData={plantsData}/>} />
-                    //         <Route path="/ProfilePage" element={<ProfilePage currentUser={currentUser}/> } />
-                    //         <Route path="/SignIn" element={<SignInPage currentUser={currentUser}/>} />
-                    //         <Route path="/ComparisonPage" element={<ComparisonPage plantsData={plantsData}/>} />
-                    //         <Route render={()=>{<HomePage plantsData={plantsData}/>}} />
-                    //     </Routes>
-                    // );
-                    updatePlantsData(data)
-                // }
+                updatePlantsData(data)
 
             })
             .catch((error) => {
@@ -92,7 +75,6 @@ export function App(props) {
         <link rel="icon" type="image/png" href="img/favicon.png"/>
         <BrowserRouter>
             <NavBar currentUser={currentUser}/>
-            {/* {displayedRoutes} */}
                 <Routes>
                     <Route path="/" element={<HomePage plantsData={plantsData}/>} />
                     <Route path="/ProfilePage" element={<ProfilePage currentUser={currentUser}/> } />

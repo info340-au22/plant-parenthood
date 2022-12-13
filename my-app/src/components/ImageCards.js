@@ -12,7 +12,7 @@ export function ImageCards(props) {
   const currentUser = props.currentUser;
     const [imageUrls, setImageUrls] = useState([]);
     const imagesListRef = ref(storage, "images/" + currentUser.userID + "/");
-    console.log(imageUrls);
+    //console.log(imageUrls);
     useEffect(() => {
         listAll(imagesListRef).then((response) => {
           response.items.forEach((item) => {
@@ -25,7 +25,7 @@ export function ImageCards(props) {
       function onlyUnique(value, index, self) {
         return self.indexOf(value) === index;
       }
-      console.log(imageUrls);
+      //console.log(imageUrls);
     return (
         <div className="image-container">
                     {imageUrls.filter(onlyUnique).map((url) => {return <ImgCard url={url} />;})}

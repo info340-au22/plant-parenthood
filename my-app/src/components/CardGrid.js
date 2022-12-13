@@ -1,4 +1,3 @@
-// CARD GRID COMPONENT, CINDY
 import React from 'react'; //import React library
 import {Card} from './Card.js';
 

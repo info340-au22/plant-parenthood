@@ -1,6 +1,5 @@
-// TOGGLE BUTTON, CINDY
 import React from 'react'; //import React library
-// import Form from 'react-bootstrap/Form';
+
 
 export function ToggleButton(props) {
     return (

@@ -1,4 +1,3 @@
-// NAV BAR, ERIC
 import React, { useState } from "react"; //import React library
 import { CgCloseO } from "react-icons/cg";
 import { MdOutlineNavigateNext } from "react-icons/md";

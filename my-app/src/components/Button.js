@@ -1,4 +1,3 @@
-// UPLOAD IMAGE BUTTON, LINH
 import React from 'react'; //import React library
 
 export function Button(props) {
