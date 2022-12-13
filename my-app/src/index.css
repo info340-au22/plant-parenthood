@@ -1,5 +1,3 @@
-/* make certain class names more specific bc otherwise bootstrap overrides them */
-
 /* GLOBAL CSS */
 
 .all-body {
@@ -107,15 +105,6 @@ footer {
 .form-check-input-elem:checked{border-color: #507A55;
     background-color: #507a55;}
 
-/* .form-check-input-elem {
-    border-color: white;
-    background-color: white;
-}
-.form-check-input-elem:checked {
-    border-color: #507A55;
-    background-color: #507a55;
-} */
-
 .project-name {
     font-weight: 600;
     font-size: 40px;
@@ -179,7 +168,6 @@ footer {
 ::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background-color: rgba(148, 132, 78, 0.3);
-/* box-shadow: 0 0 1px rgba(255, 255, 255, .5); */
 }
    
 
@@ -189,9 +177,6 @@ footer {
     align-self: center;
     overflow: hidden;
     object-fit: cover;
-  /* width: 50px;
-  height: 100px; */
-    /* align-self is default to stretch */
 }
 
 .plant-card>ul>li {
@@ -229,17 +214,6 @@ footer {
 }
 
 
-/* .comparison-body {
-    background-color: #F4F1E7;
-    font-family: 'Work Sans';
-    font-weight: 300;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 165%;
-    text-align: center;
-    color: #507A55;
-} */
 
 .compare-interface {
     padding: 10px;
@@ -346,8 +320,6 @@ label {
 
 .profile-section {
     display: flex;
-    /* justify-content: space-between;
-    flex-direction: row; */
     flex-direction: column-reverse;
     justify-content: space-between;
     margin-top: 3rem;
@@ -374,7 +346,6 @@ label {
 .profile-heading img {
     display: block;
     flex-direction: column;
-    /* max-width: 200%;   */
     max-height: 100px;  
     object-fit: cover;  
     border-radius: 50%;
@@ -646,10 +617,6 @@ hr.solid {
     font-size: 1.25rem;
   }
 
-  /* .navnav li.active {
-    background-color: #507A55;
-    color: #F4F1E7;
-  } */
   
   .pp {
     border-radius: 50%;
